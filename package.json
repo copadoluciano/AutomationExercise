@@ -1,0 +1,34 @@
+{
+  "name": "tutorial-js-cypress-cucumber",
+  "version": "1.0.0",
+  "description": "An example for Cypress and Cucumber usage using Robot login demo website",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open:local": "CYPRESS_ENV=localhost npm run cypress:open",
+    "cypress:open:prod": "CYPRESS_ENV=production npm run cypress:open",
+    "cypress:open": "npx cypress open",
+    "test:local": "CYPRESS_ENV=localhost npm run test  --spec 'cypress/integration/**/*.feature",
+    "test:prod": "CYPRESS_ENV=production npm run test",
+    "test": "npx cypress run --spec 'cypress/e2e/**/**/*.feature'",
+    "test:debug:local": "CYPRESS_ENV=localhost npm run test:debug",
+    "test:debug:prod": "CYPRESS_ENV=production npm run test:debug",
+    "test:debug": "npx cypress run --headed --browser chrome --env TAGS='@e2e-test' --spec 'cypress/integration/**/*.feature'",
+    "report:formatter": "cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json",
+    "report:multiple": "node cucumber-html-report.js"
+  },
+  "author": "Xblend",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "cypress": "^10.11.0",
+    "multiple-cucumber-html-reporter": "^3.0.1",
+    "speakeasy": "^2.0.0"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^13.0.3",
+    "@cypress/webpack-preprocessor": "^5.15.0",
+    "cypress-dotenv": "^2.0.0",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.0.3",
+    "node-polyfill-webpack-plugin": "^2.0.1"
+  }
+}

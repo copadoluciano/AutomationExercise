@@ -1,0 +1,131 @@
+{
+    "staticElements": {
+        "myBalances&credits": "//h1[@data-cy='my_balances_title']",
+        "ethereum": "//button[@data-cy='button_ethereum']",
+        "bitcoin": "//button[@data-cy='button_bitcoin']",
+        "bitcoinCash": "//button[@data-cy='button_bitcoin_cash']",
+        "litecoin": "//button[@data-cy='button_litecoin']",
+        "binanceCoin": "//button[@data-cy='button_binance_smart_chain']",
+        "avalanche": "//button[@data-cy='button_avalanche']",
+        "searchAsset": "//input[@data-cy='my_balances_input_search']",
+        "buyButton": "//button[@data-cy='my_balances_card_buy_button_ETH']",
+        "borrowButton": "//button[@data-cy='my_balances_card_borrow_button_ETH']",
+        "totalBalance": "(//span[@class='styles_text__Nu9h3 styles_highlight__-GbAf'])[1]",
+        "walletBalance": "(//span[contains(@class,'5Dn6v')])[1]",
+
+        "membraneCredit": "(//span[contains(@class,'5Dn6v')])[2]"
+    },
+    "ethereumPage": {
+        "eth": {
+            "ethIcon": "//SPAN[@data-cy='my_balances_card_asset_name_ETH'][text()='Ethereum']/preceding-sibling::IMG",
+            "ethTitle": "//span[@data-cy='my_balances_card_asset_name_ETH']",
+
+            "labelTotal": "//span[@data-cy='my_balances_card_total_label_ETH']",
+            "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_ETH']",
+            "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_ETH')]",
+
+            "valueTotal": "//span[@data-cy='my_balances_card_total_value_ETH']",
+            "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_ETH']",
+            "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_ETH']"
+        },
+        "snx": {
+            "snxIcon": "//SPAN[@data-cy='my_balances_card_asset_name_SNX'][text()='Synthetix Network Token']/preceding-sibling::IMG",
+            "snxTitle": "//span[@data-cy='my_balances_card_asset_name_SNX']",
+
+            "labelTotal": "//span[@data-cy='my_balances_card_total_label_SNX']",
+            "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_SNX']",
+            "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_SNX')]",
+
+            "valueTotal": "//span[@data-cy='my_balances_card_total_value_SNX']",
+            "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_SNX']",
+            "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_SNX']"
+        },
+        "usdc": {
+            "usdcIcon": "//SPAN[@data-cy='my_balances_card_asset_name_USDC'][text()='USD Coin']/preceding-sibling::IMG",
+            "usdcTitle": "//span[@data-cy='my_balances_card_asset_name_USDC']",
+
+            "labelTotal": "//span[@data-cy='my_balances_card_total_label_USDC']",
+            "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_USDC']",
+            "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_USDC')]",
+
+            "valueTotal": "//span[@data-cy='my_balances_card_total_value_USDC']",
+            "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_USDC']",
+            "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_USDC']"
+
+        },
+        "toke": {
+            "tokemakIcon": "//SPAN[@data-cy='my_balances_card_asset_name_TOKE'][text()='Tokemak']/preceding-sibling::IMG",
+            "tokemakTitle": "//span[@data-cy='my_balances_card_asset_name_TOKE']",
+
+            "labelTotal": "//span[@data-cy='my_balances_card_total_label_TOKE']",
+            "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_TOKE']",
+            "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_TOKE')]",
+
+            "valueTotal": "//span[@data-cy='my_balances_card_total_value_TOKE']",
+            "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_TOKE']",
+            "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_TOKE']"
+
+        }
+
+    },
+    "bitcoinPage": {
+        "bitcoinIcon": "//SPAN[@data-cy='my_balances_card_asset_name_BTC'][text()='Bitcoin']/preceding-sibling::IMG",
+        "bitcoinTitle": "//span[@data-cy='my_balances_card_asset_name_BTC']",
+
+        "labelTotal": "//span[@data-cy='my_balances_card_total_label_BTC']",
+        "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_BTC']",
+        "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_BTC')]",
+
+        "valueTotal": "//span[@data-cy='my_balances_card_total_value_BTC']",
+        "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_BTC']",
+        "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_BTC']"
+    },
+    "bitcoinCashPage": {
+        "bitcoinCashIcon": "//SPAN[@data-cy='my_balances_card_asset_name_BCH'][text()='Bitcoin Cash']/preceding-sibling::IMG",
+        "bitcoinCashTitle": "//span[@data-cy='my_balances_card_asset_name_BCH']",
+
+        "labelTotal": "//span[@data-cy='my_balances_card_total_label_BCH']",
+        "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_BCH']",
+        "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_BCH')]",
+
+        "valueTotal": "//span[@data-cy='my_balances_card_total_value_BCH']",
+        "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_BCH']",
+        "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_BCH']"
+    },
+    "litecoinPage": {
+        "litecoinIcon": "//SPAN[@data-cy='my_balances_card_asset_name_LTC'][text()='Litecoin']/preceding-sibling::IMG",
+        "litecoinTitle": "//span[@data-cy='my_balances_card_asset_name_LTC']",
+
+        "labelTotal": "//span[@data-cy='my_balances_card_total_label_LTC']",
+        "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_LTC']",
+        "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_LTC')]",
+
+        "valueTotal": "//span[@data-cy='my_balances_card_total_value_LTC']",
+        "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_LTC']",
+        "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_LTC']"
+    },
+    "binanceCoin": {
+        "binanceIcon": "//SPAN[@data-cy='my_balances_card_asset_name_BNB'][text()='Binance Coin']/preceding-sibling::IMG",
+        "binanceTitle": "//span[@data-cy='my_balances_card_asset_name_BNB']",
+
+        "labelTotal": "//span[@data-cy='my_balances_card_total_label_BNB']",
+        "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_BNB']",
+        "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_BNB')]",
+
+        "valueTotal": "//span[@data-cy='my_balances_card_total_value_BNB']",
+        "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_BNB']",
+        "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_BNB']"
+    },
+    "avalanche": {
+        "avalancheIcon": "//SPAN[@data-cy='my_balances_card_asset_name_AVAX'][text()='Avalanche Native Token']/preceding-sibling::IMG",
+        "avalancheTitle": "//span[@data-cy='my_balances_card_asset_name_AVAX']",
+
+        "labelTotal": "//span[@data-cy='my_balances_card_total_label_AVAX']",
+        "labelWallBal": "//span[@data-cy='my_balances_card_wallet_total_label_AVAX']",
+        "labelMemCred": "//span[contains(@data-cy,'my_balances_card_membrane_total_label_AVAX')]",
+
+        "valueTotal": "//span[@data-cy='my_balances_card_total_value_AVAX']",
+        "valueWallBal": "//span[@data-cy='my_balances_card_wallet_total_value_AVAX']",
+        "valueMemCred": "//span[@data-cy='my_balances_card_membrane_total_value_AVAX']"
+    }
+}

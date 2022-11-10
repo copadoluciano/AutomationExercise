@@ -1,0 +1,37 @@
+{
+    "global": {
+        "title": "//h2[@data-cy='title_sign_up']",
+        "appLogo": "//h2[@data-cy='title_sign_up']",
+        "appTitle": "//div[@data-cy='membrane_logo']",
+        "enterInformation": "//p[@data-cy='text_description']",
+        "labelRequiredFields": "//span[@data-cy='span_required']",
+        "firstNameLabel": "//label[@data-cy='label_firstname']",
+        "firstNameInput": "//input[@data-cy='field_firstname']",
+        "lastNameLabel": "//label[@data-cy='label_lastname']",
+        "lastNameInput": "//input[@data-cy='field_lastname']",
+        "emailLabel": "//label[@data-cy='label_email']",
+        "emailInput": "//input[@data-cy='field_email']",
+        "phoneLabel": "//label[@data-cy='label_phone_number__']",
+        "countryCode": "//input[@name='country']",
+        "numberInput": "//input[@data-cy='field_number']",
+        "arrowOpen": "//div[contains(@class,'fieldInput')]//*[@data-prefix]",
+        "nextButton": "//button[@data-cy='button_next']",
+        "haveAccountLink": "//span[text()='Already have an account?']//ancestor::button",
+        "selectArgentina": "//span[contains(.,'Argentina +54')]",
+        "selectCanada": "//span[contains(.,'Canada +1')]",
+        "selectGermany": "//span[contains(.,'Germany +49')]",
+        "selectEspana": "//span[contains(.,'España +34')]"
+        
+
+
+    },
+    "others":{
+        "countryList": "//div[contains(@class,'selectableList')]//li",
+        "inputNewPassword": "//input[@data-cy='field_password']",
+        "inputRepeatNewPassword": "//input[@data-cy='field_repeatpassword']",
+        "checkTherms": "//input[@data-cy='checkbox_terms_and_conditions']",
+        "buttonNextNewPassword": "//button[@data-cy='button_next']",
+        "popUpRegister": "//span[contains(.,'You have successfully signed up on Membrane! Proceed to login to start the onboarding.')]"
+
+    }
+}

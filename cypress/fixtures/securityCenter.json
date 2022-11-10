@@ -1,0 +1,51 @@
+{
+    "global": {
+        "btnChangePassword": "(//H3[text()='Change password']/../../..//SPAN)[2]"
+    },
+    "twoFactor": {
+        "buttonPendingSettlements": "//button[contains(.,'Pending Settlements')]",
+        "buttonPastSettlements": "//button[contains(.,'Past Settlements')]",
+        "buttonSettlementFees": "//button[contains(.,'Settlement Fees')]",
+        "buttonGenerateNewSettlements": "//span[contains(text(),'+ Generate New Settlement')]"
+    },
+    "changePasswd": {
+        "fields": {
+            "inputCurrentPassword": "//INPUT[@data-cy='field_password']",
+            "inputNewPassword": "//INPUT[@data-cy='field_newpassword']",
+            "inputRepeatNewPassword": "//INPUT[@data-cy='field_repeatnewpassword']"
+        },
+        "labels": {
+            "labelTittle": "//h2[@data-cy='modal_title_change_password']",
+            "oneIcon": "//DIV[@data-cy='stepper_change_password_item_1_step']",
+            "enterCurrentPassw": "//DIV[@data-cy='stepper_change_password_item_1_description']",
+            "twoIcon": "//DIV[@data-cy='stepper_change_password_item_2_step']",
+            "EnterTwoFactor": "//DIV[@data-cy='stepper_change_password_item_2_description']",
+            "labelCurrentPasswd": "//label[@data-cy='label_password']",
+            "labelNewPassword": "//label[@data-cy='label_newpassword']",
+            "labelRepeatPassword": "//label[@data-cy='label_repeatnewpassword']",
+            "labelPasswordContain": "//label[@data-cy='label_must_contain']",
+            "label1": "//label[@data-cy='label_minLength']",
+            "label2": "//label[@data-cy='label_upperLower']",
+            "label3": "//label[@data-cy='label_oneSymbol']"
+        },
+        "others": {
+            "btnNext": "(//BUTTON[@class=''])[4]",
+            "btnSubmit": "(//div[contains(@class,'styles_buttonContainer__')])[2]",
+            "changeConfirmation": "//span[contains(text(),'Your password has been changed.')]",
+            "alertWrongPasswd": "//span[contains(text(),'Error: Wrong password, try again.')]",
+            "btnNextDisabled": "//button[@class='disabled']"
+        }
+    },
+    "institutionalAccount": {
+        "buttonPendingSettlements": "//button[contains(.,'Pending Settlements')]",
+        "buttonPastSettlements": "//button[contains(.,'Past Settlements')]",
+        "buttonSettlementFees": "//button[contains(.,'Settlement Fees')]",
+        "buttonGenerateNewSettlements": "//span[contains(text(),'+ Generate New Settlement')]"
+    },
+    "activity": {
+        "buttonPendingSettlements": "//button[contains(.,'Pending Settlements')]",
+        "buttonPastSettlements": "//button[contains(.,'Past Settlements')]",
+        "buttonSettlementFees": "//button[contains(.,'Settlement Fees')]",
+        "buttonGenerateNewSettlements": "//span[contains(text(),'+ Generate New Settlement')]"
+    }
+}

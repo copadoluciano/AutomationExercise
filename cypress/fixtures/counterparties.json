@@ -1,0 +1,84 @@
+{
+    "whiteList": {
+        "btnwhiteList": "//button[@data-cy='button_whitelist']",
+        "labelName": "//div[@data-cy='whitelist_0_name']",
+        "labelEmail": "//div[@data-cy='whitelist_1_e_mail']",
+        "labelStatus": "//div[@data-cy='whitelist_2_status']",
+        "labelAvailable": "//div[@data-cy='whitelist_3_whitelist']",
+
+        "name0": "//div[@data-cy='whitelist_name_0']",
+        "email0": "//div[@data-cy='whitelist_email_0']",
+        "status0": "//div[@data-cy='whitelist_statusparsed_0']",
+        "whiteList": "//div[@data-cy='whitelist_3_whitelist']"
+
+    },
+    "pendingInvites": {
+        "btnPendingInvites": "//button[@data-cy='button_pending_invites']",     
+        "labelReceived": "//h3[@data-cy='title_received']",
+
+        "labelSent": "//h3[@data-cy='title_sent']",
+        "labelEmail": "//div[@data-cy='sent_0_e_mail']",
+        "btnCancelInvite": "//button[@data-cy='button_cancel_sent_actions_0']",
+        "btnSendReminder": "//button[@data-cy='button_reminder_sent_actions_0']",
+        "btnRejected": "//button[@data-cy='button_reject_received_actions_0']",
+        "inviteCancelled": "//span[contains(text(),'Invite canceled.')]",
+        "inviteDeclined" : "//span[contains(text(),'Invitation declined.')]"
+
+
+
+    },
+    "inviteUser": {
+        "btnInviteCounterparty": "//span[contains(text(),'+ Invite')]",
+        "option":{
+            "tittle": "//h2[@data-cy='modal_title_invite']",
+            "btnIndividual": "(//div[@data-cy='option_label'])[1]",
+            "btnInstitution": "(//div[@data-cy='option_label'])[2]"
+        },
+        "individual":{
+            "invite":{
+                "tittle": "//h2[@data-cy='modal_title_invite']",
+                "subtittle": "//p[contains(text(),'Enter the e-mail address of the individual you wis')]",
+                "labelEmail": "//label[@data-cy='label_id']",
+                "inputEmail": "//input[@data-cy='field_id']",
+                "btnCancel": "//button[@data-cy='cancel']",
+                "btnSend": "//button[@data-cy='submit']"
+            },
+            "confirmation": {
+                "tittle": "//h2[@data-cy='modal_title_invite']",
+                "imgSent": "//*[local-name()='svg' and @class='svg-inline--fa fa-check-circle fa-w-16 fa-5x ']",
+                "labelSent": "//h2[contains(text(),'Invitation Sent')]",
+                "labelDone": "//p[contains(text(),'Done! We have sent an invitation to')]",
+                "btnFinish": "//span[contains(text(),'Finish')]"
+            }
+        },
+       
+        "institution":{
+            "btnInstitution": "//div[contains(text(),'Institution')]"
+            
+        }
+        
+    
+
+    },
+    "others":{
+        "popUpInvitationSent": "//span[contains(.,'Your invitation has been sent')]",
+        "invitationExist": "//span[contains(text(),'This invitation already exists')]",
+        "disabledUser": "(//span[contains(@class,'styles_switchSpan__')])[1]"
+
+    },
+    "disabledConfirmation":{
+        "labelTittle": "//div[contains(@class,'styles_modalTitle__')]",
+        "imgAlert": "//*[local-name()='svg' and @data-icon='exclamation-triangle']",
+        "labelH1": "//div[contains(@class,'styles_modalBody__')]",
+        "btnCancel": "//span[contains(text(),'Cancel')]",
+        "btnConfirm": "//span[contains(text(),'Confirm')]"
+
+    },
+    "alertDisable":{
+        "labelTittle": "//div[contains(@class,'styles_modalTitle__')]",
+        "imgAlert": "//*[local-name()='svg' and @data-icon='exclamation-triangle']",
+        "labelH1": "//p[contains(text(),'You have open orders with')]",
+        "labelH3": "//p[contains(text(),'Please check the status of all your orders with counterparty and try again')]",
+        "btnClose": "//span[contains(text(),'Close')]"
+    }
+}

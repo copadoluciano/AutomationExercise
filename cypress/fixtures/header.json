@@ -1,0 +1,28 @@
+{
+    "buttonLogOut": "//span[contains(text(),'Log Out')]",
+
+    "header":{
+        "imgLogo": "//img[@data-cy='img_membrane_logo']",
+        "btnHome": "//a[@data-cy='navigation_button_home']",
+        "btnCounterparties": "//a[@data-cy='navigation_button_counterparties']",
+        "btnTrades": "//a[@data-cy='navigation_button_trades']",
+        "btnLoans": "//a[@data-cy='navigation_button_loans']",
+        "btnTransfers": "//a[@data-cy='navigation_button_transfers']"
+
+    },
+
+    "menuRight": {
+        "bell": "//*[local-name()='svg' and @data-icon='bell']",
+        "numberNotifications": "//span[contains(@class,'styles_badge__')]",
+        "menu": "//div[contains(@class,'DM62F')]",
+        "viewAccount": "//li[@data-cy='dropdown_header_option_view_my_accounts']",
+        "balances&credits": "//li[@data-cy='dropdown_header_option_balances_&_credits']",
+        "myWallets": "//li[@data-cy='dropdown_header_option_my_wallets']",
+        "manageAccounts": "//li[@data-cy='dropdown_header_option_manage_accounts']",
+        "securityCenter": "//li[@data-cy='dropdown_header_option_security_center']",
+        "logOut": "//li[@data-cy='dropdown_header_option_log_out']"
+        
+    }
+
+
+}

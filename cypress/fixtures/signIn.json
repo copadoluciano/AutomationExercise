@@ -1,0 +1,29 @@
+{
+    "global": {
+        "title": "//h2[@data-cy='title_sign_in']",
+        "logo": "//div[@data-cy='membrane_logo']",
+        "emailLabel": "//label[@data-cy='label_email']",
+        "passLabel": "//label[@data-cy='label_password']",
+        "inputMail": "//input[@data-cy='field_email']",
+        "inputPassword": "//input[@data-cy='field_password']",
+        "buttonNext": "//button[@data-cy='button_next']",
+        "linkSignUp": "//span[contains(text(),'Sign Up')]", 
+        "linkForgotPassword": "//span[contains(text(),'Forgot Password')]",
+        "linkContatcSupport": "//h5[@data-cy='title_support']",
+        "linkGoogleAuth": "//a[@data-cy='anchor_2FA']",
+        "labelContactSupport": "//h5[contains(@data-cy,'title_support')]",
+        "labelGoogleAuth": "//h5[@data-cy='title_2FA']"
+        
+    },
+    "popAlerts": {
+        "popAlertAccountNotActive": "//span[contains(.,'Error: The account is not active yet.')]",
+        "popUpAlertEmailEmpty": "//span[contains(.,'Error: .email should match format')]",
+        "popUpAlertEmailNotRegister": "//span[contains(.,'Error: Wrong email or password, try again.')]",
+        "buttonSendNewMessage": "//span[contains(.,'Send new message')]",
+        "buttonSendNewMessageTime": "//div[@class='styles_btn-tertiary__MDNSz'][contains(.,'Send new message (28 s)')]"
+    },
+    "others":{
+        "btnResetMail": "//button[@data-cy='button_send_reset_email']"
+
+    }
+}

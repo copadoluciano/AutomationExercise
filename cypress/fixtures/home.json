@@ -1,0 +1,139 @@
+{
+    "watchlist": {
+        "BTC": {
+            "iconBtc": "//img[@data-cy='whitelist_chart_img_logo_btc']",
+            "labelBtc": "//span[@data-cy='whitelist_chart_symbol_btc']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_btc'][contains(.,'BTC')]",
+            "valueBtc": "//span[@data-cy='whitelist_chart_usd_value_btc']",
+            "labelBtcPercentage": "//div[@data-cy='whitelist_chart_percentage_btc']"
+        },
+        "ETH": {
+            "iconEth": "//img[@data-cy='whitelist_chart_img_logo_eth']",
+            "labelEth": "//span[@data-cy='whitelist_chart_symbol_eth']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_eth'][contains(.,'USD')]",
+            "valueEth": "//span[@data-cy='whitelist_chart_usd_value_eth']",
+            "labelEthPercentage": "//div[@data-cy='whitelist_chart_percentage_eth']"
+        },
+        "LTC": {
+            "iconLtc": "//img[@data-cy='whitelist_chart_img_logo_ltc']",
+            "labelLtc": "//span[@data-cy='whitelist_chart_symbol_ltc']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_ltc']",
+            "valueLtc": "//span[@data-cy='whitelist_chart_usd_value_ltc']",
+            "labelLtcPercentage": "//div[@data-cy='whitelist_chart_percentage_ltc']"
+        },
+        "BCH": {
+            "iconBch": "//img[@data-cy='whitelist_chart_img_logo_bch']",
+            "labelBch": "//span[@data-cy='whitelist_chart_symbol_bch']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_bch']",
+            "valueBch": "//span[@data-cy='whitelist_chart_usd_value_bch']",
+            "labelBchPercentage": "//div[@data-cy='whitelist_chart_percentage_bch']"
+        },
+        "SNX": {
+            "iconSnx": "//img[@data-cy='whitelist_chart_img_logo_snx']",
+            "labelSnx": "//span[@data-cy='whitelist_chart_symbol_snx']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_snx']",
+            "valueSnx": "//span[@data-cy='whitelist_chart_usd_value_snx']",
+            "labelSnxPercentage": "//div[@data-cy='whitelist_chart_percentage_snx']"
+        },
+        "TOKE": {
+            "iconToke": "//img[@data-cy='whitelist_chart_img_logo_toke']",
+            "labelToke": "//span[@data-cy='whitelist_chart_symbol_toke']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_ltc']",
+            "valueToke": "//span[@data-cy='whitelist_chart_usd_value_toke']",
+            "labelTokePercentage": "//div[@data-cy='whitelist_chart_percentage_toke']"
+        },
+        "BNB":{
+            "icon": "//img[@data-cy='whitelist_chart_img_logo_bnb']",
+            "label": "//span[@data-cy='whitelist_chart_symbol_bnb']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_ltc']",
+            "value": "//span[@data-cy='whitelist_chart_usd_value_bnb']",
+            "labelPercentage": "//div[@data-cy='whitelist_chart_percentage_bnb']"
+
+        },
+        "USDT":{
+            "icon": "//img[@data-cy='whitelist_chart_img_logo_usdt']",
+            "label": "//span[@data-cy='whitelist_chart_symbol_usdt']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_usdt']",
+            "value": "//span[@data-cy='whitelist_chart_usd_value_usdt']",
+            "labelPercentage": "//div[@data-cy='whitelist_chart_percentage_toke']"
+
+        },
+        "AVAX":{
+            "icon": "//img[@data-cy='whitelist_chart_img_logo_avax_native']",
+            "label": "//span[@data-cy='whitelist_chart_symbol_avax_native']",
+            "labelUsd": "//p[@data-cy='whitelist_chart_usd_avax_native']",
+            "value": "//span[@data-cy='whitelist_chart_usd_value_avax_native']",
+            "labelPercentage": "//div[@data-cy='whitelist_chart_percentage_avax_native']"
+
+        },
+        "filterWatchList": "//input[@data-cy='input_whatchlist']",
+        "labelLastWeek": "//li[@data-cy='li_whatchlist_last_week']",
+        "labelLast24Hours": "//li[@data-cy='li_whatchlist_last_24_hours']",
+        "labelLastMonth": "//li[@data-cy='li_whatchlist_last_month']",
+        "buttonEditWatch": "//button[@data-cy='button_edit_watchlist']",
+        "editWatchList": {
+            "labelEditWatch": "//h2[@data-cy='modal_title']",
+            "labelSubtitle": "//div[contains(text(),'Add or delete an asset in your watchlist')]",
+            "inputAsset": "(//div[contains(@class,'styles_fieldInput__')])[2]",
+            "buttonAddAsset": "//span[contains(text(),'Add Asset')]",
+            "labelInfo": "//div[contains(text(),'You can only watchlist 4 assets at a time')]",
+            "buttonClose": "//span[contains(text(),'Close')]",
+            "buttonTrash": "//*[local-name()='svg' and @data-icon='trash']"
+        }
+    },
+    "portfolio": {
+        "labelUSDCredits": "//h2[@data-cy='title_usd_credits']",
+        "iconWalletCredit": "//div[@data-cy='usd_credits_color_description_wallet_credit']"
+    },
+    "filterAsset": {
+        "selectFilterAsset": "//input[@data-cy='input_crypto']",
+        "selectBtc": "//li[@data-cy='li_crypto_btc']",
+        "selectEth": "//li[@data-cy='li_crypto_eth']",
+        "selectLtc": "//li[@data-cy='li_crypto_ltc']",
+        "selectBch": "//li[@data-cy='li_crypto_bch']",
+        "selectSnx": "//li[@data-cy='li_crypto_snx']",
+        "selectUsdc": "//li[@data-cy='li_crypto_usdc']",
+        "selectToke": "//li[@data-cy='li_crypto_toke']"
+    },
+    "filterTime": {
+        "selectFilterTime": "//input[@data-cy='input_credits']",
+        "select24hs": "//input[@data-cy='li_credits_last_24_hours']",
+        "selectLastWeek": "//input[@data-cy='li_credits_last_week']",
+        "selectLastMonth": "//input[@data-cy='li_credits_last_month']",
+        "selectLastYear": "//input[@data-cy='li_credits_last_year']"
+    },
+    "myWallets": {
+        "labelMyWallets": "//h4[@data-cy='title_my_wallets']",
+        "iconBtc": "//img[@data-cy='img_my_wallets_btc']",
+        "labelBtc": "//span[@data-cy='span_my_wallets_btc']",
+        "valueBtc": "//div[@data-cy='long_number_my_wallets_btc']",
+
+        "iconEth": "//img[@data-cy='img_my_wallets_eth']",
+        "labelEth": "//span[@data-cy='span_my_wallets_eth']",
+        "valueEth": "//div[@data-cy='long_number_my_wallets_eth']",
+
+        "iconLtc": "//img[@data-cy='img_my_wallets_ltc']",
+        "labelLtc": "//span[@data-cy='span_my_wallets_ltc']",
+        "valueLtc": "//div[@data-cy='long_number_my_wallets_ltc']",
+
+        "iconBch": "//img[@data-cy='img_my_wallets_bch']",
+        "labelBch": "//span[@data-cy='span_my_wallets_bch']",
+        "valueBch": "//div[@data-cy='long_number_my_wallets_bch']",    
+       
+        "buttonViewMore": "//button[@data-cy='button_view_more']"
+    },
+    "recentOrders": {
+        "labelRecentOrders": "//h2[@data-cy='title_recent_orders']",
+        "labelOrderId": "//div[@data-cy='recent_orders_0_order_id']",
+        "labelOrderBy": "//div[@data-cy='recent_orders_1_order_by']",
+        "labelCreatedOn": "//div[@data-cy='recent_orders_2_created_on']",
+        "labelTransaction": "//div[@data-cy='recent_orders_3_transaction']",
+        "labelType": "//div[@data-cy='recent_orders_4_type']",
+        "buttonCreateLendingOrder": "//button[@data-cy='button_create_lending_order']",
+        "buttonCreateTradingOrder": "//button[@data-cy='button_create_trading_order']",
+        "valueOrderId": "//div[@data-cy='recent_orders_orderid_0']",
+        "valueOrderBy": "//div[@data-cy='recent_orders_counterparty_0']",
+        "valueCreatedOn": "//div[@data-cy='recent_orders_createdat_0']",
+        "valueType": "//div[@data-cy='recent_orders_operationtype_0']"
+    }
+}
