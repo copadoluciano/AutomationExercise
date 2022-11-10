@@ -45,7 +45,7 @@
             },
             "confirmation": {
                 "tittle": "//h2[@data-cy='modal_title_invite']",
-                "imgSent": "//*[local-name()='svg' and @class='svg-inline--fa fa-check-circle fa-w-16 fa-5x ']",
+                "imgSent": "//*[local-name()='svg' and @data-icon='circle-check']",
                 "labelSent": "//h2[contains(text(),'Invitation Sent')]",
                 "labelDone": "//p[contains(text(),'Done! We have sent an invitation to')]",
                 "btnFinish": "//span[contains(text(),'Finish')]"
@@ -68,7 +68,7 @@
     },
     "disabledConfirmation":{
         "labelTittle": "//div[contains(@class,'styles_modalTitle__')]",
-        "imgAlert": "//*[local-name()='svg' and @data-icon='exclamation-triangle']",
+        "imgAlert": "//*[local-name()='svg' and @data-icon='triangle-exclamation']",
         "labelH1": "//div[contains(@class,'styles_modalBody__')]",
         "btnCancel": "//span[contains(text(),'Cancel')]",
         "btnConfirm": "//span[contains(text(),'Confirm')]"
@@ -76,7 +76,7 @@
     },
     "alertDisable":{
         "labelTittle": "//div[contains(@class,'styles_modalTitle__')]",
-        "imgAlert": "//*[local-name()='svg' and @data-icon='exclamation-triangle']",
+        "imgAlert": "//*[local-name()='svg' and @data-icon='triangle-exclamation']",
         "labelH1": "//p[contains(text(),'You have open orders with')]",
         "labelH3": "//p[contains(text(),'Please check the status of all your orders with counterparty and try again')]",
         "btnClose": "//span[contains(text(),'Close')]"

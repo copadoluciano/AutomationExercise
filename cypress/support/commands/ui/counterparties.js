@@ -17,7 +17,6 @@ Cypress.Commands.add('cancelInvite', function (counterparty) {
     cy.isVisible(this.invite.pendingInvites.inviteCancelled)
     cy.wait(2000)
     cy.isNotExist("//DIV[contains(@data-cy,'sent_targetaccount_')]/..//DIV[text()='"+counterparty+"']")
-
 })
 
 Cypress.Commands.add('disabledCounterparty', function (counterparty) {
