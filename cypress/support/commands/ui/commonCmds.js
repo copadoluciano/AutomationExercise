@@ -35,9 +35,9 @@ Cypress.Commands.add('haveValue', function (locator, value = '') {
     cy.xpath(locator).should('have.value', value)
 })
 Cypress.Commands.add('typeText', function (locator, value) {
-    cy.xpath(locator).clear()
+    cy.xpath(locator, {timeout: 10000}).clear()
     cy.wait(1000)
-    cy.xpath(locator).type(value)
+    cy.xpath(locator, {timeout: 10000}).type(value)
 })
 Cypress.Commands.add('clickListOption', function (locator, option) {
     cy.xpath(locator).contains(option).click()

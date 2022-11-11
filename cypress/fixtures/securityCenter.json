@@ -29,7 +29,7 @@
             "label3": "//label[@data-cy='label_oneSymbol']"
         },
         "others": {
-            "btnNext": "(//BUTTON[@class=''])[4]",
+            "btnNext": "//BUTTON[@data-cy='stepper_change_password_next']",
             "btnSubmit": "(//div[contains(@class,'styles_buttonContainer__')])[2]",
             "changeConfirmation": "//span[contains(text(),'Your password has been changed.')]",
             "alertWrongPasswd": "//span[contains(text(),'Error: Wrong password, try again.')]",
