@@ -89,6 +89,7 @@ Cypress.Commands.add('login', function (username, password, secret, visitPage = 
 })
 
 
+
 Cypress.Commands.add('speakeasy', function (secret) {
     return new Cypress.Promise((resolve, reject) => {
         let secretHex = secret

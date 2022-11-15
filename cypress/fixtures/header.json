@@ -1,5 +1,5 @@
 {
-    "buttonLogOut": "//span[contains(text(),'Log Out')]",
+    "buttonLogOut": "//button[@data-cy='logout']",
 
     "header":{
         "imgLogo": "//img[@data-cy='img_membrane_logo']",
@@ -14,7 +14,7 @@
     "menuRight": {
         "bell": "//*[local-name()='svg' and @data-icon='bell']",
         "numberNotifications": "//span[contains(@class,'styles_badge__')]",
-        "menu": "//div[contains(@class,'DM62F')]",
+        "menu": "//div[@data-cy='profile_picture']",
         "viewAccount": "//li[@data-cy='dropdown_header_option_view_my_accounts']",
         "balances&credits": "//li[@data-cy='dropdown_header_option_balances_&_credits']",
         "myWallets": "//li[@data-cy='dropdown_header_option_my_wallets']",
