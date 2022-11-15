@@ -51,11 +51,13 @@ module.exports = defineConfig({
     baseUrl: "https://app-staging.membranelabs.com",
     specPattern: "*/**/*.feature",
     watchForFileChanges: false,
+    experimentalSessionAndOrigin: true,
     requestTimeout: 50000,
     responseTimeout:50000,
     viewportWidth: 1500,
     viewportHeight: 1000,
     projectId: "9s68dt",
+    video: false,
     excludeSpecPattern: [
       "*.js",
       "*.md"

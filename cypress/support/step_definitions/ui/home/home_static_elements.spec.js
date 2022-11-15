@@ -15,8 +15,6 @@ Then('the user visualizes "Home" page elements correctly', function() {
     cy.staticElements(this.home.portfolio)
     // cy.staticElements(this.home.myWallets)
     cy.staticElements(this.home.recentOrders)
-    cy.logout()
-
 })
 
 

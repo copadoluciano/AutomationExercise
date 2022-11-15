@@ -1,1 +1,284 @@
-[]
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 7,
+        "name": "Login User",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "name": "The user is logged in on the Membrane page with User 05",
+            "result": {
+              "duration": 39744000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "security-center;[e2e]-\u003cid\u003e--security-center-\u003e-change-password---happy-path",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "[E2E] \u003cID\u003e- Security Center \u003e Change Password - Happy Path",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 13,
+            "name": "the user completes the password change data",
+            "result": {
+              "duration": 28402000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 14,
+            "name": "he receives a confirmation alert.",
+            "result": {
+              "duration": 31000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          },
+          {
+            "keyword": "And ",
+            "line": 15,
+            "name": "you will return to the previous password",
+            "result": {
+              "duration": 25753000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario",
+        "tags": [
+          {
+            "line": 10,
+            "name": "@TEST_LM-8879"
+          },
+          {
+            "line": 10,
+            "name": "@TESTSET_LM-8982"
+          }
+        ]
+      },
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 7,
+        "name": "Login User",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "name": "The user is logged in on the Membrane page with User 05",
+            "result": {
+              "duration": 2881000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "security-center;[e2e]-\u003cid\u003e--security-center-\u003e-validate-static-elements",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "[E2E] \u003cID\u003e- Security Center \u003e Validate Static Elements",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 20,
+            "name": "the user is in the password change module.",
+            "result": {
+              "duration": 7516000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the user visualizes Change Password page elements correctly",
+            "result": {
+              "duration": 312000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario",
+        "tags": [
+          {
+            "line": 17,
+            "name": "@TEST_LM-8880"
+          },
+          {
+            "line": 17,
+            "name": "@TESTSET_LM-8982"
+          }
+        ]
+      },
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 7,
+        "name": "Login User",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "name": "The user is logged in on the Membrane page with User 05",
+            "result": {
+              "duration": 1744000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "security-center;[e2e]-\u003cid\u003e--security-center-\u003e-change-password---invalid-data",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "[E2E] \u003cID\u003e- Security Center \u003e Change Password - Invalid Data",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 26,
+            "name": "the user completes the password with invalid data",
+            "result": {
+              "duration": 21065000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 27,
+            "name": "he receives a alert \"Error: Wrong password, try again\"",
+            "result": {
+              "duration": 1379000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario",
+        "tags": [
+          {
+            "line": 23,
+            "name": "@TEST_LM-8881"
+          },
+          {
+            "line": 23,
+            "name": "@TESTSET_LM-8982"
+          }
+        ]
+      },
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 7,
+        "name": "Login User",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 8,
+            "name": "The user is logged in on the Membrane page with User 05",
+            "result": {
+              "duration": 1915000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "security-center;[e2e]-\u003cid\u003e--security-center-\u003e-change-password---passwords-empty",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "[E2E] \u003cID\u003e- Security Center \u003e Change Password - Passwords Empty",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 32,
+            "name": "the user not completes the password",
+            "result": {
+              "duration": 15450000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 33,
+            "name": "the \"Next\" button are disabled",
+            "result": {
+              "duration": 18000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario",
+        "tags": [
+          {
+            "line": 29,
+            "name": "@TEST_LM-8882"
+          },
+          {
+            "line": 29,
+            "name": "@TESTSET_LM-8982"
+          }
+        ]
+      }
+    ],
+    "id": "security-center",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Security Center",
+    "uri": "cypress\\e2e\\ui\\securityCenter.feature"
+  }
+]

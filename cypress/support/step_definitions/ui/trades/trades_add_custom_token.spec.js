@@ -11,6 +11,8 @@ Given('user is on the operation "Buy Sell"', function() {
 })
 
 When('the user import contract {word}', function(contract) {
+    cy.clic(this.header.header.btnTrades)
+    cy.clic(this.buySell.global.createOrderBtn)
     cy.clic(this.buySell.createOrder.fieldAsset)
     cy.clic(this.buySell.others.manageTokens)
     cy.importToken(contract)

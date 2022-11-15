@@ -21,7 +21,6 @@ Then('the {word} and {word} is visible in WatchList', function(currency, icon) {
     cy.clic(this.home.watchlist.buttonEditWatch)
     cy.clic(this.home.watchlist.editWatchList.buttonTrash)
     cy.clic(this.home.watchlist.editWatchList.buttonClose)
-    cy.logout()
 })
 
 

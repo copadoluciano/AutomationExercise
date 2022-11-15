@@ -1,8 +1,6 @@
+import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-beforeEach(function(){
-    cy.locators()
-})
 Given('user at Membrane Sign in page',function(){
     cy.visit(''+Cypress.env('SIGN_IN')+Cypress.env('SKIPCAPTCHA'))
 })

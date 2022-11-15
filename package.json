@@ -9,12 +9,15 @@
     "cypress:open": "npx cypress open",
     "test:local": "CYPRESS_ENV=localhost npm run test  --spec 'cypress/integration/**/*.feature",
     "test:prod": "CYPRESS_ENV=production npm run test",
-    "test": "npx cypress run --spec 'cypress/e2e/**/**/*.feature'",
+    "test": "npx cypress run --spec 'cypress/e2e/**/**/*.feature' --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
     "test:debug:local": "CYPRESS_ENV=localhost npm run test:debug",
     "test:debug:prod": "CYPRESS_ENV=production npm run test:debug",
     "test:debug": "npx cypress run --headed --browser chrome --env TAGS='@e2e-test' --spec 'cypress/integration/**/*.feature'",
     "report:formatter": "cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json",
-    "report:multiple": "node cucumber-html-report.js"
+    "report:multiple": "node cucumber-html-report.js",
+    "cypress:dashboard": "npx cypress run --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
+    "securityCenter": "npx cypress run --spec 'cypress/e2e/**/**/securityCenter.feature'",
+    "counterparties": "npx cypress run --spec 'cypress/e2e/**/**/counterparties.feature'"
   },
   "author": "Xblend",
   "license": "BSD-3-Clause",
