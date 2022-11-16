@@ -38,7 +38,7 @@ require('cypress-xpath')
 
 When('the counterparty accept the order with {word}, {word} and {word}', function (cp_email, cp_password, cp_secret) {
     cy.login(Cypress.env(cp_email), Cypress.env(cp_password), Cypress.env(cp_secret))
-    cy.clic(this.header.header.btnLoans)
+    cy.goOrdersLoans()
     cy.clic(this.loans.buttons.buttonViewMore)
     cy.acceptOrderLoan()
 })

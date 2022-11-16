@@ -2,11 +2,10 @@ node_modules/
 cypress/videos/
 cypress/screenshots/
 package-lock.json
-cucumber-json.json
-cucumber-messages.ndjson
 cloud_auth.json
-.cucumber-report.json
-cucumber-report.json
+cucumber-json/cucumber-report.json
+cucumber-json/cucumber-messages.ndjson
+cucumber-json/cucumber-htmlreport.html/
 .env
 *.png
 *.png

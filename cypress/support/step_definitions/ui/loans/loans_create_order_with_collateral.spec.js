@@ -18,7 +18,7 @@ When('logout', function() {
 When('the counterparty accept the order with {word}, {word} and {word} {word} {word} {word} {word} {word} {word} {word} {word} {word} {word} {word} {word} {word}', function (cp_email, cp_password, cp_secret, operation, counterparty, amount, typeLoan, duration2, duration1, aprAmount, frecuency, repayFee, collateral, collateralAsset, collateralLimit, refundCollateral) {
     cy.login(Cypress.env(cp_email), Cypress.env(cp_password), Cypress.env(cp_secret))
 
-    cy.clic(this.header.header.btnLoans)
+    cy.goOrdersLoans()
     cy.validateCardsLoansTaker(operation, amount, collateral, collateralAsset, aprAmount, counterparty) // Validate values in the card close
 
     cy.clic(this.loans.buttons.buttonViewMore)

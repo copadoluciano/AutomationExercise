@@ -131,10 +131,7 @@ Cypress.Commands.add('manageToken', function (adress) {
 })
 
 
-Cypress.Commands.add('goOrders', function () {
+Cypress.Commands.add('goOrdersLoans', function () {
     cy.clic(this.header.header.btnLoans)
     cy.clic(this.loans.global.btnOrders)
 })
-
-
-cy.clic(this.header.header.btnLoans)
