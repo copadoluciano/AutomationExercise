@@ -6,7 +6,7 @@
         "passLabel": "//label[@data-cy='label_password']",
         "inputMail": "//input[@data-cy='field_email']",
         "inputPassword": "//input[@data-cy='field_password']",
-        "buttonNext": "//button[@data-cy='button_button_next']",
+        "buttonNext": "//button[@data-cy='button_next']",
         "linkSignUp": "//span[contains(text(),'Sign Up')]", 
         "linkForgotPassword": "//span[contains(text(),'Forgot Password')]",
         "linkContatcSupport": "//h5[@data-cy='title_support']",

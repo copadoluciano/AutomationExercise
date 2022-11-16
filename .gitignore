@@ -1,2 +1,13 @@
-node_modules
+node_modules/
+cypress/videos/
+cypress/screenshots/
+package-lock.json
+cucumber-json.json
+cucumber-messages.ndjson
+cloud_auth.json
+.cucumber-report.json
+cucumber-report.json
 .env
+*.png
+*.png
+*.png

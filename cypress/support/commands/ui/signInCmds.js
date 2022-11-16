@@ -44,6 +44,7 @@ Cypress.Commands.add('clic', locator => {
 })
 
 Cypress.Commands.add('login', function (username, password, secret, visitPage = true) {
+
     const log = Cypress.log({
         name: 'login',
         displayName: 'LOGIN',
@@ -56,18 +57,18 @@ Cypress.Commands.add('login', function (username, password, secret, visitPage = 
         cy.intercept('GET', 'v2/whitelist-entries/counterparties?status=active').as('whiteList')
         cy.visit('' + Cypress.env('SIGN_IN') + Cypress.env('SKIPCAPTCHA'))
     }
-    cy.xpath(this.signin.global.inputMail).type(username)
-    cy.xpath(this.signin.global.inputPassword).type(password)
-    cy.xpath(this.signin.global.logo).click()
+    cy.typeText(this.signin.global.inputMail, username)
+    cy.typeText(this.signin.global.inputPassword, password)
+    cy.clic(this.signin.global.logo)
     cy.wait(3000)
-    cy.xpath(this.signin.global.buttonNext).click({ force: true })
+    cy.clic(this.signin.global.buttonNext)
 
     // 2FA Page
     cy.speakeasy(secret).then((code) => {
         cy.wait(3000)
         cy.xpath(this.twoFa.token).type(code)
     })
-    cy.xpath(this.twoFa.twofaNext).click()
+    cy.clic(this.twoFa.twofaNext)
     cy.wait(5000)
     cy.wait('@whiteList')
     log.end()

@@ -5,7 +5,8 @@
         "buttonAccepted": "//button[@data-cy='button_open']",
         "buttonHistory": "//button[@data-cy='button_history']",
         "buttonPositions": "//button[@data-cy='button_positions']",
-        "btnNewLoan": "//button[@data-cy='button_create_loan']"
+        "btnNewLoan": "//button[@data-cy='button_create_loan']",
+        "btnOrders": "//button[@data-cy='button_orders']"
     },
     "createOrder": {
         "global": {
@@ -34,12 +35,12 @@
                 "btnType": "//span[contains(text(),'Open Term')]",
                 "selectCounterparty": "//div[contains(@class,'styles_fieldInput__')]",
                 "fieldAmount": "//input[@data-cy='field_principal_amount']",
-                "selectAmount": "//div[contains(@class,'styles_fieldInput__G8u-V styles_fix')]",
+                "selectAmount": "//input[@data-cy='input_principal_asset_name']",
                 "selectOffer": "//input[@data-cy='input_select_form_content_lend_borrow_expiration_unit_select_selectable']",
                 "fieldOffer": "//input[@data-cy='field_expiration_value']",
                 "fieldInterestRate": "//input[@data-cy='field_apr_percentage']",
                 "fieldTotalInterest": "//input[@data-cy='field_display_estimated_interest']",
-                "fieldAccrual": "//input[@data-cy='input_accrual_type']",
+                "fieldAccrual": "//input[@data-cy='input_select_form_content_lend_borrow_accrual_type_select_selectable']",
                 "fieldPayFrecuency": "//input[@data-cy='input_payment_frequency']",
                 "fieldCollateralAsset": "//input[@data-cy='input_collateral_asset_name']",
                 "fieldCollateralAmount": "//input[@data-cy='field_collateral_nominal_quantity']",
@@ -74,7 +75,7 @@
                 "selectCounterparty": "//input[@data-cy='input_counterparties']",
                 "fieldAmount": "//input[@data-cy='field_principal_amount']",
                 "selectAmount": "//input[@data-cy='input_principal_asset_name']",
-                "selectDuration": "//input[@data-cy='input_unit_term_length']",
+                "selectDuration": "//input[@data-cy='input_select_selectable' and @name='unit_term_length']",
                 "fieldDuration": "//input[@data-cy='field_value_term_length']",
                 "fieldMadurityDate": "//input[@data-cy='field_display_estimated_end_date']",
                 "selectOffer": "//input[@data-cy='input_select_form_content_lend_borrow_expiration_unit_select_selectable']",
@@ -82,9 +83,9 @@
                 "fieldInterestRate": "//input[@data-cy='field_apr_percentage']",
                 "hourlyInterestRate": "//input[@data-cy='field_hpr_percentage']",
                 "fieldTotalInterest": "//input[@data-cy='field_display_estimated_interest']",
-                "fieldAccrual": "//input[@data-cy='input_accrual_type']",
-                "fieldPayFrecuency": "//input[@data-cy='input_payment_frequency']",
-                "selectRepayFee": "//input[@data-cy='input_repayment_fee']",
+                "fieldAccrual": "//input[@data-cy='input_select_form_content_lend_borrow_accrual_type_select_selectable']",
+                "fieldPayFrecuency": "//input[@data-cy='input_select_form_content_lend_borrow_payment_frequency_selectable']",
+                "selectRepayFee": "//input[@data-cy='input_select_selectable' and @name='repayment_fee']",
                 "fieldRepayFee": "//input[@data-cy='field_repayment_fee']",
                 "selectCollateralAsset": "//input[@data-cy='input_collateral_asset_name']",
                 "fieldCollateralAmount": "//input[@data-cy='field_collateral_nominal_quantity']",
@@ -206,17 +207,17 @@
         "manageTokens": "//button[@data-cy='button_manage_tokens']"
     },
     "cardClose": {
-        "typeOperation": "//div[@data-cy='card_header_lend' or @data-cy='card_header_borrow']",
-        "setId": "(//p[contains(text(),'set_')])[1]",
-        "orderId": "(//p[contains(text(),'lnd_')])[1]",
-        "quantity": "//span[contains(@class,'s3fls')]",
-        "originalCollateral": "(//div[@class='styles_text__+xBHU styles_quantityWrapper__bJY+r'])[2]",
+        "typeOperation": "//span[@data-cy='card_header_text_proposal_card']",
+        "setId": "//div[@data-cy='proposal_card_caption_set_order_id']",
+        "orderId": "//div[@data-cy='proposal_card_caption_order_id']",
+        "quantity": "//span[@data-cy='proposal_card_quantity_wrapper_amount']",
+        "originalCollateral": "//div[@data-cy='proposal_card_collateral_wrapper_amount']",
         "currentCollateral": "(//DIV[@class='styles_label__1iiZs'][text()='Current Collateral'])[1]/following-sibling::DIV",
-        "collateralAsset": "(//div[@class='styles_innerText__AfeN4'])[1]",
-        "annualPercentage": "(//div[@class='styles_innerText__AfeN4'])[2]",
-        "counterparty": "(//div[@class='styles_innerText__AfeN4'])[3]",
+        "collateralAsset": "//div[@data-cy='proposal_card_symbol_content']",
+        "annualPercentage": "//div[@data-cy='proposal_card_apr_content']",
+        "counterparty": "//div[@data-cy='proposal_card_counterparty_content']",
         "typeLoan": "(//div[@class='styles_innerText__AfeN4'])[4]",
-        "lendDuration": "(//div[@class='styles_innerText__AfeN4'])[5]"
+        "lendDuration": "//div[@data-cy='proposal_card_lend_duration_content']"
     },
     "openCard": {
         "global": {

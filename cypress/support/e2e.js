@@ -27,6 +27,7 @@ import './commands/ui/myWalletsCmds'
 import './commands/ui/loginCmds'
 import './commands/ui/counterpartiesCmds'
 import './commands/ui/securityCenterCmds'
+import './commands/ui/loans'
 
 
 // Alternatively you can use CommonJS syntax:
@@ -42,3 +43,7 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 
   app.document.head.appendChild(style);
 }
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+});

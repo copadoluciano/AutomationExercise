@@ -1,5 +1,13 @@
 Feature: Trade Plans
 
+ 
+Background: Preconditions
+	Given User is signed up 
+	Given User is at the login page
+
+
+
+
 	@TEST_LM-8491 @TESTSET_LM-8585
 	# Scenario Outline: [E2E] <ID>- Trades > Validate Static Elements
 	# 	Given user is on the "Trades" page with <email>, <password> and <secret>
@@ -50,7 +58,7 @@ Feature: Trade Plans
 
 		Examples:
 			| ID | contract                                   | symbol |
-			| 6  | 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 | UNI    |
+			| 6  | 0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39 | HEX    |
 
 	@TEST_LM-8582 @TESTSET_LM-8585
 	Scenario Outline: [E2E] <ID>- Trades > Cancel Order

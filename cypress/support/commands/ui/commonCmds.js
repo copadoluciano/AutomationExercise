@@ -82,7 +82,7 @@ Cypress.Commands.add('staticElements', (xpathJson) => {
 })
 
 Cypress.Commands.add('selectRightMenu', function (option) {
-
+    cy.wait(5000)
     cy.clic(this.header.menuRight.menu)
     cy.clic("//div[contains(@class, 'menu')]//a[contains(text(),'" + option + "')]")
 
@@ -90,7 +90,7 @@ Cypress.Commands.add('selectRightMenu', function (option) {
 Cypress.Commands.add('selectCustomToken', function (openModal, asset) {
     cy.clic(openModal)
     cy.xpath(this.buySell.manageToken.searchToken, {timeout: 20000}).type(asset)
-    cy.xpath("//h5[contains(.,'" + asset + "')]", {timeout: 20000}).click()
+    cy.xpath("(//h5[contains(.,'" + asset + "')])[1]", {timeout: 20000}).click()
 
 })
 Cypress.Commands.add('selectOption', function (menu, option) {
@@ -129,3 +129,12 @@ Cypress.Commands.add('manageToken', function (adress) {
     cy.xpath("//h5[contains(.,'" + asset + "')]").click()
 
 })
+
+
+Cypress.Commands.add('goOrders', function () {
+    cy.clic(this.header.header.btnLoans)
+    cy.clic(this.loans.global.btnOrders)
+})
+
+
+cy.clic(this.header.header.btnLoans)

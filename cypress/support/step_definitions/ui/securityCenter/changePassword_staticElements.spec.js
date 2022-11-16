@@ -6,10 +6,10 @@ require('cypress-xpath')
 // })
 
 When('the user is in the password change module.', function() {
-    cy.selectRightMenu("Security Center")
+    cy.visit(''+ '/security-center/settings?skipCaptcha')
     cy.clic(this.securityCenter.global.btnChangePassword)
     for (let i = 1; i<=4; i++){
-        cy.xpath("(//*[local-name()='svg' and @data-icon='circle-check' and @color='#777777'])["+i+"]")
+        cy.xpath("(//div[contains(@style,'background-color: rgb(221, 221, 221)')])["+i+"]")
     }
 })
 

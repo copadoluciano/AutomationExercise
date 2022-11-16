@@ -117,4 +117,6 @@ Cypress.Commands.add('logout', function () {
     cy.wait(2000)
     cy.clic(this.header.buttonLogOut)
     cy.url().should('eq', Cypress.config('baseUrl') + "/sign-in")
+    cy.clearCookies()
+    cy.clearLocalStorage()
 })

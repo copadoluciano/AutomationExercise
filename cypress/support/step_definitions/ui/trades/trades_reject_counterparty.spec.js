@@ -14,6 +14,7 @@ Given('user "Create new Orderr" {word} with {word} and {word} and {word} and {wo
 
 When('the counterparty reject the order', function(){
     cy.login(Cypress.env('USER_EMAIL_20'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_20_DEMO'))
+    cy.visit('') 
     cy.wait(2000)
     cy.clic(this.header.header.btnTrades)
     cy.rejectOrder()

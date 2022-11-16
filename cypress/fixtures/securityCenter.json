@@ -22,15 +22,12 @@
             "EnterTwoFactor": "//DIV[@data-cy='stepper_change_password_item_2_description']",
             "labelCurrentPasswd": "//label[@data-cy='label_password']",
             "labelNewPassword": "//label[@data-cy='label_newpassword']",
-            "labelRepeatPassword": "//label[@data-cy='label_repeatnewpassword']",
-            "labelPasswordContain": "//label[@data-cy='label_must_contain']",
-            "label1": "//label[@data-cy='label_minLength']",
-            "label2": "//label[@data-cy='label_upperLower']",
-            "label3": "//label[@data-cy='label_oneSymbol']"
+            "labelRepeatPassword": "//label[@data-cy='label_repeatnewpassword']"
+
         },
         "others": {
             "btnNext": "//BUTTON[@data-cy='stepper_change_password_next']",
-            "btnSubmit": "(//div[contains(@class,'styles_buttonContainer__')])[2]",
+            "btnSubmit": "//BUTTON[@data-cy='stepper_change_password_next']",
             "changeConfirmation": "//span[contains(text(),'Your password has been changed.')]",
             "alertWrongPasswd": "//span[contains(text(),'Error: Wrong password, try again.')]",
             "btnNextDisabled": "//button[@class='disabled']"

@@ -16,7 +16,8 @@ When('the user not completes the password', function() {
 })
 
 Then('the "Next" button are disabled', function() {
-    cy.isDisabled(this.securityCenter.changePasswd.others.btnNextDisabled)
+    cy.clic(this.securityCenter.changePasswd.others.btnNext)
+    cy.isVisible(this.securityCenter.changePasswd.others.alertWrongPasswd)
 
 })
 

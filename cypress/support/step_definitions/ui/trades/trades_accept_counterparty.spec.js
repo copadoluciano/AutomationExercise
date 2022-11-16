@@ -12,6 +12,7 @@ Given('user "Create New Order" {word} with {word} and {word} and {word} and {wor
 
 When('the counterparty accepts the order', function () {
     cy.login(Cypress.env('USER_EMAIL_20'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_20_DEMO'))
+    cy.visit('') 
     cy.wait(3000)
     cy.clic(this.header.header.btnTrades)
     // cy.validateCardsTradesTaker()
@@ -22,5 +23,4 @@ When('the counterparty accepts the order', function () {
 })
 
 Then('the order will be created for both parties', function () {
-    cy.logout()
 })

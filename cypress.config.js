@@ -51,7 +51,7 @@ module.exports = defineConfig({
     baseUrl: "https://app-staging.membranelabs.com",
     specPattern: "*/**/*.feature",
     watchForFileChanges: false,
-    experimentalSessionAndOrigin: true,
+    experimentalSessionAndOrigin: false,
     requestTimeout: 50000,
     responseTimeout:50000,
     viewportWidth: 1500,

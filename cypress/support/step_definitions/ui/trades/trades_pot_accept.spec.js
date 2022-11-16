@@ -17,6 +17,7 @@ Given('user "Create new order with Native Token" {word} with {word} and {word} a
 
 When('the counterparty propose other terms', function(){
     cy.login(Cypress.env('USER_EMAIL_20'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_20_DEMO'))
+    cy.visit('') 
     cy.wait(2000)
     cy.clic(this.header.header.btnTrades)
     // cy.validateCardsTradesTaker()

@@ -7,7 +7,7 @@ Cypress.Commands.add('changePassword', function (secret, currentPassword, newPas
     cy.typeText(this.securityCenter.changePasswd.fields.inputRepeatNewPassword, newPassword)
 
     for (let i = 1; i<=4; i++){
-        cy.isVisible("(//*[local-name()='svg' and @data-icon='circle-check' and @color='#6fcf97'])["+i+"]")
+        cy.isVisible("(//div[contains(@style,'background-color: rgb(37, 194, 129)')])["+i+"]")
     }
     cy.wait(2000)
     cy.clic(this.securityCenter.changePasswd.others.btnNext)
