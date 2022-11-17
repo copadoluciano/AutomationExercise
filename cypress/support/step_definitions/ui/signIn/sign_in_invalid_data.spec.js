@@ -1,10 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-Given('the user is on the Membrane Page',function(){
-
-})
-
 When('the user try logs in to his account with invalid data',function(){
     cy.visit('' + Cypress.env('SIGN_IN') + Cypress.env('SKIPCAPTCHA'))
     cy.typeText(this.signin.global.inputMail, Cypress.env('USER_EMAIL_05'))

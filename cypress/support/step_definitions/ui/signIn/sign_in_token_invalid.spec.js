@@ -1,13 +1,9 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-Given('user at Sign in Page',function(){
-    cy.visit('' + Cypress.env('SIGN_IN') + Cypress.env('SKIPCAPTCHA'))
-})
-
-When('the user completes with valid data',function(){
-    cy.typeField(this.signin.global.inputMail, Cypress.env('USER_EMAIL_05'))
-    cy.typeField(this.signin.global.inputPassword, Cypress.env('USER_PASSWORD'))
+When('the user completes with {word}, {word} valid data',function(email, password){
+    cy.typeField(this.signin.global.inputMail, Cypress.env(email))
+    cy.typeField(this.signin.global.inputPassword, Cypress.env(password))
     cy.clic(this.signin.global.buttonNext)
 
 })

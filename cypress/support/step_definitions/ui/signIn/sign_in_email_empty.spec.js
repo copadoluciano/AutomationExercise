@@ -13,6 +13,4 @@ When('user leaves email field empty',function(){
     cy.isClear(this.signin.global.inputMail)
 })
 
-Then('the Next Button should be disabled',function(){
-    cy.isDisabled(this.signin.global.buttonNext)
-})
+

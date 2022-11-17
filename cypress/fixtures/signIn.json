@@ -7,7 +7,7 @@
         "inputMail": "//input[@data-cy='field_email']",
         "inputPassword": "//input[@data-cy='field_password']",
         "buttonNext": "//button[@data-cy='button_next']",
-        "linkSignUp": "//span[contains(text(),'Sign Up')]", 
+        "linkSignUp": "//button[@data-cy='button_button_signup']", 
         "linkForgotPassword": "//button[@data-cy='button_forgotpassword']",
         "linkContatcSupport": "//h5[@data-cy='title_support']",
         "linkGoogleAuth": "//a[@data-cy='anchor_2FA']",
