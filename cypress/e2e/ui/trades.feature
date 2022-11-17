@@ -1,12 +1,5 @@
 Feature: Trade Plans
 
- 
-Background: Preconditions
-	Given User is signed up 
-	Given User is at the login page
-
-
-
 
 	@TEST_LM-8491 @TESTSET_LM-8585
 	# Scenario Outline: [E2E] <ID>- Trades > Validate Static Elements

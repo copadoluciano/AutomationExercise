@@ -22,7 +22,7 @@ require('cypress-xpath')
 //     cy.acceptOrderLoan()
 // })
 
-When('the time is between 16 and 17 Argentina', function () {
+When('the time is between 17 and 18 Argentina', function () {
     cy.wait(3000)
     cy.validateActivity()
 

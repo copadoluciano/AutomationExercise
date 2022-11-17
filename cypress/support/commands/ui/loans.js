@@ -79,6 +79,9 @@ Cypress.Commands.add('createOrderLoan', function (operation, typeLoan, currency,
 })
 
 Cypress.Commands.add('acceptOrderLoan', function (counterparty, operation, amount, typeLoan, duration2, duration1, aprAmount, frecuency, repayFee, collateral, collateralAsset, collateralLimit, refundCollateral) {
+    cy.clic(this.header.header.btnLoans)
+    cy.clic(this.loans.global.btnOrders)
+    cy.clic(this.loans.buttons.buttonViewMore)
     cy.clic(this.loans.buttons.buttonAcceptOrder)
     cy.wait(2000)
     cy.clic(this.loans.buttons.buttonAcceptConfirmation2)
@@ -87,7 +90,8 @@ Cypress.Commands.add('acceptOrderLoan', function (counterparty, operation, amoun
 })
 
 Cypress.Commands.add('openMembrane', function () {
-    cy.clic(this.loans.global.buttonAccepted)
+    cy.clic(this.header.header.btnLoans)
+    cy.clic(this.loans.global.buttonPositions)
     cy.wait(1000)
     cy.clic("(//DIV[@class='styles_fieldInput__IDY-B'])[1]")
     cy.wait(1000)
@@ -96,9 +100,8 @@ Cypress.Commands.add('openMembrane', function () {
 })
 
 Cypress.Commands.add('rejectOrderLoan', function () {
-    cy.wait(2000)
     cy.clic(this.header.header.btnLoans)
-    cy.wait(2000)
+    cy.clic(this.loans.global.btnOrders)
     cy.clic(this.loans.buttons.buttonViewMore)
     cy.wait(2000)
     cy.clic(this.loans.buttons.buttonRejectOrder)
@@ -109,6 +112,7 @@ Cypress.Commands.add('rejectOrderLoan', function () {
 
 Cypress.Commands.add('cancelOrderLoan', function () {
     cy.clic(this.header.header.btnLoans)
+    cy.clic(this.loans.global.btnOrders)
     cy.clic(this.loans.global.buttonOutbox)
     cy.clic(this.loans.buttons.buttonViewMore)
     cy.clic(this.loans.buttons.buttonCancelOrder)
@@ -125,9 +129,9 @@ Cypress.Commands.add('validateActivity', function () {
     cy.openMembrane()
 
     for (let i = 1; i < 3; i++) {
-
+        
         var server = dayjs().format('HH.mm')
-        cy.xpath("(//DIV[@class='styles_innerText__AfeN4'][text()='Intraday'])[" + i + "]/../../..//BUTTON[@class='']").click()
+        cy.xpath("(//DIV[@data-cy='proposal_card_lend_duration_content'][text()='Intraday'])[" + i + "]/../../..//SPAN[text()='View More']").click()
 
         var timeAccepted = cy.xpath("//DIV[text()='OPEN DATE']/../..//SPAN[contains(@class,'styles_valueContent__')]").then(function (acceptedOn) {
             let accepted = acceptedOn.text().slice(11, 19).replace(":", ".")
@@ -271,11 +275,13 @@ Cypress.Commands.add('validateReviewLoansTaker', function (counterparty, amount,
         message: 'Validate Values',
         autoEnd: false
     })
+
+    cy.log(frecuency)
     cy.notIsEqual(this.loans.outboxOrder.counterparty, counterparty) //Validate Counterparty
     cy.containText(this.loans.outboxOrder.amount, amount) // Validate Amount
     cy.containText(this.loans.outboxOrder.typeLoan, typeLoan) // Validate Loan Type
     cy.containText(this.loans.outboxOrder.aprAmount, aprAmount) // Validate Interest Rate
-    cy.containText(this.loans.outboxOrder.paymentFrequency, frecuency) // Validate Payment Frecuency
+    // cy.containText(this.loans.outboxOrder.paymentFrequency, frecuency) // Validate Payment Frecuency
 
     cy.containText(this.loans.outboxOrder.marginCallCollateralization, collateralLimit) // Validate Margin Call Collateralization
     cy.containText(this.loans.outboxOrder.refundCollateralCollateralization, refundCollateral) // Validate Margin Call Collateralization

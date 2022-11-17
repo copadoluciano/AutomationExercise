@@ -100,7 +100,7 @@ Cypress.Commands.add('selectOption', function (menu, option) {
 })
 Cypress.Commands.add('selectCounterparty', function (openModal, counterparty) {
     cy.clic(openModal)
-    cy.clic("//SPAN[contains(text(),'"+counterparty+"')]") // Select counterparty
+    cy.clic("//li[contains(@data-cy,'cypress_"+counterparty+"')]") // Select counterparty
     cy.clic("//*[local-name()='svg' and @data-cy='button_close_modal']") // Close modal Counterparty
 })
 
@@ -130,8 +130,3 @@ Cypress.Commands.add('manageToken', function (adress) {
 
 })
 
-
-Cypress.Commands.add('goOrdersLoans', function () {
-    cy.clic(this.header.header.btnLoans)
-    cy.clic(this.loans.global.btnOrders)
-})

@@ -38,7 +38,6 @@ require('cypress-xpath')
 
 When('the counterparty accept the order with {word}, {word} and {word}', function (cp_email, cp_password, cp_secret) {
     cy.login(Cypress.env(cp_email), Cypress.env(cp_password), Cypress.env(cp_secret))
-    cy.goOrdersLoans()
     cy.clic(this.loans.buttons.buttonViewMore)
     cy.acceptOrderLoan()
 })
@@ -46,6 +45,7 @@ When('the counterparty accept the order with {word}, {word} and {word}', functio
 
 When('the collateral is out of bounds {word}', function (collateralAsset) {
     cy.openMembrane()
+    
     cy.wait(3000)
     // cy.text(this.loans.cardClose.currentCollateral)
     // for (let i = 1; i < 5; i++) {
@@ -55,9 +55,9 @@ When('the collateral is out of bounds {word}', function (collateralAsset) {
     // }
     //let collateral = collateralLimit + 0.5
 
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 8; i++) {
 
-        cy.xpath("(//DIV[@class='styles_label__1iiZs'][text()='Current Collateral'])[" + i + "]/following-sibling::DIV").then(function (value) {
+        cy.xpath("(//div[@data-cy='proposal_card_current_collateral_wrapper_content'])[" + i + "]").then(function (value) {
             let collateral = value.text()
             collateral = collateral.replace("%", "")
             collateral = Number(collateral)

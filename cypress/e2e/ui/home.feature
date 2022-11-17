@@ -4,7 +4,7 @@ Feature: Home Page Test
         - We will use user "05"
         - We will test functionalities of the "Home Page"
 
-
+        
         @TEST_LM-8049 @TESTSET_LM-8374
         Scenario: Home - Validate Static Elements
             Given the user is registered in "Membrane Page"
