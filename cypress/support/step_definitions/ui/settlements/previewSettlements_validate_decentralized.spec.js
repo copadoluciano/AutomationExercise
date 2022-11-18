@@ -1,8 +1,5 @@
+import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
-
-beforeEach(function(){
-    cy.locators()
-})
 
 Given('user at "Generate Preview Settlement"',function(){
     cy.login(Cypress.env('USER_EMAIL_17'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_17_DEMO'))
