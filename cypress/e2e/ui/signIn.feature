@@ -1,37 +1,36 @@
 @feature-sign-in
 Feature: Sign In
 
-    # 0
+    @TEST_LM-8834
     Scenario: Sign In - Validate Static Elements
         Given the user is on the Login page
         Then the user visualizes "Sign In" page elements correctly
 
-    # 1
+    @TEST_LM-8833
     Scenario: Sign In Happy Path
         Given the user is on the Membrane Page
         When the user logs in to his account
         Then the user will be redirected to the Membrane Home
 
 
-
-    # 2
+    @TEST_LM-8835
     Scenario: Go to Sign Up Page
         Given user at Membrane Sign in page
         When user click in "Sign Up" button
         Then user is redirected to Sign Up page
-    #
-    # 3
+    
+    @TEST_LM-8836
     Scenario Outline: Sign In - Password Empty
         Given user at Sign In page
         When user put <email> on field e-mail
         And user leaves password field empty
         Then the Next Button should be disabled
-        #
+        
         Examples:
             | email                     |
             | cypress+01@membrane.trade |
-    #
-    # 4
+    
+    @TEST_LM-8837
     Scenario Outline: Sign In - Email Empty
         Given user at Sign In page
         When user put <password> on field password
@@ -41,14 +40,14 @@ Feature: Sign In
         Examples:
             | password |
             | 123456   |
-    #
-    # 5
+    
+    @TEST_LM-8838
     Scenario: Sign In - Email & Password Empty
         Given user at Sign In page
         When user leaves Email and Password empty
         Then the Next Button should be disabled
 
-    #6
+    @TEST_LM-8839
    Scenario Outline: Sign In - Token Invalid
        Given user at Sign In page
        When the user completes with <email>, <password> valid data
@@ -61,13 +60,19 @@ Feature: Sign In
            | ID | email         | password      | invalid |
            | 1  | USER_EMAIL_05 | USER_PASSWORD | 123456  |
 
-    # 8
+    @TEST_LM-8840
     Scenario: Sign In - Invalid Data
         Given the user is on the Membrane Page
         When the user try logs in to his account with invalid data
         Then the alert message label "Error: Wrong email or password, try again" should be shown
 
+    @TEST_LM-8851
+    Scenario: Sign In - Send New Token
+         Given the user is on the Two Factor Authentication
+         When the user click on "Send new messege"
+         Then the new token will be sent
 
+    @TEST_LM-8061
     Scenario Outline: Log Out - Happy Path
         Given user is login into the Membrane page with <email>, <password> and <secret>
         When the user logs out
