@@ -1,13 +1,15 @@
 import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-When('user put email active on field e-mail',function(){
+When('the user completes the Forgot Password flow',function(){
     cy.typeField(this.signin.global.inputMail, Cypress.env('USER_EMAIL_15'))
 })
-When('user click in "Forgot password" label',function(){
-    cy.clic(this.signin.others.btnResetMail)
+
+Then('the user will receive a token to enter',function(){
+
+
 })
-Then('user redirect to two factor autentication page',function(){
-    cy.isVisible(this.signin.labelTwoFactorAuth)
+And('the user will receive a token to enter',function(){
+
 
 })

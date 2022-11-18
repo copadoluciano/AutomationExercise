@@ -23,7 +23,7 @@
         "buttonSendNewMessageTime": "//div[@class='styles_btn-tertiary__MDNSz'][contains(.,'Send new message (28 s)')]"
     },
     "others":{
-        "btnResetMail": "//button[@data-cy='button_send_reset_email']"
-
+        "btnResetMail": "//button[@data-cy='button_send_reset_email']",
+        "sendReset": "//button[@data-cy='button_send_reset_email']"
     }
 }

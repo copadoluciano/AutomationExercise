@@ -1,22 +1,20 @@
 @feature-forgot-password
 Feature: Forgot Password
+    # @TEST_LM-8889
+    #  Scenario: Forgot Password - Auth Active
+    #      Given user at Membrane Sign in page
+    #      When the user completes the Forgot Password flow
+    #      Then the user will receive a token to enter
+    #      And 
 
-    # Scenario: Forgot Password - Happy Path
-    #     Given user at Membrane Sign in page
-    #     When user put email active on field e-mail
-    #     And user click in "Forgot password" label
-    #     Then user redirect to two factor autentication page
-
-
-    Scenario Outline: [E2E] <ID>- Forgot Password > - Email & Password empty
+    @TEST_LM-8890
+    Scenario: [E2E] <ID>- Forgot Password > - Email & Password empty
         Given user at Membrane Sign in page
-        When the fields are empty
-        Then Then the "Next" button and the "Forgot Password" link are disabled
+        When the field email is empty
+        Then the "Send Reset Email" button are disabled
 
-        Examples:
-            | ID | 
-            | 1  |
 
+    @TEST_LM-8891
     Scenario Outline: [E2E] <ID>- Forgot Password > - Account not active
         Given user at Membrane Sign in page
         When user put email not active on field e-mail
