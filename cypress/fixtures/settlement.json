@@ -13,7 +13,7 @@
             "settlementId": "//div[@data-cy='0_settlement_id']",
             "createdOn": "//div[@data-cy='1_created_on']",
             "counterparty2": "//div[@data-cy='2_counterparty']",
-            "status": "//div[@data-cy='3_status']"
+            "status": "//div[@data-cy='4_status']"
         },
         "fields":{
             "from": "//input[@data-cy='input_data_picker_from']",
@@ -127,8 +127,8 @@
         
     },
     "others": {
-        "fieldInput": "(//div[@class='styles_fieldInput__IDY-B'])[1]",
-        "nextBtn": "//span[contains(text(),'Next')]/ancestor::button",
+        "fieldInput": "//div[@data-cy='input_container_generate_settlement_select_counterparty']",
+        "nextBtn": "//button[@data-cy='button_generate_settlement_next_action']",
         "lastDisplayInfoRow": "(//*[local-name()='svg' and @data-icon='chevron-down'])[2]"
     },
     "generateSettlement": {
