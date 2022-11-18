@@ -9,7 +9,7 @@ Then('the user will receive a token to enter',function(){
 
 
 })
-And('the user will receive a token to enter',function(){
+Then('the user will receive a token to enter',function(){
 
 
 })
