@@ -2,6 +2,6 @@
 rm -f cucumber-json/*.json
 rm -f cucumber-json/*.ndjson
 # npm run test:local
-npm run currents
+npm run hola
 npm run report:formatter
-npm run report:multiple
+# npm run report:multiple

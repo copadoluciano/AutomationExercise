@@ -50,3 +50,4 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
 });
+

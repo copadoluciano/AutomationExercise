@@ -1,4 +1,4 @@
-@feature-invites
+
 Feature: Invite user
     # @TEST_LM-8864 @TESTSET_LM-9020
     # Scenario Outline: [E2E] <ID>- Counterparties > Static Elements
