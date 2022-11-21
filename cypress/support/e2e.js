@@ -30,6 +30,7 @@ import './commands/ui/counterpartiesCmds'
 import './commands/ui/securityCenterCmds'
 import './commands/ui/loans'
 import './commands/ui/settlementsCmds'
+import './commands/ui/signUpCmds'
 
 
 // Alternatively you can use CommonJS syntax:

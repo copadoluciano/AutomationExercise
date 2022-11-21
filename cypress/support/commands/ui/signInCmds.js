@@ -99,3 +99,57 @@ Cypress.Commands.add('speakeasy', function (secret) {
         }
     })
 })
+
+
+Cypress.Commands.add('sendNewToken', function(username, password) {
+    cy.visit('' + Cypress.env('SIGN_IN') + Cypress.env('SKIPCAPTCHA'))
+    cy.xpath(this.signin.global.inputMail).type(username)
+    cy.xpath(this.signin.global.inputPassword).type(password)
+    cy.clic(this.signin.global.title)
+    cy.wait(5000)
+    
+
+    // -------------obtencion token1
+    cy.intercept('POST', '/v2/login').as('login-user')
+    cy.intercept('POST', '/v2/two-steps-auth/verify').as('verify-user')
+    cy.xpath(this.signin.global.buttonNext).click({ force: true })
+    cy.wait(5000)
+    cy.wait('@login-user').its('response').should('deep.include', { statusCode: 200 })
+    cy.get('@login-user').then(res => {
+        cy.log(res.response.body)
+        let token1_raw = JSON.stringify(res.response.body.data.token)
+
+        //cy.log(token1_raw)
+
+        let token1 = token1_raw.split('"')[1]
+
+        //cy.log(token1)
+        //-------------obtencion token2
+        cy.clic(this.signin.popAlerts.buttonSendNewMessage)
+        cy.request({
+            method: "DELETE",
+            url: 'https://api-staging.membranelabs.com/testing-tool',
+            headers: {
+                'death-token': 'Y@u w1ll b3 F1R3D!',
+                'Authorization': 'Bearer ' + token1
+            }
+
+
+        }).then(response => {
+            let code2 = JSON.parse(JSON.stringify(response.body.code))
+            const secondLog = Cypress.log({
+                name: 'secPageLog',
+                displayName: '2FA AUTH',
+                message: 'Type Code ' + code2,
+                autoEnd: false
+            })
+            cy.log('2FA code: ' + code2)
+            cy.xpath(this.twoFa.token).type(code2)
+            cy.xpath(this.twoFa.twofaNext).click()
+            secondLog.end()
+        })
+
+
+    })
+    cy.wait(4000)
+    })
