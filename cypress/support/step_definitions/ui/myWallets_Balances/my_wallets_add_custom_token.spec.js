@@ -1,12 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-// Given('user is on the "My Wallets" page', function() {
-//     cy.login(Cypress.env('USER_EMAIL_17'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_17_DEMO'))
-//     cy.selectRightMenu("y Wallets")
-// })
-
 When('the user add contract {word}', function(contract) {
+    cy.selectRightMenu("y Wallets")
     cy.clic(this.wallets.importWallet.btnImportToken)
     cy.importToken(contract)
 })
