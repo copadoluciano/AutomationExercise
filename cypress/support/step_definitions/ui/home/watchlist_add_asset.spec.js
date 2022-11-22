@@ -1,9 +1,6 @@
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-Given('user is on the "Home" page with {word}, {word} and {word}', function(email, password, secret) {
-    cy.login(Cypress.env(email), Cypress.env(password), Cypress.env(secret))   
-})
 
 When('you add an {word} to the watchlist', function(currency) {
     cy.clic(this.home.watchlist.buttonEditWatch)

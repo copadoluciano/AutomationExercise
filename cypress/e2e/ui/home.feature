@@ -6,10 +6,13 @@ Feature: Home Page Test
 
         
         @TEST_LM-8049 @TESTSET_LM-8374
-        Scenario: Home - Validate Static Elements
-            Given the user is registered in "Membrane Page"
+        Scenario Outline: [E2E] <ID>- Home > Validate Static Elements
+            Given user is on the "Home" page with <email>, <password> and <secret>
             When the user sign in and are on the "Home" page
             Then the user visualizes "Home" page elements correctly
+             Examples:
+                | ID | email         | password      | secret         |
+                | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
 
         @TEST_LM-8823 @TESTSET_LM-8374
         Scenario Outline: [E2E] <ID>- Home > Add and Delete Asset in Watchlist
