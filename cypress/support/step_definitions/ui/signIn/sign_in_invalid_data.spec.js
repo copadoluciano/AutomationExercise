@@ -1,16 +1,16 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-When('the user try logs in to his account with invalid data',function(){
-    cy.visit('' + Cypress.env('SIGN_IN') + Cypress.env('SKIPCAPTCHA'))
-    cy.typeText(this.signin.global.inputMail, Cypress.env('USER_EMAIL_05'))
-    cy.typeText(this.signin.global.inputPassword, "123456")
+
+When('I type {word}, {word} invalid in the email and password fields',function(email, password){
+    cy.typeText(this.signin.global.inputMail, email)
+    cy.typeText(this.signin.global.inputPassword, password)
     cy.wait(3000)
     cy.clic(this.signin.global.buttonNext)
 
 })
 
-Then('the alert message label "Error: Wrong email or password, try again" should be shown',function(){
+Then('I should see the message label Error: Wrong email or password, try again',function(){
     // Create JSON for Home static elements and use CY Command
     cy.isVisible(this.signin.popAlerts.popUpAlertEmailNotRegister)
 })

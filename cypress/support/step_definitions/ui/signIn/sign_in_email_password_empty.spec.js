@@ -3,10 +3,10 @@ require('cypress-xpath')
 
 
 
-When('user leaves Email and Password empty',function(){
+When('I do not fill in the email and password fields',function(){
     cy.isClear(this.signin.global.inputMail)
     cy.isClear(this.signin.global.inputPassword)
 })
-Then('the Next Button should be disabled',function(){
+Then('I should see the Next button disabled',function(){
     cy.isDisabled(this.signin.global.buttonNext)
 })

@@ -2,81 +2,107 @@
 Feature: Sign In
 
     @TEST_LM-8834
-    Scenario: Sign In - Validate Static Elements
-        Given the user is on the Login page
-        Then the user visualizes "Sign In" page elements correctly
+    Scenario Outline: Sign In - Validate Static Elements
+        Given I go to sign-in
+         Then I should see the page sign-in with correct elements
+    
+        Examples:
+            | ID |
+            | 1  |
 
     @TEST_LM-8833
-    Scenario: Sign In Happy Path
-        Given the user is on the Membrane Page
-        When the user logs in to his account
-        Then the user will be redirected to the Membrane Home
+    Scenario Outline: Sign In - Happy Path
+        Given I go to sign-in
+         When I type <email>, <password> and <secret>
+         Then I should see the membrane home page
 
+        Examples:
+            | ID | email         | password      | secret         |
+            | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
 
     @TEST_LM-8835
-    Scenario: Go to Sign Up Page
-        Given user at Membrane Sign in page
-        When user click in "Sign Up" button
-        Then user is redirected to Sign Up page
-    
+    Scenario Outline: Sign In - Go to Sign Up Page
+        Given I go to sign-in
+         When I click on sign up button
+         Then I should see the membrane sign up page
+
+        Examples:
+            | ID |
+            | 3  |
+
     @TEST_LM-8836
     Scenario Outline: Sign In - Password Empty
-        Given user at Sign In page
-        When user put <email> on field e-mail
-        And user leaves password field empty
-        Then the Next Button should be disabled
-        
+        Given I go to sign-in
+         When I type <email> in the email field
+          And I do not fill the password field
+         Then I should see the Next button disabled
+
         Examples:
-            | email                     |
-            | cypress+01@membrane.trade |
+          | ID | email                      |
+          |  4 | cypress+01@blockchain.test |
     
     @TEST_LM-8837
     Scenario Outline: Sign In - Email Empty
-        Given user at Sign In page
-        When user put <password> on field password
-        And user leaves email field empty
-        Then the Next Button should be disabled
+        Given I go to sign-in
+         When I type <password> in the password field
+          And I do not fill the email field
+         Then I should see the Next button disabled
 
         Examples:
-            | password |
-            | 123456   |
+          | ID | password |
+          |  5 | 123456   |
     
     @TEST_LM-8838
-    Scenario: Sign In - Email & Password Empty
-        Given user at Sign In page
-        When user leaves Email and Password empty
-        Then the Next Button should be disabled
+    Scenario Outline: Sign In - Email & Password Empty
+        Given I go to sign-in
+         When I do not fill in the email and password fields
+         Then I should see the Next button disabled
 
-    @TEST_LM-8839
-   Scenario Outline: Sign In - Token Invalid
-       Given user at Sign In page
-       When the user completes with <email>, <password> valid data
-       And user redirect to twofactor autentication page
-       And user put token <invalid> in field token
-       Then the alert message label "Your code is wrong or expired, try again" should be shown
-       And the alert pop message "Your code is wrong or expired, try again" should be shown
+        Examples:
+            | ID |
+            | 6  |
+ 
+   @TEST_LM-9340
+   Scenario Outline: Sign In - Page Two Factor Autentication
+       Given I go to sign-in
+        When I type <email>, <password> in the email and password fields
+        Then I should see the twofactor autentication page
 
        Examples:
-           | ID | email         | password      | invalid |
-           | 1  | USER_EMAIL_05 | USER_PASSWORD | 123456  |
+           | ID | email         | password      |
+           | 7  | USER_EMAIL_05 | USER_PASSWORD |
+
+   @TEST_LM-8839
+   Scenario Outline: Sign In - Token Invalid
+       Given I go to sign-in
+        When I type <email>, <password> in the email and password fields
+         And I type <token> invalid in the token field
+        Then I should see the message label Your code is wrong or expired, try again
+         And I should see the pop-up message Your code is wrong or expired, try again
+
+       Examples:
+           | ID | email         | password      | token  |
+           | 8  | USER_EMAIL_05 | USER_PASSWORD | 123456 |
+
 
     @TEST_LM-8840
-    Scenario: Sign In - Invalid Data
-        Given the user is on the Membrane Page
-        When the user try logs in to his account with invalid data
-        Then the alert message label "Error: Wrong email or password, try again" should be shown
+    Scenario Outline: Sign In - Invalid Data
+        Given I go to sign-in
+         When I type <email>, <password> invalid in the email and password fields
+         Then I should see the message label Error: Wrong email or password, try again
+
+       Examples:
+           | ID | email                      | password  |
+           | 9  | cypress+05@blockchain.test | 12345     |
 
     @TEST_LM-8851
-    Scenario: Sign In - Send New Token
-         Given the user is on the Two Factor Authentication
-         When the user click on "Send new messege"
-         Then the new token will be sent
+    Scenario Outline: Sign In - Validate Send New Token
+        Given I go to sign-in
+          And I click on Send new messege button after logging in
+         Then I should see new token
 
-    @TEST_LM-8061
-    Scenario Outline: Log Out - Happy Path
-        Given user is login into the Membrane page with <email>, <password> and <secret>
-        When the user logs out
-        Then user is redirected to "Sign In" page
-        Examples:
-            | ID | email         | password      | secret         |
-            | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
+       Examples:
+           | ID | email         | password      |
+           | 10 | USER_EMAIL_06 | USER_PASSWORD |
+
+

@@ -29,32 +29,32 @@ Feature: Sign Up
         When user uses an email already registered
         Then an alert will appear .
 
-    # Scenario: Sign Up Page - First Name Field : Empty
+# Scenario: Sign Up Page - First Name Field : Empty
     #     Given user at Sign Up page
     #     When fills the sign up form but leaves First name field empty
     #     Then the alert message This field is required should be shown
-    #     And the Next Button should be disabled
+    #     And I should see the Next button disabled
 
     # # 4
     # Scenario: Sign Up Page - Last Name Field : Empty
     #     Given user at Sign Up page
     #     When fills the sign up form but leaves Last name field empty
     #     Then the alert message This field is required should be shown
-    #     And the Next Button should be disabled
+    #     And I should see the Next button disabled
 
     # # 5
     # Scenario: Sign Up Page - Email Name Field : Empty
     #     Given user at Sign Up page
     #     When fills the sign up form but leaves Email field empty
     #     Then the alert message This field is required should be shown
-    #     And the Next Button should be disabled
+    #     And I should see the Next button disabled
 
     # # 6
     # Scenario: Sign Up Page - Phone Field : Empty
     #     Given user at Sign Up page
     #     When fills the sign up form but leaves Phone field empty
     #     Then the alert message This field is required should be shown
-    #     And the Next Button should be disabled
+    #     And I should see the Next button disabled
 
     # # 7
     # Scenario: Sign Up Page - First Name Field : Wrong Values
