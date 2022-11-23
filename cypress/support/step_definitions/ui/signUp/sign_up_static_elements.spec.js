@@ -6,7 +6,7 @@ Given('the user is on the Sign Up page', function() {
     cy.clic(this.signin.global.linkSignUp)
 })
 
-Then('the user visualizes Sign Up page elements correctly', function() {
+Then('I should see the page sign-up with correct elements', function() {
     cy.clic(this.signup.global.arrowOpen)
     cy.staticElements(this.signup.global)
     
