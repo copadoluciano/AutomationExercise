@@ -1,44 +1,39 @@
 Feature: Security Center
 
-    Rule: Test Rules
-        - We will use user "05"
-        - We will test functionalities of the "Security Center"
-
-
-        @TEST_LM-8879 @TESTSET_LM-8982
+         @TEST_LM-8879 @TESTSET_LM-8982
         Scenario Outline: [E2E] <ID>- Security Center > Change Password - Happy Path
-            Given user is on the "Security Center" page with <email>, <password> and <secret>
-            When the user completes the password change data
-            Then he receives a confirmation alert.
-            And you will return to the previous password
+            Given I go to sign-in and type <email>, <password> and <secret>
+             When I type password and change for a new password
+             Then I should see the pop-up message Your password has been changed
+              And I type new password and change for the befor password
              Examples:
                 | ID | email         | password      | secret         | 
                 | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
 
         @TEST_LM-8880 @TESTSET_LM-8982
         Scenario Outline: [E2E] <ID>- Security Center > Validate Static Elements
-            Given user is on the "Security Center" page with <email>, <password> and <secret>
-            When the user is in the password change module.
-            Then the user visualizes Change Password page elements correctly
+            Given I go to sign-in and type <email>, <password> and <secret>
+             When I go to change password page
+             Then I should see the page change password with correct elements
             Examples:
                 | ID | email         | password      | secret         | 
-                | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
+                | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
 
         @TEST_LM-8881 @TESTSET_LM-8982
         Scenario Outline: [E2E] <ID>- Security Center > Change Password - Invalid Data
-            Given user is on the "Security Center" page with <email>, <password> and <secret>
-            When the user completes the password with invalid data
-            Then he receives a alert "Error: Wrong password, try again"
+            Given I go to sign-in and type <email>, <password> and <secret>
+             When I type password invalid and change for a new password
+             Then I should see message label Error: Wrong password, try again
             Examples:
                 | ID | email         | password      | secret         | 
-                | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
+                | 3  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
 
         @TEST_LM-8882 @TESTSET_LM-8982
         Scenario Outline: [E2E] <ID>- Security Center > Change Password - Passwords Empty
-            Given user is on the "Security Center" page with <email>, <password> and <secret>
-            When the user not completes the password
-            Then the "Next" button are disabled
+            Given I go to sign-in and type <email>, <password> and <secret>
+             When I do not type password and do not type a new password
+             Then I should see the Next button disabled in change password page
             Examples:
                 | ID | email         | password      | secret         | 
-                | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
+                | 4  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
 

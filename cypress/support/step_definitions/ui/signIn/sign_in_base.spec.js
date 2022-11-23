@@ -8,3 +8,7 @@ Given('I go to sign-in', function () {
 When('I type {word}, {word} and {word}', function (email, password, secret) {
     cy.login(Cypress.env(email), Cypress.env(password), Cypress.env(secret))
 })
+
+Given('I go to sign-in and type {word}, {word} and {word}', function (email, password, secret) {
+    cy.login(Cypress.env(email), Cypress.env(password), Cypress.env(secret))
+})
