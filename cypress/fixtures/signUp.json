@@ -33,5 +33,8 @@
         "buttonNextNewPassword": "//button[@data-cy='button_next']",
         "popUpRegister": "//span[contains(.,'You have successfully signed up on Membrane! Proceed to login to start the onboarding.')]"
 
+    },
+    "popAlerts": {
+        "PopAlertExistingAccount": "//span[contains(.,'The account email is already taken.')]"
     }
 }

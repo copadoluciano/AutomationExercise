@@ -1,10 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
-Given('the user needs to create a new user',()=>{
 
-})
-
-When('the user completes all the fields.',()=>{
+When('I type First and Last Name, Email, Country code and Phone Number',()=>{
     const dayjs = require('dayjs')
     const randomNumber1 = dayjs().format('MM-DD-HH-mm-ss')
     const randomEmail_1 = "cypress+" + randomNumber1 + "@blockchain.test"
@@ -12,6 +9,6 @@ When('the user completes all the fields.',()=>{
     cy.createAccount(randomNumber1, randomEmail_1)
 })
 
-Then('an alert will appear with successful registration',function(){
+Then('I should see message successful registration',function(){
     cy.isVisible(this.signup.others.popUpRegister)
 })

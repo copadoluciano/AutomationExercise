@@ -1,11 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-// Given('user is on the "Security Center" page with {word}, {word} and {word}',function(email, password, secret){
-//     cy.login(Cypress.env(email), Cypress.env(password), Cypress.env(secret))
-// })
-
-When('the user not completes the password', function() {
+When('I do not type password and do not type a new password', function() {
     cy.visit(''+ '/security-center/settings?skipCaptcha')
     cy.wait(3000)
     cy.clic(this.securityCenter.global.btnChangePassword)
@@ -15,7 +11,7 @@ When('the user not completes the password', function() {
 
 })
 
-Then('the "Next" button are disabled', function() {
+Then('I should see the Next button disabled in change password page', function() {
     cy.clic(this.securityCenter.changePasswd.others.btnNext)
     cy.isVisible(this.securityCenter.changePasswd.others.alertWrongPasswd)
 
