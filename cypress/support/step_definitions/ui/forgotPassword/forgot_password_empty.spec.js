@@ -1,10 +1,10 @@
 import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-When('the field email is empty',function(){
+When('I do not fill the email field of the Forgotten password page',function(){
     cy.isClear(this.signin.global.inputMail)
 })
 
-Then('the "Send Reset Email" button are disabled',function(){
+Then('I should see the Send Reset Email button disabled',function(){
     cy.isDisabled(this.signin.others.sendReset)
 })

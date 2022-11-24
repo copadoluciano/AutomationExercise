@@ -1,12 +1,12 @@
 import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-When('user put {word} not active on field e-mail',function(){
-    cy.clic(this.signin.global.linkForgotPassword)
-    cy.typeField(this.signin.global.inputMail, Cypress.env('USER_EMAIL_15'))
+When('I type {word} not active in the email field of the Forgotten password page',function(email){
+    cy.typeField(this.signin.global.inputMail, Cypress.env(email))
     cy.clic(this.signin.others.btnResetMail)
 })
 
-Then('the alert message "The account is not active yet." should be shown',function(){
+Then('I should see message label The account is not active yet',function(){
     cy.isVisible(this.signin.popAlerts.popAlertAccountNotActive)
 })
+
