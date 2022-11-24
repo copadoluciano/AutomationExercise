@@ -1,9 +1,13 @@
-@feature-balances-wallets
 Feature: My Balances and Wallets
+
+
+    Rule: Test Rules
+        - We will use user "17"
+        - We will test functionalities of the "My Balances and Wallets"
 
     @TEST_LM-8873
     Scenario Outline: My Balances - Validate Static Elements
-        Given user is on the "Membrane" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user goes to "My Balances & Credits"
         Then the user visualizes "My Balances & Credits" page elements correctly
 
@@ -13,8 +17,8 @@ Feature: My Balances and Wallets
 
     @TEST_LM-8874
     Scenario Outline: My Wallets - Validate Static Elements
-        Given user is on the "Membrane" page with <email>, <password> and <secret>
-        When the user is redirected to the My Wallets page
+        Given the user is in sign-in and type <email>, <password> and <secret>
+        When the user goes to "My Wallets"
         Then the user visualizes "My Wallets" page elements correctly
 
         Examples:
@@ -23,10 +27,12 @@ Feature: My Balances and Wallets
 
     @TEST_LM-8875
     Scenario Outline: My Balances & Credits - Add Custom Token
-        Given user is on the "Membrane" page with <email>, <password> and <secret>
-        When the user add contract <contract>
+        Given the user is in sign-in and type <email>, <password> and <secret>
+        When the user goes to "My Wallets"
+        And the user import contract <contract> in "Manage Tokens"
         Then the <symbol> contract is on the "My balances and Credits" page
-        And goes to the "My Wallets" page to delete <symbol> token
+        And goes to the "Manage Tokens" page to delete <symbol> token
+        Then the <symbol> will not appear in "Manage Tokens" and "My Wallets"
 
         Examples:
             | ID | email         | password      | secret         | contract                                   | symbol |
@@ -34,7 +40,7 @@ Feature: My Balances and Wallets
 
     @TEST_LM-8876
     Scenario Outline: My Balances & Credits - Add Already Custom Token
-        Given user is on the "Membrane" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user add already contract <contract>
         Then the <symbol> contract is already in the list
 
@@ -44,8 +50,9 @@ Feature: My Balances and Wallets
 
     @TEST_LM-8877
     Scenario Outline: Manage Tokens - Validate Static Elements
-        Given user is on the "Membrane" page with <email>, <password> and <secret>
-        When the user is redirected to the "Manage Tokens" <contract>
+        Given the user is in sign-in and type <email>, <password> and <secret>
+        When the user goes to "My Wallets"
+        And the user open "Manage Tokens" and import <contract>
         Then the user visualizes "Manage Tokens" page elements correctly with <symbol>
 
         Examples:

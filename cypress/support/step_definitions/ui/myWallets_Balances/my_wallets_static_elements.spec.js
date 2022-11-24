@@ -1,8 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-When('the user is redirected to the My Wallets page', function() {
-    cy.wait(2000)
+When('the user goes to "My Wallets"', function() {
     cy.selectRightMenu("My Wallets")
 })
 

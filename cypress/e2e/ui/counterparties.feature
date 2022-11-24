@@ -1,5 +1,11 @@
 
 Feature: Invite user
+
+    Rule: Test Rules
+        - We will use user "17"
+        - We will test functionalities of the "Counterparties"
+
+
     # @TEST_LM-8864 @TESTSET_LM-9020
     # Scenario Outline: [E2E] <ID>- Counterparties > Static Elements
     #     Given user need to see the static elements
@@ -11,7 +17,7 @@ Feature: Invite user
 
     @TEST_LM-8865 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Counterparty
-        Given user is on the "Counterparties" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When I invite a <counterparty> to trade with me
         Then the <counterparty> will appear in pending invites
         Examples:
@@ -20,7 +26,7 @@ Feature: Invite user
 
     @TEST_LM-8867 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Already Exist
-        Given user is on the "Counterparties" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user invite <counterparty> an already user to trade with me
         Then You will receive an alert "This invitation already exists"
         Examples:
@@ -29,7 +35,7 @@ Feature: Invite user
 
     @TEST_LM-8868 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Invitation Rejected
-        Given user is on the "Counterparties" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user invite a new <cp_email> to trade with me
         And the counterparty with credentials <cp_email>, <cp_password> and <cp_secret> the <email> invitation
         Then the invitation of <email> will disappear from the panel of the invited user
@@ -39,7 +45,7 @@ Feature: Invite user
 
     @TEST_LM-8869 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Try Disabled Counterparty With Open Order
-        Given user is on the "Counterparties" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user try to disabled a <cp_email>
         Then the user receive an alert to cant disable the counterparty because they have an open order
         Examples:
@@ -47,7 +53,7 @@ Feature: Invite user
             | 5  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | USER_EMAIL_18 |
     @TEST_LM-8870 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Try create order with disabled counterparty
-        Given user is on the "Counterparties" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user try to create order with blocked <cp_email>
         Then the user receive an alert to cant create New Order because doesnt have enabled your <cp_email>
         Examples:
@@ -55,7 +61,7 @@ Feature: Invite user
             | 6  | USER_EMAIL_21 | USER_PASSWORD | SECRET_21_DEMO | USER_EMAIL_17 |
     @TEST_LM-8871 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Try create order with Not Available counterparty
-        Given user is on the "Counterparties" page with <email>, <password> and <secret>
+        Given the user is in sign-in and type <email>, <password> and <secret>
         When the user try to create order with Not Available <cp_email>
         Then the user doesnt have this <cp_email> enabled to create an trading and lending operation
         Examples:

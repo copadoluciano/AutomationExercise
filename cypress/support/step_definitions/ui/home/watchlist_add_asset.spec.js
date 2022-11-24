@@ -2,7 +2,7 @@ import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 require('cypress-xpath')
 
 
-When('you add an {word} to the watchlist', function(currency) {
+When('the user add an {word} to the watchlist', function(currency) {
     cy.clic(this.home.watchlist.buttonEditWatch)
     cy.wait(3000)
     cy.selectCustomToken(this.home.watchlist.editWatchList.inputAsset, currency)

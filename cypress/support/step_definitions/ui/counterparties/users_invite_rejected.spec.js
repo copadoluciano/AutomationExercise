@@ -1,10 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-// Given('user is on the "Counterparties" page with {word}, {word} and {word}',function(email, password, secret){
-//     cy.login(Cypress.env(email), Cypress.env(password), Cypress.env(secret))
-// })
-
 When('the user invite a new {word} to trade with me',function(cp_email){
     cy.inviteUser(Cypress.env(cp_email))
     cy.logout()
@@ -17,5 +13,4 @@ When('the counterparty with credentials {word}, {word} and {word} the {word} inv
 })
 Then('the invitation of {word} will disappear from the panel of the invited user',function(email){
     cy.isNotExist("//DIV[contains(text(),'Received')]/..//DIV[text()='"+Cypress.env(email)+"']")
-    cy.logout()
 })

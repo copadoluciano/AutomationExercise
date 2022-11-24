@@ -28,7 +28,7 @@
 
     },
     "inviteUser": {
-        "btnInviteCounterparty": "//span[contains(text(),'+ Invite')]",
+        "btnInviteCounterparty": "//span[contains(text(),'+ Invite Counterparty')]",
         "option":{
             "tittle": "//h2[@data-cy='modal_title_invite']",
             "btnIndividual": "(//div[@data-cy='option_label'])[1]",

@@ -1,10 +1,8 @@
 import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-// Given Login Library
 
 When('the user is redirected to the "Transfers" page', function() {
-    cy.wait(2000)
     cy.clic(this.header.header.btnTransfers)
 })
 
