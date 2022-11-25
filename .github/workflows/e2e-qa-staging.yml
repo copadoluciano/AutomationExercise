@@ -64,7 +64,7 @@ jobs:
                     "client_secret": "${{ secrets.XRAY_CLIENT_SECRET }}"
                 }'| tr -d '"')" >> $GITHUB_OUTPUT
 
-      - name: echo token
+      - name: Export results to xray
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 
