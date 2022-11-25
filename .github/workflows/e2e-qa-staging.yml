@@ -62,10 +62,11 @@ jobs:
                 --data-raw '{
                     "client_id": "${{ secrets.XRAY_CLIENT_ID }}",
                     "client_secret": "${{ secrets.XRAY_CLIENT_SECRET }}"
-                }')" >> $GITHUB_OUTPUT
+                }'| tr -d '"')" >> $GITHUB_OUTPUT
 
       - name: echo token
-        run: ${{ steps.xray-token.outputs.XRAY_TOKEN }}
+        run: |
+          curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 
       # - name: 'Upload screenshots and videos to Slack'
       #   uses: trymbill/cypress-slack-video-upload-action@v1.3.0
