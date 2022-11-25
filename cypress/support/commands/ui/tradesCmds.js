@@ -43,10 +43,11 @@ Cypress.Commands.add('rejectOrder', function () {
     cy.wait(2000)
     cy.clic(this.buySell.cardClose.buttonViewMore)
     cy.clic(this.buySell.reviewAcceptedOrder.buttonRejectOrder)
-    cy.clic(this.buySell.reviewAcceptedOrder.buttonAcceptConfirmation2)
+    cy.clic(this.buySell.reviewAcceptedOrder.buttonAcceptConfirmation)
 })
 
 Cypress.Commands.add('acceptOrderBuy', function () {
+
     cy.wait(3000)
     cy.clic("(//span[contains(.,'View More')])[1]")
     cy.clic(this.buySell.reviewAcceptedOrder.buttonAcceptOrder)

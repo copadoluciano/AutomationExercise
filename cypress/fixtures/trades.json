@@ -124,7 +124,7 @@
         "buttonAcceptOrder": "//*[local-name()='svg' and @data-icon='check' and @style='--color:#6fcf97;']",
         "buttonAcceptConfirmation2": "//button[@type='submit'][contains(.,'Accept')]",
         "buttonAcceptConfirmation": "//span[contains(.,'Accept')]",
-        "buttonRejectOrder": "//span[contains(.,'Reject')]",
+        "buttonRejectOrder": "//*[local-name()='svg' and @data-icon='xmark']",
         "orderId": "",
         "setId": "",
         "sendValueMaker": "(//div[contains(@class,'2bDVW')])[1]",
