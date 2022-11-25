@@ -56,8 +56,8 @@ module.exports = defineConfig({
     responseTimeout:50000,
     viewportWidth: 1500,
     viewportHeight: 1000,
-    //projectId: "9s68dt", (cypress)
-    projectId: 'x0t9Vx', // current
+    projectId: "9s68dt", //(cypress)
+    //projectId: 'x0t9Vx', // current
     video: false,
     excludeSpecPattern: [
       "*.js",
