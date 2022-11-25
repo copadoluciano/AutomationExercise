@@ -1,0 +1,448 @@
+name: qa-e2e prod
+on:
+  workflow_dispatch:
+    inputs:
+      testname:
+        description: 'The name test case to execute.'
+        required: true
+  schedule:
+    - cron: '0 */30 1-31 * *'
+
+jobs:
+  sign-in-home-forgot-logout-settlements-test:
+    runs-on: [self-hosted, e2e-signin]
+    timeout-minutes: 20
+    # let's make sure our tests pass on Chrome browser
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
+    name: sign-in-home-forgot-logout-settlements-test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: prod
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          # start: yarn start:ci
+          browser: chrome
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          # parallel: true
+          # group: 'Run test'
+          spec: |
+            cypress/integration/e2e/features/signIn.feature
+            cypress/integration/e2e/features/home.feature
+            cypress/integration/e2e/features/forgotPassword.feature
+            cypress/integration/e2e/features/securityCenter.feature
+            
+            
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENV: DEMO
+          CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
+          CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
+          CYPRESS_USER_EMAIL_03: ${{ secrets.CYPRESS_USER_EMAIL_03 }}
+          CYPRESS_USER_EMAIL_04: ${{ secrets.CYPRESS_USER_EMAIL_04 }}
+          CYPRESS_USER_EMAIL_05: ${{ secrets.CYPRESS_USER_EMAIL_05 }}
+          CYPRESS_USER_EMAIL_06: ${{ secrets.CYPRESS_USER_EMAIL_06 }}
+          CYPRESS_USER_EMAIL_07: ${{ secrets.CYPRESS_USER_EMAIL_07 }}
+          CYPRESS_USER_EMAIL_08: ${{ secrets.CYPRESS_USER_EMAIL_08 }}
+          CYPRESS_USER_EMAIL_09: ${{ secrets.CYPRESS_USER_EMAIL_09 }}
+          CYPRESS_USER_EMAIL_10: ${{ secrets.CYPRESS_USER_EMAIL_10 }}
+          CYPRESS_USER_EMAIL_11: ${{ secrets.CYPRESS_USER_EMAIL_11 }}
+          CYPRESS_USER_EMAIL_12: ${{ secrets.CYPRESS_USER_EMAIL_12 }}
+          CYPRESS_USER_EMAIL_13: ${{ secrets.CYPRESS_USER_EMAIL_13 }}
+          CYPRESS_USER_EMAIL_14: ${{ secrets.CYPRESS_USER_EMAIL_14 }}
+          CYPRESS_USER_EMAIL_15: ${{ secrets.CYPRESS_USER_EMAIL_15 }}
+          CYPRESS_USER_EMAIL_16: ${{ secrets.CYPRESS_USER_EMAIL_16 }}
+          CYPRESS_USER_EMAIL_17: ${{ secrets.CYPRESS_USER_EMAIL_17 }}
+          CYPRESS_USER_EMAIL_18: ${{ secrets.CYPRESS_USER_EMAIL_18 }}
+          CYPRESS_USER_EMAIL_19: ${{ secrets.CYPRESS_USER_EMAIL_19 }}
+          CYPRESS_USER_EMAIL_20: ${{ secrets.CYPRESS_USER_EMAIL_20 }}
+          CYPRESS_USER_EMAIL_21: ${{ secrets.CYPRESS_USER_EMAIL_21 }}
+          CYPRESS_USER_EMAIL_22: ${{ secrets.CYPRESS_USER_EMAIL_22 }}
+          CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
+
+
+          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+
+          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+
+          CYPRESS_SKIPCAPTCHA: /?skipCaptcha
+          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
+          CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
+
+      - name: 'Upload screenshots and videos to Slack'
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        if: failure()
+        with:
+          token: ${{ secrets.SLACK_ALARMS_TOKEN }}
+          channels: 'cypress-e2e-prod'
+          message-text: 'Environment Prod - E2E tests in branch prod is failed! add evidence to this thread, check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} '
+
+  buysell-test:
+    runs-on: [self-hosted, e2e-buysell]
+    timeout-minutes: 40
+    # let's make sure our tests pass on Chrome browser
+    container: cypress/browsers:node16.17.0-chrome106
+    name: buysell-test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: prod
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          # start: yarn start:ci
+          browser: chrome
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          # parallel: true
+          # group: 'Run test'
+          spec: |
+            cypress/integration/e2e/features/trades.feature
+            
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENV: DEMO
+          CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
+          CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
+          CYPRESS_USER_EMAIL_03: ${{ secrets.CYPRESS_USER_EMAIL_03 }}
+          CYPRESS_USER_EMAIL_04: ${{ secrets.CYPRESS_USER_EMAIL_04 }}
+          CYPRESS_USER_EMAIL_05: ${{ secrets.CYPRESS_USER_EMAIL_05 }}
+          CYPRESS_USER_EMAIL_06: ${{ secrets.CYPRESS_USER_EMAIL_06 }}
+          CYPRESS_USER_EMAIL_07: ${{ secrets.CYPRESS_USER_EMAIL_07 }}
+          CYPRESS_USER_EMAIL_08: ${{ secrets.CYPRESS_USER_EMAIL_08 }}
+          CYPRESS_USER_EMAIL_09: ${{ secrets.CYPRESS_USER_EMAIL_09 }}
+          CYPRESS_USER_EMAIL_10: ${{ secrets.CYPRESS_USER_EMAIL_10 }}
+          CYPRESS_USER_EMAIL_11: ${{ secrets.CYPRESS_USER_EMAIL_11 }}
+          CYPRESS_USER_EMAIL_12: ${{ secrets.CYPRESS_USER_EMAIL_12 }}
+          CYPRESS_USER_EMAIL_13: ${{ secrets.CYPRESS_USER_EMAIL_13 }}
+          CYPRESS_USER_EMAIL_14: ${{ secrets.CYPRESS_USER_EMAIL_14 }}
+          CYPRESS_USER_EMAIL_15: ${{ secrets.CYPRESS_USER_EMAIL_15 }}
+          CYPRESS_USER_EMAIL_16: ${{ secrets.CYPRESS_USER_EMAIL_16 }}
+          CYPRESS_USER_EMAIL_17: ${{ secrets.CYPRESS_USER_EMAIL_17 }}
+          CYPRESS_USER_EMAIL_18: ${{ secrets.CYPRESS_USER_EMAIL_18 }}
+          CYPRESS_USER_EMAIL_19: ${{ secrets.CYPRESS_USER_EMAIL_19 }}
+          CYPRESS_USER_EMAIL_20: ${{ secrets.CYPRESS_USER_EMAIL_20 }}
+          CYPRESS_USER_EMAIL_21: ${{ secrets.CYPRESS_USER_EMAIL_21 }}
+          CYPRESS_USER_EMAIL_22: ${{ secrets.CYPRESS_USER_EMAIL_22 }}
+          CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
+
+
+          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+
+          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SKIPCAPTCHA: /?skipCaptcha
+          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
+          CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
+
+      - name: 'Upload screenshots and videos to Slack'
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        if: failure()
+        with:
+          token: ${{ secrets.SLACK_ALARMS_TOKEN }}
+          channels: 'cypress-e2e-prod'
+          message-text: 'Environment Prod - E2E tests in branch prod is failed! add evidence to this thread, check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} '
+
+  balance-wallets-invites-test:
+    runs-on: [self-hosted, e2e-balance]
+    timeout-minutes: 20
+    # let's make sure our tests pass on Chrome browser
+    container: cypress/browsers:node16.17.0-chrome106
+    name: balance-wallets-invites-test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: prod
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          # start: yarn start:ci
+          browser: chrome
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          # parallel: true
+          # group: 'Run test'
+          spec: |
+            cypress/integration/e2e/features/invites.feature
+            cypress/integration/e2e/features/myBalancesAndWallets.feature
+            cypress/integration/e2e/features/settlements.feature
+            
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENV: DEMO
+          CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
+          CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
+          CYPRESS_USER_EMAIL_03: ${{ secrets.CYPRESS_USER_EMAIL_03 }}
+          CYPRESS_USER_EMAIL_04: ${{ secrets.CYPRESS_USER_EMAIL_04 }}
+          CYPRESS_USER_EMAIL_05: ${{ secrets.CYPRESS_USER_EMAIL_05 }}
+          CYPRESS_USER_EMAIL_06: ${{ secrets.CYPRESS_USER_EMAIL_06 }}
+          CYPRESS_USER_EMAIL_07: ${{ secrets.CYPRESS_USER_EMAIL_07 }}
+          CYPRESS_USER_EMAIL_08: ${{ secrets.CYPRESS_USER_EMAIL_08 }}
+          CYPRESS_USER_EMAIL_09: ${{ secrets.CYPRESS_USER_EMAIL_09 }}
+          CYPRESS_USER_EMAIL_10: ${{ secrets.CYPRESS_USER_EMAIL_10 }}
+          CYPRESS_USER_EMAIL_11: ${{ secrets.CYPRESS_USER_EMAIL_11 }}
+          CYPRESS_USER_EMAIL_12: ${{ secrets.CYPRESS_USER_EMAIL_12 }}
+          CYPRESS_USER_EMAIL_13: ${{ secrets.CYPRESS_USER_EMAIL_13 }}
+          CYPRESS_USER_EMAIL_14: ${{ secrets.CYPRESS_USER_EMAIL_14 }}
+          CYPRESS_USER_EMAIL_15: ${{ secrets.CYPRESS_USER_EMAIL_15 }}
+          CYPRESS_USER_EMAIL_16: ${{ secrets.CYPRESS_USER_EMAIL_16 }}
+          CYPRESS_USER_EMAIL_17: ${{ secrets.CYPRESS_USER_EMAIL_17 }}
+          CYPRESS_USER_EMAIL_18: ${{ secrets.CYPRESS_USER_EMAIL_18 }}
+          CYPRESS_USER_EMAIL_19: ${{ secrets.CYPRESS_USER_EMAIL_19 }}
+          CYPRESS_USER_EMAIL_20: ${{ secrets.CYPRESS_USER_EMAIL_20 }}
+          CYPRESS_USER_EMAIL_21: ${{ secrets.CYPRESS_USER_EMAIL_21 }}
+          CYPRESS_USER_EMAIL_22: ${{ secrets.CYPRESS_USER_EMAIL_22 }}
+          CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
+
+
+          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+
+          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SKIPCAPTCHA: /?skipCaptcha
+          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
+          CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
+
+      - name: 'Upload screenshots and videos to Slack'
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        if: failure()
+        with:
+          token: ${{ secrets.SLACK_ALARMS_TOKEN }}
+          channels: 'cypress-e2e-prod'
+          message-text: 'Environment Prod - E2E tests in branch prod is failed! add evidence to this thread, check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} '
+
+  loans-test:
+    runs-on: [self-hosted, e2e-loans]
+    timeout-minutes: 40
+    # let's make sure our tests pass on Chrome browser
+    container: cypress/browsers:node16.17.0-chrome106
+    name: loans-test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: prod
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          # start: yarn start:ci
+          browser: chrome
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          # parallel: true
+          # group: 'Run test'
+          spec: |
+            cypress/integration/e2e/features/loan.feature
+            
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENV: DEMO
+          CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
+          CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
+          CYPRESS_USER_EMAIL_03: ${{ secrets.CYPRESS_USER_EMAIL_03 }}
+          CYPRESS_USER_EMAIL_04: ${{ secrets.CYPRESS_USER_EMAIL_04 }}
+          CYPRESS_USER_EMAIL_05: ${{ secrets.CYPRESS_USER_EMAIL_05 }}
+          CYPRESS_USER_EMAIL_06: ${{ secrets.CYPRESS_USER_EMAIL_06 }}
+          CYPRESS_USER_EMAIL_07: ${{ secrets.CYPRESS_USER_EMAIL_07 }}
+          CYPRESS_USER_EMAIL_08: ${{ secrets.CYPRESS_USER_EMAIL_08 }}
+          CYPRESS_USER_EMAIL_09: ${{ secrets.CYPRESS_USER_EMAIL_09 }}
+          CYPRESS_USER_EMAIL_10: ${{ secrets.CYPRESS_USER_EMAIL_10 }}
+          CYPRESS_USER_EMAIL_11: ${{ secrets.CYPRESS_USER_EMAIL_11 }}
+          CYPRESS_USER_EMAIL_12: ${{ secrets.CYPRESS_USER_EMAIL_12 }}
+          CYPRESS_USER_EMAIL_13: ${{ secrets.CYPRESS_USER_EMAIL_13 }}
+          CYPRESS_USER_EMAIL_14: ${{ secrets.CYPRESS_USER_EMAIL_14 }}
+          CYPRESS_USER_EMAIL_15: ${{ secrets.CYPRESS_USER_EMAIL_15 }}
+          CYPRESS_USER_EMAIL_16: ${{ secrets.CYPRESS_USER_EMAIL_16 }}
+          CYPRESS_USER_EMAIL_17: ${{ secrets.CYPRESS_USER_EMAIL_17 }}
+          CYPRESS_USER_EMAIL_18: ${{ secrets.CYPRESS_USER_EMAIL_18 }}
+          CYPRESS_USER_EMAIL_19: ${{ secrets.CYPRESS_USER_EMAIL_19 }}
+          CYPRESS_USER_EMAIL_20: ${{ secrets.CYPRESS_USER_EMAIL_20 }}
+          CYPRESS_USER_EMAIL_21: ${{ secrets.CYPRESS_USER_EMAIL_21 }}
+          CYPRESS_USER_EMAIL_22: ${{ secrets.CYPRESS_USER_EMAIL_22 }}
+          CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
+
+
+          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+
+          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SKIPCAPTCHA: /?skipCaptcha
+          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
+          CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
+
+      - name: 'Upload screenshots and videos to Slack'
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        if: failure()
+        with:
+          token: ${{ secrets.SLACK_ALARMS_TOKEN }}
+          channels: 'cypress-e2e-prod'
+          message-text: 'Environment Prod - E2E tests in branch prod is failed! add evidence to this thread, check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} '
+
