@@ -1,12 +1,8 @@
 name: qa-e2e staging
 on:
-  workflow_dispatch:
-    inputs:
-      testname:
-        description: 'The name test case to execute.'
-        required: true
-  schedule:
-    - cron: '0 */30 1-31 * *'
+  push:
+    branches:
+      - main
 
 jobs:
   cypress:
