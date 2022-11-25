@@ -65,7 +65,7 @@ jobs:
           --header 'Content-Type: application/json' \
           --data-raw '{
               "client_id": ${{ secrets.XRAY_CLIENT_ID }},
-              "client_secret": ${{ secrets.XRAY_CLIENT_ID }}
+              "client_secret": ${{ secrets.XRAY_CLIENT_SECRET }}
           }')" >> $GITHUB_OUTPUT
 
       - name: echo token
