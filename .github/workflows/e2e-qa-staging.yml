@@ -62,11 +62,11 @@ jobs:
         id: xray-token
         run: |
           echo "XRAY_TOKEN=$(curl --location --request POST '${{ env.BASE_URL }}' \
-          --header 'Content-Type: application/json' \
-          --data-raw '{
-              "client_id": ${{ secrets.XRAY_CLIENT_ID }},
-              "client_secret": ${{ secrets.XRAY_CLIENT_SECRET }}
-          }')" >> $GITHUB_OUTPUT
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "client_id": "${{ secrets.XRAY_CLIENT_ID }}",
+                    "client_secret": "${{ secrets.XRAY_CLIENT_SECRET }}"
+                }')" >> $GITHUB_OUTPUT
 
       - name: echo token
         run: ${{ steps.xray-token.outputs.XRAY_TOKEN }}
