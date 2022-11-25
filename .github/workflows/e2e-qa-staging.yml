@@ -45,18 +45,18 @@ jobs:
           npm install -g @deepakvishwakarma/cucumber-json-formatter
           
 
-      - name: Install Dependencies
-        run: npm install
+      # - name: Install Dependencies
+      #   run: npm install
         
-      - name: Run test
-        continue-on-error: true
-        run: npm run test      
+      # - name: Run test
+      #   continue-on-error: true
+      #   run: npm run test      
 
-      - name: Run report
-        run: npm run report:formatter
+      # - name: Run report
+      #   run: npm run report:formatter
 
-      - name: Create cucumber-report.json
-        run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
+      # - name: Create cucumber-report.json
+      #   run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
 
       - name: Get token
         id: xray-token
