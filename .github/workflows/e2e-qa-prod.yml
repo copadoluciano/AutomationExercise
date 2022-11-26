@@ -104,9 +104,17 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
-      - name: Run test
-        continue-on-error: true
-        run: npm run test      
+      # - name: Run test
+      #   continue-on-error: true
+      #   run: npm run test      
+
+      - name: Run tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          # start: yarn start:ci
+          browser: chrome
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
 
       - name: Run report
         run: npm run report:formatter
