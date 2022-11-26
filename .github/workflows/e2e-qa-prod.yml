@@ -118,8 +118,8 @@ jobs:
           # start: yarn start:ci
           browser: chrome
           config: pageLoadTimeout=100000
-        spec: |
-          cypress/e2e/**/**/*.feature
+          spec: |
+            cypress/e2e/**/**/*.feature
 
       - name: Run report
         run: npm run report:formatter
