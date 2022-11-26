@@ -9,4 +9,4 @@ Feature: Log out
         
         Examples:
             | ID | email         | password      | secret         |
-            | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
+            | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |

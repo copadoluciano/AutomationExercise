@@ -5,7 +5,7 @@ require('cypress-xpath')
 // Given Login Library
 
 Given('user at "Generate Settlement"',function(){
-    cy.login(Cypress.env('USER_EMAIL_07'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_07_DEMO'))
+    cy.login(Cypress.env('USER_EMAIL_07'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_07'))
     cy.wait(2000)
     //Create Order
     cy.createOrderBuy(operation, currency, quantity, unit, price, duration1, duration2, counterparty)
@@ -17,7 +17,7 @@ Given('user at "Generate Settlement"',function(){
 When('the user create new tradesettlement between ethereum network vs ethereum network and chooses Decentralized Settlement', function(){
    
     //Accept order
-    cy.login(Cypress.env('USER_EMAIL_08'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_08_DEMO'))
+    cy.login(Cypress.env('USER_EMAIL_08'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_08'))
     cy.wait(3000)
     cy.clic(this.header.header.btnTrades)
     cy.validateCardsTradesTaker()
