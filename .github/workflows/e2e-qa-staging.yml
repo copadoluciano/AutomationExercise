@@ -43,6 +43,7 @@ jobs:
       CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
       CYPRESS_USER_EMAIL_24: ${{ secrets.CYPRESS_USER_EMAIL_24 }}
 
+
       #SECRETS
       CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_STG }}
       CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_STG }}
