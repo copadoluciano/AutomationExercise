@@ -21,7 +21,7 @@ Then('the user visualizes Trade page elements correctly', function () {
     cy.clic(this.buySell.cardClose.buttonViewMore)
     cy.staticElements(this.buySell.reviewOrder)
     cy.logout()
-    cy.login(Cypress.env('USER_EMAIL_20'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_20_DEMO'))
+    cy.login(Cypress.env('USER_EMAIL_20'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_20'))
     cy.clic(this.header.header.btnTrades)
     cy.staticElements(this.buySell.global)
     cy.staticElements(this.buySell.cardClose)

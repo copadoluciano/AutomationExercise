@@ -12,7 +12,7 @@ Feature: Transfers
 
             Examples:
                 | ID | email         | password      | secret         |
-                | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO |
+                | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
         @TEST_LM-8884
         Scenario Outline: [E2E] <ID>- Transfers > Validate Preview Settlement Classic
@@ -22,7 +22,7 @@ Feature: Transfers
 
             Examples:
                 | ID | email         | password      | secret         |
-                | 1  | USER_EMAIL_07 | USER_PASSWORD | SECRET_07_DEMO |
+                | 1  | USER_EMAIL_07 | USER_PASSWORD | SECRET_07 |
 
     # # 2
     # Scenario: Transfers - Validate Preview Settlement Decentralized

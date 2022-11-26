@@ -13,7 +13,7 @@ Feature: My Balances and Wallets
 
         Examples:
             | ID | email         | password      | secret         |
-            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO |
+            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
     @TEST_LM-8874
     Scenario Outline: My Wallets - Validate Static Elements
@@ -23,7 +23,7 @@ Feature: My Balances and Wallets
 
         Examples:
             | ID | email         | password      | secret         |
-            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO |
+            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
     @TEST_LM-8875
     Scenario Outline: My Balances & Credits - Add Custom Token
@@ -36,7 +36,7 @@ Feature: My Balances and Wallets
 
         Examples:
             | ID | email         | password      | secret         | contract                                   | symbol |
-            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | 0xC669928185DbCE49d2230CC9B0979BE6DC797957 | BTT    |
+            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | 0xC669928185DbCE49d2230CC9B0979BE6DC797957 | BTT    |
 
     @TEST_LM-8876
     Scenario Outline: My Balances & Credits - Add Already Custom Token
@@ -46,7 +46,7 @@ Feature: My Balances and Wallets
 
         Examples:
             | ID | email         | password      | secret         | contract                                   | symbol |
-            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
+            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
 
     @TEST_LM-8877
     Scenario Outline: Manage Tokens - Validate Static Elements
@@ -57,7 +57,7 @@ Feature: My Balances and Wallets
 
         Examples:
             | ID | email         | password      | secret         | contract                                   | symbol |
-            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | 0x514910771AF9Ca656af840dff83E8264EcF986CA | LINK   |
+            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | 0x514910771AF9Ca656af840dff83E8264EcF986CA | LINK   |
 
 
 

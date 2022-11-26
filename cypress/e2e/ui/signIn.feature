@@ -18,7 +18,7 @@ Feature: Sign In
 
         Examples:
             | ID | email         | password      | secret         |
-            | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05_DEMO |
+            | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
 
     @TEST_LM-8835
     Scenario Outline: Sign In - Go to Sign Up Page

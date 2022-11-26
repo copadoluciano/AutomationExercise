@@ -13,7 +13,7 @@ Feature: Invite user
     #     Then the user visualizes "Users" page elements correctly
     #     Examples:
     #         | ID | email         | password      | secret         | counterparty  |
-    #         | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | USER_EMAIL_01 |
+    #         | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_01 |
 
     @TEST_LM-8865 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Counterparty
@@ -22,7 +22,7 @@ Feature: Invite user
         Then the <counterparty> will appear in pending invites
         Examples:
             | ID | email         | password      | secret         | counterparty  |
-            | 2  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | USER_EMAIL_01 |
+            | 2  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_01 |
 
     @TEST_LM-8867 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Already Exist
@@ -31,7 +31,7 @@ Feature: Invite user
         Then You will receive an alert "This invitation already exists"
         Examples:
             | ID | email         | password      | secret         | counterparty  |
-            | 3  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | USER_EMAIL_18 |
+            | 3  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
 
     @TEST_LM-8868 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Invitation Rejected
@@ -41,7 +41,7 @@ Feature: Invite user
         Then the invitation of <email> will disappear from the panel of the invited user
         Examples:
             | ID | email         | password      | secret         | cp_email      | cp_password   | cp_secret      |
-            | 4  | USER_EMAIL_16 | USER_PASSWORD | SECRET_16_DEMO | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO |
+            | 4  | USER_EMAIL_16 | USER_PASSWORD | SECRET_16 | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
     @TEST_LM-8869 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Try Disabled Counterparty With Open Order
@@ -50,7 +50,7 @@ Feature: Invite user
         Then the user receive an alert to cant disable the counterparty because they have an open order
         Examples:
             | ID | email         | password      | secret         | cp_email      |
-            | 5  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17_DEMO | USER_EMAIL_18 |
+            | 5  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
     @TEST_LM-8870 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Try create order with disabled counterparty
         Given the user is in sign-in and type <email>, <password> and <secret>
@@ -58,7 +58,7 @@ Feature: Invite user
         Then the user receive an alert to cant create New Order because doesnt have enabled your <cp_email>
         Examples:
             | ID | email         | password      | secret         | cp_email      |
-            | 6  | USER_EMAIL_21 | USER_PASSWORD | SECRET_21_DEMO | USER_EMAIL_17 |
+            | 6  | USER_EMAIL_21 | USER_PASSWORD | SECRET_21 | USER_EMAIL_17 |
     @TEST_LM-8871 @TESTSET_LM-9020
     Scenario Outline: [E2E] <ID>- Counterparties > Try create order with Not Available counterparty
         Given the user is in sign-in and type <email>, <password> and <secret>
@@ -66,7 +66,7 @@ Feature: Invite user
         Then the user doesnt have this <cp_email> enabled to create an trading and lending operation
         Examples:
             | ID | email         | password      | secret         | cp_email      |
-            | 7  | USER_EMAIL_22 | USER_PASSWORD | SECRET_22_DEMO | USER_EMAIL_21 |
+            | 7  | USER_EMAIL_22 | USER_PASSWORD | SECRET_22 | USER_EMAIL_21 |
 
 
 

@@ -85,32 +85,32 @@ jobs:
 
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
 
-          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
 
           CYPRESS_SKIPCAPTCHA: /?skipCaptcha
-          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
           CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
@@ -193,31 +193,31 @@ jobs:
 
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
 
-          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
           CYPRESS_SKIPCAPTCHA: /?skipCaptcha
-          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
           CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
@@ -302,31 +302,31 @@ jobs:
 
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
 
-          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
           CYPRESS_SKIPCAPTCHA: /?skipCaptcha
-          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
           CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
@@ -409,31 +409,31 @@ jobs:
 
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
 
-          CYPRESS_SECRET_01_DEMO: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-          CYPRESS_SECRET_02_DEMO: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-          CYPRESS_SECRET_03_DEMO: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-          CYPRESS_SECRET_04_DEMO: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-          CYPRESS_SECRET_05_DEMO: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-          CYPRESS_SECRET_06_DEMO: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-          CYPRESS_SECRET_07_DEMO: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-          CYPRESS_SECRET_08_DEMO: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-          CYPRESS_SECRET_09_DEMO: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-          CYPRESS_SECRET_10_DEMO: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-          CYPRESS_SECRET_11_DEMO: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-          CYPRESS_SECRET_12_DEMO: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-          CYPRESS_SECRET_13_DEMO: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-          CYPRESS_SECRET_14_DEMO: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-          CYPRESS_SECRET_15_DEMO: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-          CYPRESS_SECRET_16_DEMO: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-          CYPRESS_SECRET_17_DEMO: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-          CYPRESS_SECRET_18_DEMO: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-          CYPRESS_SECRET_19_DEMO: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-          CYPRESS_SECRET_20_DEMO: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-          CYPRESS_SECRET_21_DEMO: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-          CYPRESS_SECRET_22_DEMO: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-          CYPRESS_SECRET_23_DEMO: ${{ secrets.CYPRESS_SECRET_23_PROD }}
+          CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
+          CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
+          CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
+          CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
+          CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
+          CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
+          CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
+          CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
+          CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
+          CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
+          CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
+          CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
+          CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
+          CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
+          CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
+          CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
+          CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
+          CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
+          CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
+          CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
+          CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
+          CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
+          CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
           CYPRESS_SKIPCAPTCHA: /?skipCaptcha
-          CYPRESS_ENV_DEMO: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
+          CYPRESS_ENV: https://demo.membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_ENV_PROD: https://membrane.trade/sign-in/sign-in?skipCaptcha
           CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
           CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}

@@ -18,14 +18,14 @@ require('cypress-xpath')
 //     var time = dayjs().format('HH.mm')
 //     cy.log(time)
 //     if (time < 17.00 && time < 18.00) {
-//         cy.login(Cypress.env('USER_EMAIL_09'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_09_DEMO'))
+//         cy.login(Cypress.env('USER_EMAIL_09'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_09'))
 //         cy.wait(2000)
 //         cy.createOrderLoan(operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency)
 //         cy.logout()
-//         cy.login(Cypress.env('USER_EMAIL_10'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_10_DEMO'))
+//         cy.login(Cypress.env('USER_EMAIL_10'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_10'))
 //         cy.acceptOrderLoan()
 //     } else {
-//         cy.login(Cypress.env('USER_EMAIL_10'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_10_DEMO'))
+//         cy.login(Cypress.env('USER_EMAIL_10'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_10'))
 //         cy.clic(this.header.header.btnLoans)
 //     }
 
