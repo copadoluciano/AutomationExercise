@@ -2,7 +2,7 @@ name: qa-e2e staging
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   cypress:
@@ -12,7 +12,7 @@ jobs:
     container: 
       image: cypress/browsers:node16.17.0-chrome106
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
-    name: cypress + cucumber + jira tests
+    name: cypress staging
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       BASE_URL: "https://xray.cloud.getxray.app"
