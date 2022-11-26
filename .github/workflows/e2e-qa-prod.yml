@@ -122,8 +122,8 @@ jobs:
           spec: |
             cypress/e2e/**/**/*.feature
 
-      - name: Run report
-        run: npm run report:formatter
+      - name: Create report
+        run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
 
       - name: Get token
         id: xray-token
@@ -135,7 +135,7 @@ jobs:
                     "client_secret": "${{ secrets.XRAY_CLIENT_SECRET }}"
                 }'| tr -d '"')" >> $GITHUB_OUTPUT
 
-      - name: Export results to xray
+      - name: Export report to xray
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 
