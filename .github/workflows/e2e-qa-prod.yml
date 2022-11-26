@@ -110,6 +110,9 @@ jobs:
 
       - name: Run tests
         uses: cypress-io/github-action@v4
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           record: true
           # start: yarn start:ci
