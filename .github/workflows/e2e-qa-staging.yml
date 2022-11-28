@@ -7,7 +7,7 @@ on:
 jobs:
   cypress:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
       image: cypress/browsers:node16.17.0-chrome106
