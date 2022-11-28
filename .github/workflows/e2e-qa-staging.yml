@@ -107,7 +107,7 @@ jobs:
         
       - name: Run test
         continue-on-error: true
-        run: npm run test
+        run: npm run logout
 
       - name: Run report
         run: npm run report:formatter
