@@ -21,7 +21,7 @@
     "counterparties": "npx cypress run --spec 'cypress/e2e/**/**/counterparties.feature'",
     "loan": "npx cypress run --spec 'cypress/e2e/**/**/loan.feature'",
     "hola": "npx cypress run -e TAGS='@TEST_LM-8049'",
-    "logout": "npx cypress run -e TAGS='@TEST_LM-8061'"
+    "logout": "npx cypress run -e TAGS='@TEST_LM-9020'"
   },
   "author": "Xblend",
   "license": "BSD-3-Clause",
