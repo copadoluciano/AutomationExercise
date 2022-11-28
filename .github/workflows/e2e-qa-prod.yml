@@ -70,7 +70,7 @@ jobs:
       CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
       CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_PROD }}
 
-      CYPRESS_SKIPCAPTCHA: /?skipCaptcha
+      CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
       CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
       CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
           

@@ -17,7 +17,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       BASE_URL: "https://xray.cloud.getxray.app"
       FILE: "cucumber-json/cucumber-report.json"
-      #USERS
+
       CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
       CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
       CYPRESS_USER_EMAIL_03: ${{ secrets.CYPRESS_USER_EMAIL_03 }}
@@ -43,8 +43,6 @@ jobs:
       CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
       CYPRESS_USER_EMAIL_24: ${{ secrets.CYPRESS_USER_EMAIL_24 }}
 
-
-      #SECRETS
       CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_STG }}
       CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_STG }}
       CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_STG }}
@@ -70,9 +68,9 @@ jobs:
       CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_STG }}
       CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_STG }}
 
-      CYPRESS_SKIPCAPTCHA: /?skipCaptcha
-      SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
-      SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
+      CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
+      CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
+      CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
           
 
     steps:
