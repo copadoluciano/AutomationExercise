@@ -1,8 +1,7 @@
-@feature-sign-up
-Feature: Sign Up
+Feature: Test Set UI - [User] - Sign Up
 
-    @TEST_LM-8846
-    Scenario Outline: Sign Up - Validate Static Elements
+    @TEST_LM-8846 @TESTSET_LM-9073
+    Scenario Outline: [E2E] <ID>- Sign Up - Validate Static Elements
         Given I go to Sign Up
          Then I should see the page sign-up with correct elements
 
@@ -10,8 +9,8 @@ Feature: Sign Up
             | ID |
             | 1  |
 
-    @TEST_LM-8847
-    Scenario Outline: Sign Up - Happy Path
+    @TEST_LM-8847 @TESTSET_LM-9073
+    Scenario Outline: [E2E] <ID>- Sign Up - Happy Path
         Given I go to Sign Up
          When I type First and Last Name, Email, Country code and Phone Number
          Then I should see message successful registration
@@ -20,8 +19,8 @@ Feature: Sign Up
             | ID |
             | 2  |
 
-    @TEST_LM-8848
-    Scenario Outline: Sign Up - Already have an acount
+    @TEST_LM-8848 @TESTSET_LM-9073
+    Scenario Outline: [E2E] <ID>- Sign Up - Already have an acount
         Given I go to Sign Up
          When I click on Already have an account?
          Then I should see the membrane sign in page
@@ -30,8 +29,8 @@ Feature: Sign Up
             | ID |
             | 3  |
 
-    @TEST_LM-8849
-    Scenario Outline: Sign Up - Account email is already taken
+    @TEST_LM-8849 @TESTSET_LM-9073
+    Scenario Outline: [E2E] <ID>- Sign Up - Account email is already taken
         Given I go to Sign Up
          When I type <First> and <Last> Name, <Email>, Country Argentina and Phone <Number>
          Then I should see the pop-up message The account email is already taken
@@ -40,8 +39,8 @@ Feature: Sign Up
             | ID | First   | Last | Email         |Number|
             | 4  | Cypress | Test | USER_EMAIL_01 |123456|
 
-    @TEST_LM-8850
-    Scenario Outline: Sign Up -  Dont validate token
+    @TEST_LM-8850 @TESTSET_LM-9073
+    Scenario Outline: [E2E] <ID>- Sign Up -  Dont validate token
         Given I go to Sign Up
          When I type <First> and <Last> Name, <Email>, Country Argentina and Phone <Number>
          Then an alert will appear .
