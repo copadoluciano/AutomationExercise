@@ -1,7 +1,7 @@
-name: qa-e2e prod
+name: qa-e2e prod-monitoring
 on:
   schedule:
-    - cron: '0 */24 1-31 * *'
+    - cron: '0 */2 1-31 * *'
 
 jobs:
   cypress:
@@ -102,9 +102,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
-       - name: Run test
-         continue-on-error: true
-         run: npm run prod-e2e     
+      # - name: Run test
+      #   continue-on-error: true
+      #   run: npm run test      
+
+      - name: Run test
+        continue-on-error: true
+        
+        run: npm run prod-monitoring
 
       - name: Run report
         run: npm run report:formatter

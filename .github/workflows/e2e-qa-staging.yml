@@ -2,7 +2,7 @@ name: qa-e2e staging
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   cypress:
@@ -17,7 +17,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       BASE_URL: "https://xray.cloud.getxray.app"
       FILE: "cucumber-json/cucumber-report.json"
-
+      #USERS
       CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
       CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
       CYPRESS_USER_EMAIL_03: ${{ secrets.CYPRESS_USER_EMAIL_03 }}
@@ -42,7 +42,6 @@ jobs:
       CYPRESS_USER_EMAIL_22: ${{ secrets.CYPRESS_USER_EMAIL_22 }}
       CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
       CYPRESS_USER_EMAIL_24: ${{ secrets.CYPRESS_USER_EMAIL_24 }}
-
 
       CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_STG }}
       CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_STG }}
@@ -108,7 +107,8 @@ jobs:
         
       - name: Run test
         continue-on-error: true
-        run: npm run test
+        
+        run: npm run staging-e2e
 
       - name: Run report
         run: npm run report:formatter
