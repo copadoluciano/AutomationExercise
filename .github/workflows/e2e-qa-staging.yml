@@ -2,7 +2,7 @@ name: qa-e2e staging
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   cypress:
