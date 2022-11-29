@@ -99,6 +99,7 @@ jobs:
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           npm install -g @deepakvishwakarma/cucumber-json-formatter
+          npm install -g @deepakvishwakarma/cucumber-json-formatter
           
 
       - name: Install Dependencies

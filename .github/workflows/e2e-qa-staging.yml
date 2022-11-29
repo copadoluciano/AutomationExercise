@@ -106,8 +106,7 @@ jobs:
         run: npm install
         
       - name: Run test
-        continue-on-error: true
-        
+        continue-on-error: true      
         run: npm run staging-e2e
 
       - name: Run report
