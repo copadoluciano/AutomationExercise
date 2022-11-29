@@ -1,7 +1,8 @@
 name: qa-e2e prod-monitoring
 on:
-  schedule:
-    - cron: '0 */2 1-31 * *'
+  push:
+    branches:
+      - prod-monitoring
 
 jobs:
   cypress:

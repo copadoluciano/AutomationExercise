@@ -1,7 +1,8 @@
 name: qa-e2e prod
 on:
-  schedule:
-    - cron: '0 */24 1-31 * *'
+  push:
+    branches:
+      - prod
 
 
 jobs:
@@ -98,9 +99,9 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
+          rm -rf cypress/screenshots
+          mkdir -p cypress/screenshots
           npm install -g @deepakvishwakarma/cucumber-json-formatter
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
-          
 
       - name: Install Dependencies
         run: npm install
