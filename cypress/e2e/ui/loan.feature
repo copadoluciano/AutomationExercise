@@ -11,16 +11,19 @@ Feature: Loans
   #     | ID | email         | password      | secret         |
   #     | 1  | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 |
 
+#  Given user is on the "Loans" page with <email>, <password> and <secret>
+
+
 @TEST_LM-8831 
   Scenario Outline: [E2E] <ID>- Loans > Add Custom Token
-    Given user is on the "Loans" page with <email>, <password> and <secret>
-    When the user import contract <contract> on Loans
-    Then the <symbol> contract is on the "Manage Tokens" on Loans
-    And the user delete <symbol> token on Loans
+    Given I go to sign-in and type <email>, <password> and <secret>
+     When the user import contract <contract> on Loans
+     Then the <symbol> contract is on the "Manage Tokens" on Loans
+      And the user delete <symbol> token on Loans
 
     Examples:
-      | ID | email         | password      | secret         | contract                                   | symbol |
-      | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO   |
+      | ID | email         | password      | secret    | contract                                   | symbol |
+      | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
 
 @TEST_LM-8825
   Scenario Outline: [E2E] <ID>- Loans > Validate Container
@@ -35,8 +38,8 @@ Feature: Loans
       | 3  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | borrow    | Intraday   | ETH      | 0.1    | 04           | 5         | days      | 1         | minutes          | 2                | 100        | SHIB            | 99.5            | daily    | 0        | 100.5            | USER_EMAIL_04 | USER_PASSWORD | SECRET_04 |
 
 
-
-@TEST_LM-8826
+#Monitoring
+@TEST_LM-8826 @TEST_LM-9667
   Scenario Outline: [E2E] <ID>- Loans > Create & Accept Order with <TypeToken> Token and Collateral <collateral>
     Given user is on the "Loans" page with <email>, <password> and <secret>
     When the user "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
@@ -44,9 +47,9 @@ Feature: Loans
     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret> <operation> <counterparty> <amount> <typeLoan> <duration2> <duration1> <aprAmount> <frecuency> <repayFee> <collateral> <collateralAsset> <collateralLimit> <refundCollateral>
     Then the loan order will be created for both parties
     Examples:
-      | ID | TypeToken | email         | password      | secret         | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
-      | 4  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Fixed    | BCH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 1                | 10         | ETH             | 9               | daily    | 0        | 11               | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
-      | 5  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | borrow    | Open     | BCH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 1                | 10         | ETH             | 9               | daily    | 0        | 11.5             | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
+      | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
+      | 4  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Fixed    | BCH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 2                | 10         | ETH             | 9               | daily    | 0        | 11               | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
+      | 5  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | borrow    | Open     | BCH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 2                | 10         | ETH             | 9               | daily    | 0        | 11.5             | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
 
   @TEST_LM-8827
   Scenario Outline: [E2E] <ID>- Loans > Counterparty Reject Order

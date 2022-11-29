@@ -93,7 +93,7 @@ Cypress.Commands.add('openMembrane', function () {
     cy.clic(this.header.header.btnLoans)
     cy.clic(this.loans.global.buttonPositions)
     cy.wait(1000)
-    cy.clic("(//DIV[@class='styles_fieldInput__IDY-B'])[1]")
+    cy.clic("//div[@data-cy='input_container_type']")
     cy.wait(1000)
     cy.clic("//SPAN[text()='Membrane']")
 

@@ -27,7 +27,10 @@
     "signIn": "npx cypress run -e TAGS='@TESTSET_LM-9101'",
     "signUp": "npx cypress run -e TAGS='@TESTSET_LM-9073'",
     "trades": "npx cypress run -e TAGS='trades'",
-    "transfers": "npx cypress run -e TAGS='transfers'"
+    "transfers": "npx cypress run -e TAGS='transfers'",
+    "prod-monitoring": "npx cypress run --config baseUrl=https://app.membranelabs.com --spec 'cypress/e2e/**/**/*.feature' --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
+    "prod-e2e": "npx cypress run --config baseUrl=https://app.membranelabs.com --spec 'cypress/e2e/**/**/*.feature' --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
+    "staging-e2e": "npx cypress run --config baseUrl=https://app-staging.membranelabs.com --spec 'cypress/e2e/**/**/*.feature' --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b"
   },
   "author": "Xblend",
   "license": "BSD-3-Clause",
