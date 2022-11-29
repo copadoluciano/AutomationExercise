@@ -1,23 +1,19 @@
-Feature: Home Page Test
+Feature: Test Set UI - Home
 
-    Rule: Test Rules
-        - We will use user "05"
-        - We will test functionalities of the "Home Page"
-
-
-        @TEST_LM-8049 @TESTSET_LM-8374
+        @TEST_LM-8049 @TESTSET_LM-9075 @TESTSET_LM-9075
         Scenario Outline: [E2E] <ID>- Home > Validate Static Elements
-            Given the user is in sign-in and type <email>, <password> and <secret>
-            Then the user visualizes "Home" page elements correctly
+            Given I go to sign-in and type <email>, <password> and <secret>
+             Then I should see the page home with correct elements
+
             Examples:
                 | ID | email         | password      | secret    |
                 | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
 
-        @TEST_LM-8823 @TESTSET_LM-8374
+        @TEST_LM-8823 @TESTSET_LM-9075
         Scenario Outline: [E2E] <ID>- Home > Add and Delete Asset in Watchlist
-            Given the user is in sign-in and type <email>, <password> and <secret>
-            When the user add an <Currency> to the watchlist
-            Then the <Currency> and <Icon> is visible in WatchList
+            Given I go to sign-in and type <email>, <password> and <secret>
+             When I add a <Currency> to the watchlist
+             Then I should see the <Currency> and <Icon> in WatchList
 
             Examples:
                 | ID | email         | password      | secret    | Currency | Icon                                                        |
