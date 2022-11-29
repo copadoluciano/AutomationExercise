@@ -74,6 +74,7 @@ jobs:
       CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
           
 
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -106,8 +107,7 @@ jobs:
         run: npm install
         
       - name: Run test
-        continue-on-error: true
-        
+        continue-on-error: true      
         run: npm run staging-e2e
 
       - name: Run report
