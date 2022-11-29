@@ -2,7 +2,7 @@ name: qa-e2e prod-monitoring
 on:
   push:
     branches:
-      - prod-monitoring
+      - prod
 
 jobs:
   cypress:
