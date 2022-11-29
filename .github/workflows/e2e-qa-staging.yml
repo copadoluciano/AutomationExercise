@@ -74,6 +74,7 @@ jobs:
       CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
           
 
+
     steps:
       - uses: actions/checkout@v3
         with:
