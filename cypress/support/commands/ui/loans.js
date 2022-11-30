@@ -131,8 +131,7 @@ Cypress.Commands.add('validateActivity', function () {
     for (let i = 1; i < 3; i++) {
         
         var server = dayjs().format('HH.mm')
-        cy.xpath("(//DIV[@data-cy='proposal_card_lend_duration_content'][text()='Intraday'])[" + i + "]/../../..//SPAN[text()='View More']").click()
-
+        cy.xpath("(//DIV[contains(@class,'styles_labelValue__')][text()='Intraday'])[" + i + "]/../../../..//SPAN[text()='View More']").click()
         var timeAccepted = cy.xpath("//DIV[text()='OPEN DATE']/../..//SPAN[contains(@class,'styles_valueContent__')]").then(function (acceptedOn) {
             let accepted = acceptedOn.text().slice(11, 19).replace(":", ".")
             let day = dayjs().format('DD')
