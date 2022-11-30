@@ -4,6 +4,7 @@ on:
     branches:
       - prod
 
+
 jobs:
   cypress:
     runs-on: ubuntu-latest
