@@ -174,7 +174,7 @@
         "assetUnitPrice": "(//div[contains(@class,'styles_view_field__value__')])[2]",
         "assetTotal": "(//div[contains(@class,'styles_view_field__value__')])[3]",
         "buttonCancel": "//*[local-name()='svg' and @data-icon='times' and @style='--color:#f2c94c;']",
-        "buttonNewProposal": "//*[local-name()='svg' and @data-icon='paper-plane' and @style='--color:#3D3D3D;']"
+        "buttonNewProposal": "//*[local-name()='svg' and @data-icon='paper-plane' and @style='--color:#6fcf97;']"
 
     },
     "emptyWhitelist": {

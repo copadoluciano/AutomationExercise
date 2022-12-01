@@ -148,7 +148,7 @@ Cypress.Commands.add('proposeOtherTermsTrades', function () {
     cy.xpath("(//div[contains(@class,'styles_button__1O9kI')])[2]").click()
     cy.xpath(this.buySell.createOrder.fieldQuantity).clear().type(0.006)
     cy.xpath(this.buySell.createOrder.fieldPrice).clear().type(0.007)
-    cy.xpath("(//div[contains(@class,'styles_tooltipContainer_')])[1]").click()
+    cy.clic(this.buySell.pot.buttonNewProposal)
     cy.xpath(this.buySell.reviewAcceptedOrder.buttonAcceptOrderConfirmation).click()
 
 })
