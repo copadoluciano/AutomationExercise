@@ -25,7 +25,7 @@ Feature: Test Set UI - [User] - Forgot Password
     Scenario Outline: [E2E] <ID>- Forgot Password > - Account not active
         Given I go to forgot-password
          When I type <email> not active in the email field of the Forgotten password page
-         Then I should see message label The account is not active yet
+         Then I should receive the token in my email inbox
 
          Examples:
             | ID | email         |

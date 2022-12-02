@@ -6,7 +6,3 @@ When('I type {word} not active in the email field of the Forgotten password page
     cy.clic(this.signin.others.btnResetMail)
 })
 
-Then('I should see message label The account is not active yet',function(){
-    cy.isVisible(this.signin.popAlerts.popAlertAccountNotActive)
-})
-
