@@ -18,6 +18,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       BASE_URL: "https://xray.cloud.getxray.app"
       FILE: "cucumber-json/cucumber-report.json"
+      KEY_CYPRESS: ${{ secrets.KEY_CYPRESS }}
       #USERS
       CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
       CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
@@ -78,7 +79,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod-monitoring
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -113,7 +114,7 @@ jobs:
       - name: Run test
         continue-on-error: true
         
-        run: npm run prod-monitoring
+        run: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
 
       - name: Run report
         run: npm run report:formatter

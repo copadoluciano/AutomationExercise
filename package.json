@@ -9,7 +9,7 @@
     "cypress:open": "npx cypress open",
     "test:local": "CYPRESS_ENV=localhost npm run test  --spec 'cypress/integration/**/*.feature",
     "test:prod": "CYPRESS_ENV=production npm run test",
-    "test": "npx cypress run --spec 'cypress/e2e/**/**/*.feature' --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
+    "test": "npx cypress run --record --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
     "test:debug:local": "CYPRESS_ENV=localhost npm run test:debug",
     "test:debug:prod": "CYPRESS_ENV=production npm run test:debug",
     "test:debug": "npx cypress run --env TAGS='@forgot' --spec 'cypress/e2e/**/**/*.feature'",

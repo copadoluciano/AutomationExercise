@@ -2,7 +2,7 @@ name: qa-e2e staging
 on:
   push:
     branches:
-      - main
+      - staging
 
 
 jobs:
@@ -81,7 +81,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
