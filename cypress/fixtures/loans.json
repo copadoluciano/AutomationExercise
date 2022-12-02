@@ -221,7 +221,7 @@
     },
     "openCard": {
         "global": {
-            "back": "//SPAN[contains(@class,'styles_navigate__')]"
+            "back": "//*[local-name()='svg' and @data-icon='arrow-left']"
         },
         "marginCall": {
             "btnMargCall": "//span[contains(text(),'Margin Call')]",
