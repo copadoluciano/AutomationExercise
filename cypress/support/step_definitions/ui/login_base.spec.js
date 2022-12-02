@@ -20,5 +20,4 @@ When('the user log out your account', function () {
 When('the user logs out',function(){
     cy.logout()
     cy.url().should('eq', Cypress.config('baseUrl') + "/sign-in")
-
 })

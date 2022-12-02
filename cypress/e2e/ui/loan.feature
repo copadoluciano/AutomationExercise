@@ -26,11 +26,10 @@ Feature: Loans
 @TEST_LM-8825
   Scenario Outline: [E2E] <ID>- Loans > Validate Container
     Given I go to sign-in and type <email>, <password> and <secret>
-    When the user "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
-    And logout
+    When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+    When the user logs out
     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
-    And the time is between 17 and 18 Argentina
-    Then then we validate that the payments have been created
+    And the counterparty will open some orders to validate the container
     Examples:
       | ID | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
       | 3  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | borrow    | Intraday   | ETH      | 0.1    | 04           | 5         | days      | 1         | minutes          | 2                | 100        | SHIB            | 99.5            | daily    | 0        | 100.5            | USER_EMAIL_04 | USER_PASSWORD | SECRET_04 |
@@ -40,7 +39,7 @@ Feature: Loans
 @TEST_LM-8826 @TEST_LM-9667
   Scenario Outline: [E2E] <ID>- Loans > Create & Accept Order with <TypeToken> Token and Collateral <collateral>
     Given I go to sign-in and type <email>, <password> and <secret>
-    When the user "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+    When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
     And logout
     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret> <operation> <counterparty> <amount> <typeLoan> <duration2> <duration1> <aprAmount> <frecuency> <repayFee> <collateral> <collateralAsset> <collateralLimit> <refundCollateral>
     Then the loan order will be created for both parties
@@ -52,7 +51,7 @@ Feature: Loans
   @TEST_LM-8827
   Scenario Outline: [E2E] <ID>- Loans > Counterparty Reject Order
     Given I go to sign-in and type <email>, <password> and <secret>
-    When the user "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+    When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
     And the counterparty reject the order with <cp_email>, <cp_password> and <cp_secret>
     Then the loan order will be eliminated for both parties
     Examples:
@@ -62,9 +61,9 @@ Feature: Loans
   @TEST_LM-8828
   Scenario Outline: [E2E] <ID>- Loans > Maker Cancel Order
     Given I go to sign-in and type <email>, <password> and <secret>
-    When the user "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+    When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
     And the same user cancel the order
-    Then the loan order will be cancel for both parties
+    Then a successful cancel message should be displayed
     Examples:
       | ID | TypeToken | email         | password      | secret         | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral |
       | 7  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | borrow    | Open     | ETH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
@@ -74,7 +73,7 @@ Feature: Loans
   @TEST_LM-8829
   Scenario Outline: [E2E] <ID>- Loans > Test Margin Call Functionality
     Given I go to sign-in and type <email>, <password> and <secret>
-    When the user "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+    When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
     And logout
     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
     And the collateral is out of bounds <collateralAsset>

@@ -223,6 +223,34 @@
         "global": {
             "back": "//*[local-name()='svg' and @data-icon='arrow-left']"
         },
+
+        "label": {
+           
+        },
+
+        "fields": {
+            "counterparty": "//span[@data-cy='accepted_details_counterparty_name_row_value_content']",
+            "amount": "//SPAN[contains(text(),'CYPRESS')]/../../..//H3",
+            "asset": "",
+            "direction": "",
+            "loanType": "",
+            "orderType": "",
+            "loanId": "",
+            "status": "",
+            "setId": "",
+            "openDate": "",
+            "duration": "(//span[contains(@class,'styles_valueContent__')])[9]",
+            "interestRate": "",
+            "accrualType": "",
+            "interestPaymentFrequency": "",
+            "interestPaid": "",
+            "accruedInterest": "",
+            "unpaidInterestOutstanding": "",
+            "totalInterest": ""
+
+           
+        },
+
         "marginCall": {
             "btnMargCall": "//span[contains(text(),'Margin Call')]",
             "btnRefund": "//div[contains(@class,'styles_btn-secondary__')][contains(.,'Refund')]",

@@ -117,7 +117,6 @@ Cypress.Commands.add('cancelOrderLoan', function () {
     cy.clic(this.loans.buttons.buttonViewMore)
     cy.clic(this.loans.buttons.buttonCancelOrder)
     cy.clic(this.loans.buttons.buttonAcceptCancelOrder)
-    cy.isNotExist(this.loans.buttons.buttonViewMore)
 })
 
 
@@ -146,7 +145,7 @@ Cypress.Commands.add('validateActivity', function () {
             cy.log('interest from: ' + interestFrom)
             // cy.log(accepted.slice(19, 26))
 
-            if (day == day2 && accepted24 < 19.00 && server > 19.01) {
+            if (day == day2 && accepted24 < 20.00 && server > 19.01) {
 
                 cy.log("1 The order was accepted before to loan close")
                 //existe en activity
