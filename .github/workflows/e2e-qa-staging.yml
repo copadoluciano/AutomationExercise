@@ -17,6 +17,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       BASE_URL: "https://xray.cloud.getxray.app"
       FILE: "cucumber-json/cucumber-report.json"
+      KEY_CYPRESS: ${{ secrets.KEY_CYPRESS }}
       #USERS
       CYPRESS_USER_EMAIL_01: ${{ secrets.CYPRESS_USER_EMAIL_01 }}
       CYPRESS_USER_EMAIL_02: ${{ secrets.CYPRESS_USER_EMAIL_02 }}
@@ -72,6 +73,7 @@ jobs:
       CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
       CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
       CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
+
           
 
 
@@ -99,10 +101,7 @@ jobs:
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
-          mkdir -p cypress/screenshots/forgotPassword.feature'
-          mkdir -p cypress/screenshots/loan.feature'
-          
+          mkdir -p cypress/screenshots          
           npm install -g @deepakvishwakarma/cucumber-json-formatter
           
 
@@ -111,7 +110,7 @@ jobs:
         
       - name: Run test
         continue-on-error: true      
-        run: npm run staging-e2e
+        run: npm run staging-e2e ${{ secrets.KEY_CYPRESS }}
 
       - name: Run report
         run: npm run report:formatter
