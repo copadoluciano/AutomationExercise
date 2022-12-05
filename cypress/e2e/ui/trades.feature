@@ -1,7 +1,7 @@
 Feature: Trade Plans
 
 
-	@TEST_LM-8491 @TESTSET_LM-8585
+	# @TEST_LM-8491 @TESTSET_LM-8585
 	# Scenario Outline: [E2E] <ID>- Trades > Validate Static Elements
 	# 	Given user is on the "Trades" page with <email>, <password> and <secret>
 	# 	When the user is redirected to the Trade page and Create New Order <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
@@ -11,22 +11,22 @@ Feature: Trade Plans
 	# 		| ID | email         | password      | secret         | operation | currency | quantity | unit | price | duration1 | duration2 | counterparty |
 	# 		| 1  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Sell      | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           |
 
-#Monitoring
-# 	@TEST_LM-8493 @TESTSET_LM-8585 @TEST_LM-9667
-# 	Scenario Outline: [E2E] <ID>- Trades > Create and Accept Order
-# 		Given the user is in sign-in and type <email>, <password> and <secret>
-# 		When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
-# 		And validate all de values out the card <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
-# 		And validate all de values in the card <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
-# 		When the user log out your account
-# 		And the counterparty sign-in and type <cp_email>, <cp_password> and <cp_secret>
-# 		And the counterparty accepts the order
-# 		Then the order will be created for both parties
 
-# 		Examples:
-# 			| ID | email         | password      | secret    | operation | currency | quantity | unit | price | duration1 | duration2 | counterparty | cp_email      | cp_password   | cp_secret      |
-# 			| 2  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
-# #			| 3  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Sell      | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
+	@TEST_LM-8493 @TESTSET_LM-8585 @TEST_LM-9667 @monitoring
+	Scenario Outline: [E2E] <ID>- Trades > Create and Accept Order
+		Given the user is in sign-in and type <email>, <password> and <secret>
+		When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
+		And validate all de values out the card <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
+		And validate all de values in the card <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
+		When the user log out your account
+		And the counterparty sign-in and type <cp_email>, <cp_password> and <cp_secret>
+		And the counterparty accepts the order
+		Then the order will be created for both parties
+
+		Examples:
+			| ID | email         | password      | secret    | operation | currency | quantity | unit | price | duration1 | duration2 | counterparty | cp_email      | cp_password   | cp_secret      |
+			| 2  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
+#			| 3  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Sell      | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
 
 	@TEST_LM-8581 @TESTSET_LM-8585
 	Scenario Outline: [E2E] <ID>- Trades > Propose Other Terms

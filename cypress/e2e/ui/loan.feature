@@ -36,7 +36,7 @@ Feature: Loans
 
 
 #Monitoring
-@TEST_LM-8826 @TEST_LM-9667
+@TEST_LM-8826 @TEST_LM-9667 @monitoring
   Scenario Outline: [E2E] <ID>- Loans > Create & Accept Order with <TypeToken> Token and Collateral <collateral>
     Given I go to sign-in and type <email>, <password> and <secret>
     When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>

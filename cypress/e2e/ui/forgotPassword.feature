@@ -1,7 +1,7 @@
 
 Feature: Test Set UI - [User] - Forgot Password
 
-    @TEST_LM-8889 @TESTSET_LM-9074
+    @TEST_LM-8889 @TESTSET_LM-9074 @smoke
      Scenario Outline: [E2E] <ID>- Forgot Password > - Auth Active Happy Path
          Given I go to forgot-password
           When I type <email> in the email field of the Forgotten password page

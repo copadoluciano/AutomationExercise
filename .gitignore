@@ -11,3 +11,4 @@ cucumber-json/cucumber-htmlreport.html/
 *.png
 *.png
 CLAVES
+run_tests.sh
