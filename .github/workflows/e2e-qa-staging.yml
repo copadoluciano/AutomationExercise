@@ -111,8 +111,7 @@ jobs:
         
       - name: Run test
         continue-on-error: true
-        config: baseUrl=XXXXXXXXXXXXX
-        run: npm run signIn ${{ secrets.KEY_CYPRESS }}
+        run: npm run staging-e2e ${{ secrets.KEY_CYPRESS }}
 
       - name: Run report
         run: npm run report:formatter
