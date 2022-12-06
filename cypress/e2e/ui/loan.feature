@@ -83,12 +83,12 @@ Feature: Loans
       | ID | TypeToken | email         | password      | secret         | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
       | 8  | Native    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Open        | BTC      | 0.001  | 10           | 5         | days      | 5         | minutes            | 1                | 100        | ETH             | 99.5            | weekly    | 0        | 100.5            | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
  
-# @TEST_LM-8830 @TESTSET_LM-9078
-# Scenario Outline: [E2E] <ID>- Loans > Create Loan Manual Entry
-#   Given I go to sign-in and type <email>, <password> and <secret>
-#   When the user "Create Order" Manual Entry <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
-#   Then the loan Manual Entry order will be created
-#   Examples:
-#     | ID | TypeToken | email         | password      | secret         | operation | typeLoan | currency | amount | counterparty | duration1 | duration2 | offerExpiration1 | offerExpiration2 | aprAmount | repayFee | frecuency | collateralAsset | collateral | marginCall | refundCollateral |
-#     | 9  | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | borrow    | Open     | ETH      | 0.2    | 02           | 0         | 1         | minutes          | 1                | 5         | 0        | weekly    | SHIB            | 100        | 99.5       | 100.5            |
-#     | 10 | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | lend      | Fixed    | ETH      | 0.1    | 02           | days      | 1         | minutes          | 1                | 10        | 0        | weekly    | SHIB            | 100        | 99.5       | 100.5            |
+@TEST_LM-8830 @TESTSET_LM-9078
+Scenario Outline: [E2E] <ID>- Loans > Create Loan Manual Entry
+  Given I go to sign-in and type <email>, <password> and <secret>
+  When the user "Create Order" Manual Entry <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+  Then the loan Manual Entry order will be created
+  Examples:
+    | ID | TypeToken | email         | password      | secret         | operation | typeLoan | currency | amount | counterparty | duration1 | duration2 | offerExpiration1 | offerExpiration2 | aprAmount | repayFee | frecuency | collateralAsset | collateral | marginCall | refundCollateral |
+    | 9  | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | borrow    | Open     | ETH      | 0.2    | 02           | 0         | 1         | minutes          | 1                | 5         | 0        | weekly    | SHIB            | 100        | 99.5       | 100.5            |
+    | 10 | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | lend      | Fixed    | ETH      | 0.1    | 02           | days      | 1         | minutes          | 1                | 10        | 0        | weekly    | SHIB            | 100        | 99.5       | 100.5            |
