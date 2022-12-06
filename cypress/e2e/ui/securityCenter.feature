@@ -10,7 +10,7 @@ Feature: Test Set UI - [My Accounts] - Security Center
             | ID | email         | password      | secret    |
             | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
 
-    @TEST_LM-8880
+    @TEST_LM-8880 @TESTSET_LM-9077
     Scenario Outline: [E2E] <ID>- Security Center > Validate Static Elements
         Given I go to sign-in and type <email>, <password> and <secret>
          When I go to change password page
@@ -19,7 +19,7 @@ Feature: Test Set UI - [My Accounts] - Security Center
             | ID | email         | password      | secret    |
             | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
 
-    @TEST_LM-8881
+    @TEST_LM-8881 @TESTSET_LM-9077
     Scenario Outline: [E2E] <ID>- Security Center > Change Password - Invalid Data
         Given I go to sign-in and type <email>, <password> and <secret>
          When I type password invalid and change for a new password
@@ -28,7 +28,7 @@ Feature: Test Set UI - [My Accounts] - Security Center
             | ID | email         | password      | secret    |
             | 3  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
 
-    @TEST_LM-8882
+    @TEST_LM-8882 @TESTSET_LM-9077
     Scenario Outline: [E2E] <ID>- Security Center > Change Password - Passwords Empty
         Given I go to sign-in and type <email>, <password> and <secret>
          When I do not type password and do not type a new password

@@ -48,7 +48,7 @@ module.exports = defineConfig({
     baseAPI: "https://api-staging.membranelabs.com",
   },
   e2e: {
-    baseUrl: "https://app-staging.membranelabs.com",
+    baseUrl: "https://app.membranelabs.com",
     specPattern: "*/**/*.feature",
     watchForFileChanges: false,
     experimentalSessionAndOrigin: false,

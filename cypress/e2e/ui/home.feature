@@ -1,6 +1,6 @@
 Feature: Test Set UI - Home
 
-        @TEST_LM-8049 @TESTSET_LM-9075 @TESTSET_LM-9075
+        @TEST_LM-8049 @TESTSET_LM-9075
         Scenario Outline: [E2E] <ID>- Home > Validate Static Elements
             Given I go to sign-in and type <email>, <password> and <secret>
              Then I should see the page home with correct elements
