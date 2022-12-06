@@ -123,6 +123,7 @@ jobs:
         with:
           tag: "\"@TESTSET_LM-9102\""
           record: true
+          parallel: true
           browser: chrome
         env:
           TAGS: "\"@TESTSET_LM-9102\""
