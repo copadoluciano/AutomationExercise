@@ -12,7 +12,7 @@ Feature: Trade Plans
 	# 		| 1  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Sell      | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           |
 
 #Monitoring
-	@TEST_LM-8493 @TESTSET_LM-8585 @TEST_LM-9667
+	@TEST_LM-8493 @TESTSET_LM-8585 @TEST_LM-9667 @monitorin
 	Scenario Outline: [E2E] <ID>- Trades > Create and Accept Order
 		Given the user is in sign-in and type <email>, <password> and <secret>
 		When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>

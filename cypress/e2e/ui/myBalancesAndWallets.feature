@@ -25,7 +25,7 @@ Feature: My Balances and Wallets
             | ID | email         | password      | secret         |
             | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 #Monitoring
-    @TEST_LM-8875 @TEST_LM-9667
+    @TEST_LM-8875 @TEST_LM-9667 @monitoring
     Scenario Outline: My Balances & Credits - Add Custom Token
         Given the user is in sign-in and type <email>, <password> and <secret>
         When the user goes to "My Wallets"
