@@ -124,7 +124,7 @@ jobs:
           record: true
           browser: chrome
         env:
-          TAGS: "@TESTSET_LM-9102"
+          TAGS: "\"@TESTSET_LM-9102\""
           CYPRESS_RECORD_KEY: ${{ secrets.KEY_CYPRESS }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
