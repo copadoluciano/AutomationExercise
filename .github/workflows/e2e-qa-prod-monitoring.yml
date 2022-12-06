@@ -1,7 +1,7 @@
 name: qa-e2e prod-monitoring
 on:
   schedule:
-    - cron: '*/10 * 1-31 * *'
+    - cron: '* */2 1-31 * *'
 
 
 jobs:
