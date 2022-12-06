@@ -78,7 +78,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -140,7 +140,7 @@ jobs:
       image: cypress/browsers:node16.17.0-chrome106
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
     name: forgotPassword
-    
+
     steps:
       - uses: actions/checkout@v3
         with:
