@@ -1,7 +1,7 @@
 Feature: Trade Plans
 
 
-	@TEST_LM-8491 @TESTSET_LM-8585
+	# @TEST_LM-8491 @TESTSET_LM-8585
 	# Scenario Outline: [E2E] <ID>- Trades > Validate Static Elements
 	# 	Given user is on the "Trades" page with <email>, <password> and <secret>
 	# 	When the user is redirected to the Trade page and Create New Order <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
