@@ -1,6 +1,7 @@
-name: qa-e2e staging
-on: [workflow_dispatch]
-
+name: qa-e2e prod
+on:
+  schedule:
+    - cron: '30 3 * * *' # At 03:30 a
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -75,7 +76,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -90,7 +91,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -155,7 +156,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -170,7 +171,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -235,7 +236,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -250,7 +251,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -315,7 +316,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -330,7 +331,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -395,7 +396,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -410,7 +411,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -475,7 +476,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -490,7 +491,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -555,7 +556,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -570,7 +571,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -635,7 +636,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -650,7 +651,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -715,7 +716,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -730,7 +731,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -795,7 +796,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -810,7 +811,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
