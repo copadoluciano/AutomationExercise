@@ -121,7 +121,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run counterparties
+          command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome
         env:
