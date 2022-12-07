@@ -72,7 +72,7 @@ jobs:
     # let's make sure our tests pass on Chrome browser
     container: 
       image: cypress/browsers:node16.17.0-chrome106
-      options: --user 1001  # ← THIS IS THE IMPORTANT LINE!
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     name: counterparties
           
     steps:
