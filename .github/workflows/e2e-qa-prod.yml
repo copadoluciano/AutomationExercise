@@ -4,7 +4,7 @@ on:
   #   - cron: '30 3 * * *' # At 03:30 a
   push:
     branches:
-      - prod
+      - main
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -75,6 +75,7 @@ jobs:
       image: cypress/browsers:node16.17.0-chrome106
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
     name: counterparties
+          
           
     steps:
       - uses: actions/checkout@v3
