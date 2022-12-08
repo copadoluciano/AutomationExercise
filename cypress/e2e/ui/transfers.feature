@@ -24,6 +24,7 @@ Feature: Transfers
                 | ID | email         | password      | secret         |
                 | 1  | USER_EMAIL_07 | USER_PASSWORD | SECRET_07 |
 
+
     # # 2
     # Scenario: Transfers - Validate Preview Settlement Decentralized
     #     Given user at "Generate Preview Settlement"
