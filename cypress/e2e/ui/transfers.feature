@@ -4,7 +4,7 @@ Feature: Transfers
         - We will use user "17" and "07"
         - We will test functionalities of the "Transfers"
 
-        @TEST_LM-8883
+        @TEST_LM-8883 @TESTSET_LM-9079
         Scenario Outline: [E2E] <ID>- Transfers > Validate Static Elements
             Given the user is in sign-in and type <email>, <password> and <secret>
             When the user is redirected to the "Transfers" page
@@ -14,7 +14,7 @@ Feature: Transfers
                 | ID | email         | password      | secret         |
                 | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
-        @TEST_LM-8884
+        @TEST_LM-8884 @TESTSET_LM-9079
         Scenario Outline: [E2E] <ID>- Transfers > Validate Preview Settlement Classic
             Given the user is in sign-in and type <email>, <password> and <secret>
             When the user try create new settlement between ethereum network vs ethereum network and chooses Classic Settlement
