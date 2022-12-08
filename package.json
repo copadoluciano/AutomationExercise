@@ -20,7 +20,7 @@
     "counterparties": "npx cypress run -e TAGS=\"@TESTSET_LM-9102\" --record --key",
     "forgotPassword": "npx cypress run -e TAGS=\"@TESTSET_LM-9074\" --record --key",
     "home": "npx cypress run -e TAGS=\"@TESTSET_LM-9075\" --record --key",
-    "loan": "npx cypress run -e TAGS=\"@TESTSET_LM-9078\"",
+    "loan": "npx cypress run -e TAGS=\"@TESTSET_LM-9078\" --record --key",
     "myWallets": "npx cypress run -e TAGS=\"@TESTSET_LM-9082\" --record --key",
     "myBalances": "npx cypress run -e TAGS=\"@TESTSET_LM-9081\" --record --key",
     "securityCenter": "npx cypress run -e TAGS=\"@TESTSET_LM-9077\" --record --key",
