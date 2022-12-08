@@ -1,7 +1,7 @@
 name: qa-e2e prod
 on:
-  schedule:
-    - cron: '30 3 * * *' # At 03:30 a
+  # schedule:
+  #   - cron: '30 3 * * *' # At 03:30 a
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -112,7 +112,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run counterparties
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -192,7 +193,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run forgotPassword
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -272,7 +274,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run home
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -352,7 +355,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run loan
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -432,7 +436,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run myWallets
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -512,7 +517,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run myBalances
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -592,7 +598,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run securityCenter
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -672,7 +679,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run signIn
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -752,7 +760,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run trades
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -832,7 +841,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run transfers
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
