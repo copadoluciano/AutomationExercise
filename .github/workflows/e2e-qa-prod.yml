@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
