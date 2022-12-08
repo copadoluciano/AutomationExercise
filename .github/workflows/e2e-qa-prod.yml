@@ -1,7 +1,7 @@
 name: qa-e2e prod
 on:
-  # schedule:
-  #   - cron: '30 3 * * *' # At 03:30 a
+    schedule:
+      - cron: '30 3 * * *' # At 03:30 a
   # push:
   #   branches:
   #     - main
