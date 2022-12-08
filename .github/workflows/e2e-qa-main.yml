@@ -71,7 +71,7 @@ jobs:
     container: 
       image: cypress/browsers:node16.17.0-chrome106
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
-    name: counterparties
+    name: home
           
     steps:
       - uses: actions/checkout@v3

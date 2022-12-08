@@ -15,7 +15,7 @@ Feature: Invite user
     #         | ID | email         | password      | secret         | counterparty  |
     #         | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_01 |
 
-    @TEST_LM-8865 @TESTSET_LM-9102 @smoke
+    @TEST_LM-8865 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Counterparty
         Given the user is in sign-in and type <email>, <password> and <secret>
         When I invite a <counterparty> to trade with me
