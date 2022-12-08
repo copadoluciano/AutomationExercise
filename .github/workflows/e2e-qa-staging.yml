@@ -1,5 +1,8 @@
 name: qa-e2e staging
-on: [workflow_dispatch]
+on: push:
+    branches:
+      - main
+      # [workflow_dispatch]
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
