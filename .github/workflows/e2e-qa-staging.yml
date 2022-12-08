@@ -78,7 +78,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -159,7 +159,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -240,7 +240,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -321,7 +321,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -402,7 +402,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -483,7 +483,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -564,7 +564,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -645,7 +645,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -726,7 +726,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -807,7 +807,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: staging
 
       - name: Cache node modules
         uses: actions/cache@v3
