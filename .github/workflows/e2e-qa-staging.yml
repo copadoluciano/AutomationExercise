@@ -35,30 +35,30 @@ env:
   CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
   CYPRESS_USER_EMAIL_24: ${{ secrets.CYPRESS_USER_EMAIL_24 }}
 
-  CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-  CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-  CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-  CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-  CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-  CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-  CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-  CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-  CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-  CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-  CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-  CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-  CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-  CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-  CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-  CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-  CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-  CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-  CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-  CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-  CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-  CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-  CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
-  CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_PROD }}
+  CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_STG }}
+  CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_STG }}
+  CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_STG }}
+  CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_STG }}
+  CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_STG }}
+  CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_STG }}
+  CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_STG }}
+  CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_STG }}
+  CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_STG }}
+  CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_STG }}
+  CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_STG }}
+  CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_STG }}
+  CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_STG }}
+  CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_STG }}
+  CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_STG }}
+  CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_STG }}
+  CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_STG }}
+  CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_STG }}
+  CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_STG }}
+  CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_STG }}
+  CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_STG }}
+  CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_STG }}
+  CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_STG }}
+  CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_STG }}
 
   CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
   CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
@@ -114,7 +114,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run counterparties
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -194,7 +195,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run forgotPassword
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -274,7 +276,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run home
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -354,7 +357,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run loan
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -434,7 +438,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run myWallets
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -514,7 +519,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run myBalances
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -594,7 +600,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run securityCenter
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -674,7 +681,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run signIn
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -754,7 +762,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run trades
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
@@ -834,7 +843,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          command: npm run transfers
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:
