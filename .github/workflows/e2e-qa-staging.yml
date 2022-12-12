@@ -124,7 +124,7 @@ jobs:
         run: |
           echo Cypress finished with: ${{ steps.cypress.outcome }}
           echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
-          
+
       - name: Run report
         run: npm run report:formatter
 
