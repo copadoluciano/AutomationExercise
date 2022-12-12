@@ -20,3 +20,8 @@ When('the counterparty accept the order with {word}, {word} and {word} {word} {w
     cy.acceptOrderLoan(counterparty, amount, typeLoan, duration2, duration1, aprAmount, frecuency, repayFee, collateralLimit, refundCollateral)
 })
 
+When('I "Create Manual Order" {word} {word} "order" of {word} {word} with {word} APR and {word} {word} duration, expiring in {word} {word} and {word} {word} as collateral, limited to {word} % with {word} and with {word} frecuency {word} {word}', function (operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency, repayFee, refundCollateral) {
+    cy.createOrderLoan(operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency, repayFee, refundCollateral)
+    cy.clic(this.loans.buttons.buttonViewMoreOutbox)
+})
+
