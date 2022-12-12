@@ -1,18 +1,13 @@
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-Given('user is on the "Loans" page with {word}, {word} and {word}', function(email, password, secret) {
-    cy.login(Cypress.env(email), Cypress.env(password), Cypress.env(secret))
-})
-
-When('the user import contract {word} on Loans', function(contract) {
+When('I import contract {word} on Loans', function(contract) {
     cy.clic(this.header.header.btnLoans) // Header Loans
     cy.clic(this.loans.global.btnNewLoan) // Create Loan
     cy.clic(this.loans.createOrder.openTerm.fields.selectAmount)
     cy.clic(this.loans.others.manageTokens)
     cy.importToken(contract)
 })
-
 
 Then('the {word} contract is on the "Manage Tokens" on Loans', function(symbol) {
     cy.clic(this.loans.createOrder.openTerm.fields.selectAmount)

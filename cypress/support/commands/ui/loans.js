@@ -42,7 +42,7 @@ Cypress.Commands.add('createOrderLoan', function (operation, typeLoan, currency,
         //cy.isVisible(TOTAL INTERESET TO BE EARN AT MATURITY)
         cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldAccrual, "//span[contains(.,'365')]") // Select Accrual Type
         cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldPayFrecuency, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_payment_frequency_selectable_" + frecuency + "')]") // Select Payment Frecuency
-        cy.selectOption(this.loans.createOrder.fixedTerm.fields.selectRepayFee, "//li[contains(@data-cy,'li_select_selectable_" + repayFee + "')]")
+        cy.typeText(this.loans.createOrder.fixedTerm.fields.fieldRepayFee, repayFee)
         loanLog.end()
     }
     // Intraday
@@ -117,7 +117,6 @@ Cypress.Commands.add('cancelOrderLoan', function () {
     cy.clic(this.loans.buttons.buttonViewMore)
     cy.clic(this.loans.buttons.buttonCancelOrder)
     cy.clic(this.loans.buttons.buttonAcceptCancelOrder)
-    cy.isNotExist(this.loans.buttons.buttonViewMore)
 })
 
 
@@ -131,9 +130,8 @@ Cypress.Commands.add('validateActivity', function () {
     for (let i = 1; i < 3; i++) {
         
         var server = dayjs().format('HH.mm')
-        cy.xpath("(//DIV[@data-cy='proposal_card_lend_duration_content'][text()='Intraday'])[" + i + "]/../../..//SPAN[text()='View More']").click()
-
-        var timeAccepted = cy.xpath("//DIV[text()='OPEN DATE']/../..//SPAN[contains(@class,'styles_valueContent__')]").then(function (acceptedOn) {
+        cy.xpath("(//DIV[contains(@class,'styles_labelValue__')][text()='Intraday'])[" + i + "]/../../../..//SPAN[text()='View More']").click()
+        cy.xpath("//span[@data-cy='accepted_details_open_date_row_value_content']").then(function (acceptedOn) {
             let accepted = acceptedOn.text().slice(11, 19).replace(":", ".")
             let day = dayjs().format('DD')
             let day2 = acceptedOn.text().slice(8, 10)
@@ -147,7 +145,7 @@ Cypress.Commands.add('validateActivity', function () {
             cy.log('interest from: ' + interestFrom)
             // cy.log(accepted.slice(19, 26))
 
-            if (day == day2 && accepted24 < 19.00 && server > 19.01) {
+            if (day == day2 && accepted24 < 20.00 && server > 19.01) {
 
                 cy.log("1 The order was accepted before to loan close")
                 //existe en activity

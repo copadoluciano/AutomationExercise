@@ -84,7 +84,7 @@ Cypress.Commands.add('staticElements', (xpathJson) => {
 Cypress.Commands.add('selectRightMenu', function (option) {
     cy.wait(5000)
     cy.clic(this.header.menuRight.menu)
-    cy.clic("//div[contains(@class, 'menu')]//a[contains(text(),'" + option + "')]")
+    cy.clic("//a[@data-cy='profile_menu_option_"+option+"']")
 
 })
 Cypress.Commands.add('selectCustomToken', function (openModal, asset) {

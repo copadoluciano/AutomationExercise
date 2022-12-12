@@ -6,7 +6,7 @@ Feature: Invite user
         - We will test functionalities of the "Counterparties"
 
 
-    # @TEST_LM-8864 @TESTSET_LM-9020
+    # @TEST_LM-8864 @TESTSET_LM-9102
     # Scenario Outline: [E2E] <ID>- Counterparties > Static Elements
     #     Given user need to see the static elements
     #     When the user is on the "Users" page

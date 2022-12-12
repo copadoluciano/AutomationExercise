@@ -2,7 +2,7 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
 When('the user goes to "My Wallets"', function() {
-    cy.selectRightMenu("My Wallets")
+    cy.selectRightMenu("my_wallets")
 })
 
 Then('the user visualizes "My Wallets" page elements correctly', function() {

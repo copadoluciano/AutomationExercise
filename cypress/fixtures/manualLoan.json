@@ -1,19 +1,20 @@
 {
-    "global": {
-        "buttonInbox": "//div[@data-cy='tab_inbox_active']",
-        "buttonOutbox": "//div[@data-cy='tab_outbox_']",
-        "buttonAccepted": "//button[@data-cy='button_positions']",
-        "buttonHistory": "//div[@data-cy='tab_history_']",
-        "buttonPositions": "//button[@data-cy='button_positions']",
-        "btnNewLoan": "//button[@data-cy='button_create_loan']",
-        "btnOrders": "//button[@data-cy='button_orders']"
-    },
     "createOrder": {
         "global": {
-            "btnTypeLend": "//button[@data-cy='button_lend']",
-            "btnTypeBorrow": "//button[@data-cy='button_borrow']",
-            "labelBackLoans": "//h4[@data-cy='title_back_to_loans']"
+            "tittleManualLoan": "//h3[@data-cy='title_create_new_order']",
+            "buttonOpenTerm": "//span[@data-cy='label_form_wrapper_new_manual_order_container_tabs_0']",
+            "buttonFixedTerm": "//label[@data-cy='label_input_form_wrapper_new_manual_order_container_tabs_1']",
+            "backLoans": "//svg[@data-cy='button_back_to_loans']",
+            
+            "buttonCreateOrder": "//button[@data-cy='button_place_offer']"
         },
+        "labels":{
+
+        },
+        "fields":{
+
+        },
+        
         "openTerm": {
             "labels": {
                 "labelCounterparty": "//label[@data-cy='label_counterparties']",

@@ -11,8 +11,8 @@ Feature: Trade Plans
 	# 		| ID | email         | password      | secret         | operation | currency | quantity | unit | price | duration1 | duration2 | counterparty |
 	# 		| 1  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Sell      | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           |
 
-#Monitoring
-	@TEST_LM-8493 @TESTSET_LM-9077 @monitoring
+
+	@TEST_LM-8493 @TESTSET_LM-9076 @monitoring
 	Scenario Outline: [E2E] <ID>- Trades > Create and Accept Order
 		Given the user is in sign-in and type <email>, <password> and <secret>
 		When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
@@ -28,7 +28,7 @@ Feature: Trade Plans
 			| 2  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
 #			| 3  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Sell      | LTC      | 0.05     | SHIB | 10    | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
 
-	@TEST_LM-8581 @TESTSET_LM-9077
+	@TEST_LM-8581 @TESTSET_LM-9076
 	Scenario Outline: [E2E] <ID>- Trades > Propose Other Terms
 		Given the user is in sign-in and type <email>, <password> and <secret>
 		When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
@@ -44,7 +44,7 @@ Feature: Trade Plans
 			| ID | email         | password      | secret         | operation | currency | quantity | unit | price | duration1 | duration2 | counterparty | cp_email      | cp_password   | cp_secret      |
 			| 4  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | ETH      | 0.001    | BTC  | 0.5   | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
 
-	@TEST_LM-8583 @TESTSET_LM-9077
+	@TEST_LM-8583 @TESTSET_LM-9076
 	Scenario Outline: [E2E] <ID>- Trades > Reject Order
 		Given the user is in sign-in and type <email>, <password> and <secret>
 		When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
@@ -57,7 +57,7 @@ Feature: Trade Plans
 			| 4  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | ETH      | 0.001    | BTC  | 0.5   | days      | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
 
 
-	@TEST_LM-8584 @TESTSET_LM-9077
+	@TEST_LM-8584 @TESTSET_LM-9076
 	Scenario Outline: [E2E] <ID>- Trades > Add Custom Token
 		Given the user is in sign-in and type <email>, <password> and <secret>
 		When the user import contract <contract> in "Trades" modal
@@ -69,7 +69,7 @@ Feature: Trade Plans
 			| ID | email         | password      | secret         | contract                                   | symbol |
 			| 6  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | 0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39 | HEX    |
 
-	@TEST_LM-8582 @TESTSET_LM-9077
+	@TEST_LM-8582 @TESTSET_LM-9076
 	Scenario Outline: [E2E] <ID>- Trades > Cancel Order
 	 	Given the user is in sign-in and type <email>, <password> and <secret>
 	 	When the user "Create New Order" <operation> with <currency> and <quantity> and <unit> and <price> and <duration1> and <duration2> and <counterparty>
