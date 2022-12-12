@@ -15,7 +15,7 @@ Feature: Invite user
     #         | ID | email         | password      | secret         | counterparty  |
     #         | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_01 |
 
-    @TEST_LM-8865 @TESTSET_LM-9020
+    @TEST_LM-8865 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Counterparty
         Given the user is in sign-in and type <email>, <password> and <secret>
         When I invite a <counterparty> to trade with me
@@ -25,7 +25,7 @@ Feature: Invite user
             | 2  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_01 |
 
 
-    @TEST_LM-8867 @TESTSET_LM-9020
+    @TEST_LM-8867 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Invite Already Exist
         Given the user is in sign-in and type <email>, <password> and <secret>
         When the user invite <counterparty> an already user to trade with me
@@ -34,7 +34,7 @@ Feature: Invite user
             | ID | email         | password      | secret         | counterparty  |
             | 3  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
 
-    @TEST_LM-8868 @TESTSET_LM-9020
+    @TEST_LM-8868 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Invitation Rejected
         Given the user is in sign-in and type <email>, <password> and <secret>
         When the user invite a new <cp_email> to trade with me
@@ -44,7 +44,7 @@ Feature: Invite user
             | ID | email         | password      | secret         | cp_email      | cp_password   | cp_secret      |
             | 4  | USER_EMAIL_16 | USER_PASSWORD | SECRET_16 | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
-    @TEST_LM-8869 @TESTSET_LM-9020
+    @TEST_LM-8869 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Try Disabled Counterparty With Open Order
         Given the user is in sign-in and type <email>, <password> and <secret>
         When the user try to disabled a <cp_email>
@@ -52,7 +52,7 @@ Feature: Invite user
         Examples:
             | ID | email         | password      | secret         | cp_email      |
             | 5  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
-    @TEST_LM-8870 @TESTSET_LM-9020
+    @TEST_LM-8870 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Try create order with disabled counterparty
         Given the user is in sign-in and type <email>, <password> and <secret>
         When the user try to create order with blocked <cp_email>
@@ -60,7 +60,7 @@ Feature: Invite user
         Examples:
             | ID | email         | password      | secret         | cp_email      |
             | 6  | USER_EMAIL_21 | USER_PASSWORD | SECRET_21 | USER_EMAIL_17 |
-    @TEST_LM-8871 @TESTSET_LM-9020
+    @TEST_LM-8871 @TESTSET_LM-9102
     Scenario Outline: [E2E] <ID>- Counterparties > Try create order with Not Available counterparty
         Given the user is in sign-in and type <email>, <password> and <secret>
         When the user try to create order with Not Available <cp_email>
