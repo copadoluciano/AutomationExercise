@@ -1,9 +1,9 @@
-name: qa-e2e staging
-on: 
-  workflow_dispatch:
+name: qa-e2e prod
+on:
+  schedule:
+    - cron: '30 3 * * *' # At 03:30 a
   repository_dispatch:
-    types: [pre-released]
-
+    types: [released]
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -35,54 +35,6 @@ env:
   CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
   CYPRESS_USER_EMAIL_24: ${{ secrets.CYPRESS_USER_EMAIL_24 }}
 
-  CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_STG }}
-  CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_STG }}
-  CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_STG }}
-  CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_STG }}
-  CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_STG }}
-  CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_STG }}
-  CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_STG }}
-  CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_STG }}
-  CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_STG }}
-  CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_STG }}
-  CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_STG }}
-  CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_STG }}
-  CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_STG }}
-  CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_STG }}
-  CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_STG }}
-  CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_STG }}
-  CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_STG }}
-  CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_STG }}
-  CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_STG }}
-  CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_STG }}
-  CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_STG }}
-  CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_STG }}
-  CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_STG }}
-  CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_STG }}
-  CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-  CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-  CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-  CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-  CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-  CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-  CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-  CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-  CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-  CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-  CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-  CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-  CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-  CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-  CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-  CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-  CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-  CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-  CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-  CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-  CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-  CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-  CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
-  CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_PROD }}
   CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
   CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
   CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
@@ -112,20 +64,7 @@ env:
   CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
   CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
   CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
-  CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
-  CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
-  CYPRESS_SIGN_IN: ${{ secrets.CYPRESS_SIGN_IN }}
-  CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
 
-jobs:
-  counterparties:
-    runs-on: [self-hosted, e2e]
-    timeout-minutes: 50
-    # let's make sure our tests pass on Chrome browser
-    container: 
-      image: cypress/browsers:node16.17.0-chrome106
-      options: --user root  # ← THIS IS THE IMPORTANT LINE!
-    name: counterparties
 jobs:
   counterparties:
     runs-on: [self-hosted, e2e]
@@ -136,10 +75,11 @@ jobs:
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
     name: counterparties
           
+          
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -154,7 +94,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -175,7 +115,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -220,7 +160,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -235,7 +175,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -256,7 +196,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -301,7 +241,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -316,7 +256,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -337,7 +277,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -382,7 +322,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -397,7 +337,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -417,34 +357,8 @@ jobs:
         # Continue the build in case of an error, as we need to set the
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
-        run: npm run counterparties ${{ secrets.KEY_CYPRESS }}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # - name: Cypress tests
-      #   uses: cypress-io/github-action@v4
-      #   # let's give this action an ID so we can refer
-      #   # to its output values later
-      #   id: cypress
-      #   # Continue the build in case of an error, as we need to set the
-      #   # commit status in the next step, both in case of success and failure
-      #   continue-on-error: true
-      #   with:
-      #     tag: "\"@TESTSET_LM-9102\""
-      #     record: true
-      #     parallel: true
-      #     browser: chrome
-      #   env:
-      #     TAGS: "\"@TESTSET_LM-9102\""
-      #     CYPRESS_RECORD_KEY: ${{ secrets.KEY_CYPRESS }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Print Cypress Cloud URL
-        run: |
-          echo Cypress finished with: ${{ steps.cypress.outcome }}
-          echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -489,7 +403,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -504,7 +418,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -525,7 +439,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -570,7 +484,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -585,7 +499,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -606,7 +520,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -651,7 +565,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -666,7 +580,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -687,7 +601,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -732,7 +646,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -747,7 +661,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -768,7 +682,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -813,7 +727,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -828,7 +742,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -849,7 +763,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
@@ -894,7 +808,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: staging
+          ref: prod
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -909,7 +823,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
@@ -930,7 +844,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         continue-on-error: true
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
