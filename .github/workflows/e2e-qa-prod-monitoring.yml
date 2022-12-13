@@ -2,7 +2,9 @@ name: qa-e2e prod-monitoring
 on:
   schedule:
     - cron: '0 */2 1-31 * *'
-
+  push:
+    branches:
+      - prod
 jobs:
   cypress:
     runs-on: ubuntu-latest
@@ -105,22 +107,36 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
-      # - name: Run test
-      #   continue-on-error: true
-      #   run: npm run test      
 
-      - name: Run test
+      - name: Cypress tests
+        uses: cypress-io/github-action@v4
+        # let's give this action an ID so we can refer
+        # to its output values later
+        id: cypress
+        # Continue the build in case of an error, as we need to set the
+        # commit status in the next step, both in case of success and failure
         continue-on-error: true
-        
-        run: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
+        with:
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
+          command: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
+          record: false
+          browser: chrome
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.KEY_CYPRESS }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Run report
-        run: npm run report:formatter
+      - name: Print Cypress Cloud URL
+        if: always()
+        run: |
+          echo Cypress finished with: ${{ steps.cypress.outcome }}
+          echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
 
       - name: Create cucumber-report.json
+        if: always()
         run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
 
       - name: Get token
+        if: always()
         id: xray-token
         run: |
           echo "XRAY_TOKEN=$(curl --location --request POST '${{ env.BASE_URL }}/api/v1/authenticate' \
@@ -131,6 +147,7 @@ jobs:
                 }'| tr -d '"')" >> $GITHUB_OUTPUT
 
       - name: Export report to xray
+        if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 

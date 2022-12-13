@@ -3,7 +3,9 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [pre-released]
-
+  push:
+    branches:
+      - staging
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -66,14 +68,14 @@ env:
   CYPRESS_SIGN_UP: ${{ secrets.CYPRESS_SIGN_UP }}
 
 jobs:
-  counterparties:
+  all-tests:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
       image: cypress/browsers:node16.17.0-chrome106
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
-    name: home
+    name: all-tests
           
     steps:
       - uses: actions/checkout@v3
@@ -107,13 +109,9 @@ jobs:
 
       - name: Cypress tests
         uses: cypress-io/github-action@v4
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: cypress
-        # Continue the build in case of an error, as we need to set the
-        # commit status in the next step, both in case of success and failure
-        continue-on-error: true
         with:
+          config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           record: false
           browser: chrome
         env:
@@ -121,17 +119,17 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Print Cypress Cloud URL
+        if: always()
         run: |
           echo Cypress finished with: ${{ steps.cypress.outcome }}
           echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
 
-      - name: Run report
-        run: npm run report:formatter
-
       - name: Create cucumber-report.json
+        if: always()
         run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
 
       - name: Get token
+        if: always()
         id: xray-token
         run: |
           echo "XRAY_TOKEN=$(curl --location --request POST '${{ env.BASE_URL }}/api/v1/authenticate' \
@@ -142,5 +140,6 @@ jobs:
                 }'| tr -d '"')" >> $GITHUB_OUTPUT
 
       - name: Export results to xray
+        if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"

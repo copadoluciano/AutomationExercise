@@ -11,6 +11,17 @@ Feature: Loans
   #     | ID | email         | password      | secret         |
   #     | 1  | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 |
 
+  # @TEST_LM-8825 @TESTSET_LM-9078
+  #   Scenario Outline: [E2E] <ID>- Loans > Validate Container
+  #     Given I go to sign-in and type <email>, <password> and <secret>
+  #     When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+  #     When the user logs out
+  #     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
+  #     And the counterparty will open some orders to validate the container
+  #     Examples:
+  #       | ID | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
+  #       | 3  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | borrow    | Intraday   | ETH      | 0.1    | 04           | 5         | days      | 1         | minutes          | 2                | 100        | SHIB            | 99.5            | daily    | 0        | 100.5            | USER_EMAIL_04 | USER_PASSWORD | SECRET_04 |
+
 
   @TEST_LM-9258 @TESTSET_LM-9078
     Scenario Outline: [E2E] <ID>- Loans > Add Custom Token
@@ -22,17 +33,6 @@ Feature: Loans
       Examples:
         | ID | email         | password      | secret    | contract                                   | symbol |
         | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
-
-  # @TEST_LM-8825 @TESTSET_LM-9078
-  #   Scenario Outline: [E2E] <ID>- Loans > Validate Container
-  #     Given I go to sign-in and type <email>, <password> and <secret>
-  #     When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
-  #     When the user logs out
-  #     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
-  #     And the counterparty will open some orders to validate the container
-  #     Examples:
-  #       | ID | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
-  #       | 3  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | borrow    | Intraday   | ETH      | 0.1    | 04           | 5         | days      | 1         | minutes          | 2                | 100        | SHIB            | 99.5            | daily    | 0        | 100.5            | USER_EMAIL_04 | USER_PASSWORD | SECRET_04 |
 
 
   #Monitoring
