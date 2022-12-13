@@ -29,7 +29,7 @@
     "transfers": "npx cypress run -e TAGS=\"@TESTSET_LM-9079\" --key",
     "stg-monitoring": "npx cypress run --config baseUrl=https://app-staging.membranelabs.com -e TAGS=\"@monitoring\" --record --key",
     "prod-monitoring": "npx cypress run --config baseUrl=https://app.membranelabs.com -e TAGS=\"@monitoring\" --record --key",
-    "prod-e2e": "npx cypress run --config baseUrl=https://app.membranelabs.com -e TAGS=\"@regression\" --record --key",
+    "prod-e2e": "npx cypress run --config baseUrl=https://app.membranelabs.com --spec 'cypress/e2e/**/**/*.feature' --key",
     "staging-e2e": "npx cypress run --config baseUrl=https://app-staging.membranelabs.com --spec 'cypress/e2e/**/**/*.feature' --key"
 
   },
