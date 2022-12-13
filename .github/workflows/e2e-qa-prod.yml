@@ -7,6 +7,9 @@ on:
   push:
     branches:
       - prod
+  push:
+    branches:
+      - prod
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -70,12 +73,14 @@ env:
 
 jobs:
   all-tests:
+  all-tests:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
       image: cypress/browsers:node16.17.0-chrome106
       options: --user root  # ← THIS IS THE IMPORTANT LINE!
+    name: all-tests
     name: all-tests
           
     steps:
@@ -126,15 +131,18 @@ jobs:
 
       - name: Print Cypress Cloud URL
         if: always()
+        if: always()
         run: |
           echo Cypress finished with: ${{ steps.cypress.outcome }}
           echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
 
       - name: Create cucumber-report.json
         if: always()
+        if: always()
         run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
 
       - name: Get token
+        if: always()
         if: always()
         id: xray-token
         run: |
@@ -146,6 +154,7 @@ jobs:
                 }'| tr -d '"')" >> $GITHUB_OUTPUT
 
       - name: Export results to xray
+        if: always()
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
