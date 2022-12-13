@@ -112,8 +112,8 @@ jobs:
         id: cypress
         # Continue the build in case of an error, as we need to set the
         # commit status in the next step, both in case of success and failure
-        continue-on-error: true
         with:
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           record: false
           browser: chrome
         env:
@@ -121,17 +121,17 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Print Cypress Cloud URL
+        if: always()
         run: |
           echo Cypress finished with: ${{ steps.cypress.outcome }}
           echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
 
-      - name: Run report
-        run: npm run report:formatter
-
       - name: Create cucumber-report.json
+        if: always()
         run: cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json
 
       - name: Get token
+        if: always()
         id: xray-token
         run: |
           echo "XRAY_TOKEN=$(curl --location --request POST '${{ env.BASE_URL }}/api/v1/authenticate' \
@@ -142,5 +142,6 @@ jobs:
                 }'| tr -d '"')" >> $GITHUB_OUTPUT
 
       - name: Export results to xray
+        if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
