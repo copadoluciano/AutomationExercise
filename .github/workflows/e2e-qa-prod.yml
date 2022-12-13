@@ -4,6 +4,9 @@ on:
     - cron: '30 3 * * *' # At 03:30 a
   repository_dispatch:
     types: [released]
+  push:
+    branches:
+      - prod
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"

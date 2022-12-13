@@ -3,7 +3,9 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [pre-released]
-
+  push:
+    branches:
+      - staging
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
