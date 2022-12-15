@@ -115,7 +115,6 @@ jobs:
         id: cypress
         # Continue the build in case of an error, as we need to set the
         # commit status in the next step, both in case of success and failure
-        continue-on-error: true
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
