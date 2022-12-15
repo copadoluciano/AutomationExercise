@@ -106,7 +106,7 @@ Cypress.Commands.add('sendNewToken', function(username, password) {
     cy.xpath(this.signin.global.inputMail).type(username)
     cy.xpath(this.signin.global.inputPassword).type(password)
     cy.clic(this.signin.global.title)
-    cy.wait(5000)
+  
     
 
     // -------------obtencion token1
@@ -126,30 +126,30 @@ Cypress.Commands.add('sendNewToken', function(username, password) {
         //cy.log(token1)
         //-------------obtencion token2
         cy.clic(this.signin.popAlerts.buttonSendNewMessage)
-        cy.request({
-            method: "DELETE",
-            url: 'https://api-staging.membranelabs.com/testing-tool',
-            headers: {
-                'death-token': 'Y@u w1ll b3 F1R3D!',
-                'Authorization': 'Bearer ' + token1
-            }
+        // cy.request({
+        //     method: "DELETE",
+        //     url: 'https://api-staging.membranelabs.com/testing-tool',
+        //     headers: {
+        //         'death-token': 'Y@u w1ll b3 F1R3D!',
+        //         'Authorization': 'Bearer ' + token1
+        //     }
 
 
-        }).then(response => {
-            let code2 = JSON.parse(JSON.stringify(response.body.code))
-            const secondLog = Cypress.log({
-                name: 'secPageLog',
-                displayName: '2FA AUTH',
-                message: 'Type Code ' + code2,
-                autoEnd: false
-            })
-            cy.log('2FA code: ' + code2)
-            cy.xpath(this.twoFa.token).type(code2)
-            cy.xpath(this.twoFa.twofaNext).click()
-            secondLog.end()
-        })
+        // }).then(response => {
+        //     let code2 = JSON.parse(JSON.stringify(response.body.code))
+        //     const secondLog = Cypress.log({
+        //         name: 'secPageLog',
+        //         displayName: '2FA AUTH',
+        //         message: 'Type Code ' + code2,
+        //         autoEnd: false
+        //     })
+        //     cy.log('2FA code: ' + code2)
+        //     cy.xpath(this.twoFa.token).type(code2)
+        //     cy.xpath(this.twoFa.twofaNext).click()
+        //     secondLog.end()
+        // })
 
 
     })
-    cy.wait(4000)
+
     })

@@ -6,7 +6,7 @@ Cypress.Commands.add('createOrderLoan', function (operation, typeLoan, currency,
     cy.selectCounterparty(this.loans.createOrder.fixedTerm.fields.selectCounterparty, counterparty) // Open Modal & Select counterparty
     cy.selectCustomToken(this.loans.createOrder.fixedTerm.fields.selectAmount, currency) // Open Modal & Select Asset
     cy.typeText(this.loans.createOrder.fixedTerm.fields.fieldAmount, amount) // Type Amount
-    cy.selectOption(this.loans.createOrder.fixedTerm.fields.selectOffer, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_expiration_unit_select_selectable_" + offerExpiration1 + "')]") // Select Offer expiration
+    cy.selectOption(this.loans.createOrder.fixedTerm.fields.selectOffer, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_expiration_unit_select_selectable__" + offerExpiration1 + "')]") // Select Offer expiration
 
     //cy.isVisible(ESTIMATED MADURITY DATE)
 
@@ -23,8 +23,8 @@ Cypress.Commands.add('createOrderLoan', function (operation, typeLoan, currency,
         //cy.isVisible(ESTIMATED MADURITY DATE)
 
         //cy.isVisible(TOTAL INTERESET TO BE EARN AT MATURITY)
-        cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldAccrual, "//li[@data-cy='li_select_form_content_lend_borrow_accrual_type_select_selectable_365']") // Select Accrual Type
-        cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldPayFrecuency, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_payment_frequency_selectable_" + frecuency + "')]") // Select Payment Frecuency
+        cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldAccrual, "//li[@data-cy='li_select_form_content_lend_borrow_accrual_type_select_selectable_365_365']") // Select Accrual Type
+        cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldPayFrecuency, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_payment_frequency_selectable__" + frecuency + "')]") // Select Payment Frecuency
         loanLog.end()
     }
     // Fixed Term
@@ -35,13 +35,13 @@ Cypress.Commands.add('createOrderLoan', function (operation, typeLoan, currency,
             message: operation + ' ' + typeLoan,
             autoEnd: false
         })
-        cy.selectOption(this.loans.createOrder.fixedTerm.fields.selectDuration, "//li[contains(@data-cy,'li_select_selectable_" + duration1 + "')]") // Select Duration Time
+        cy.selectOption(this.loans.createOrder.fixedTerm.fields.selectDuration, "//li[contains(@data-cy,'li_select_selectable__" + duration1 + "')]") // Select Duration Time
         cy.typeText(this.loans.createOrder.fixedTerm.fields.fieldDuration, duration2) // Input Duration Time
         //cy.isVisible(ESTIMATED MADURITY DATE)
 
         //cy.isVisible(TOTAL INTERESET TO BE EARN AT MATURITY)
         cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldAccrual, "//span[contains(.,'365')]") // Select Accrual Type
-        cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldPayFrecuency, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_payment_frequency_selectable_" + frecuency + "')]") // Select Payment Frecuency
+        cy.selectOption(this.loans.createOrder.fixedTerm.fields.fieldPayFrecuency, "//li[contains(@data-cy,'li_select_form_content_lend_borrow_payment_frequency_selectable__" + frecuency + "')]") // Select Payment Frecuency
         cy.typeText(this.loans.createOrder.fixedTerm.fields.fieldRepayFee, repayFee)
         loanLog.end()
     }
@@ -93,9 +93,9 @@ Cypress.Commands.add('openMembrane', function () {
     cy.clic(this.header.header.btnLoans)
     cy.clic(this.loans.global.buttonPositions)
     cy.wait(1000)
-    cy.clic("//div[@data-cy='input_container_type']")
-    cy.wait(1000)
-    cy.clic("//SPAN[text()='Membrane']")
+    // cy.clic("//div[@data-cy='input_container_type']")
+    // cy.wait(1000)
+    // cy.clic("//SPAN[text()='Membrane']")
 
 })
 

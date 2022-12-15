@@ -9,15 +9,15 @@ Feature: Test Set UI - [User] - Sign Up
             | ID |
             | 1  |
 
-    @TEST_LM-8847 @TESTSET_LM-9073
-    Scenario Outline: [E2E] <ID>- Sign Up - Happy Path
-        Given I go to Sign Up
-         When I type First and Last Name, Email, Country code and Phone Number
-         Then I should see message successful registration
+    # @TEST_LM-8847 @TESTSET_LM-9073
+    # Scenario Outline: [E2E] <ID>- Sign Up - Happy Path
+    #     Given I go to Sign Up
+    #      When I type First and Last Name, Email, Country code and Phone Number
+    #      Then I should see message successful registration
 
-         Examples:
-            | ID |
-            | 2  |
+    #      Examples:
+    #         | ID |
+    #         | 2  |
 
     @TEST_LM-8848 @TESTSET_LM-9073
     Scenario Outline: [E2E] <ID>- Sign Up - Already have an acount
