@@ -1,12 +1,10 @@
 {
     "global": {
-        "buttonInbox": "//div[@data-cy='tab_inbox_active']",
-        "buttonOutbox": "//div[@data-cy='tab_outbox_']",
-        "buttonAccepted": "//button[@data-cy='button_positions']",
-        "buttonHistory": "//div[@data-cy='tab_history_']",
         "buttonPositions": "//button[@data-cy='button_positions']",
         "btnNewLoan": "//button[@data-cy='button_create_loan']",
-        "btnOrders": "//button[@data-cy='button_orders']"
+        "btnOrders": "//button[@data-cy='button_orders']",
+        "buttonOutbox": "//div[@data-cy='tab_outbox_']"
+
     },
     "createOrder": {
         "global": {
@@ -35,7 +33,7 @@
                 "btnType": "//span[contains(text(),'Open Term')]",
                 "selectCounterparty": "//div[contains(@class,'styles_fieldInput__')]",
                 "fieldAmount": "//input[@data-cy='field_principal_amount']",
-                "selectAmount": "//input[@data-cy='input_principal_asset_name']",
+                "selectAmount": "//input[@data-cy='input_principal_asset_id']",
                 "selectOffer": "//input[@data-cy='input_select_form_content_lend_borrow_expiration_unit_select_selectable']",
                 "fieldOffer": "//input[@data-cy='field_expiration_value']",
                 "fieldInterestRate": "//input[contains(@data-cy,'percentage')]",
@@ -74,7 +72,7 @@
                 "btnType": "//span[contains(text(),'Open Term')]",
                 "selectCounterparty": "//input[@data-cy='input_counterparties']",
                 "fieldAmount": "//input[@data-cy='field_principal_amount']",
-                "selectAmount": "//input[@data-cy='input_principal_asset_name']",
+                "selectAmount": "//input[@data-cy='input_principal_asset_id']",
                 "selectDuration": "//input[@data-cy='input_select_selectable' and @name='unit_term_length']",
                 "fieldDuration": "//input[@data-cy='field_value_term_length']",
                 "fieldMadurityDate": "//input[@data-cy='field_display_estimated_end_date']",
@@ -87,7 +85,7 @@
                 "fieldPayFrecuency": "//input[@data-cy='input_select_form_content_lend_borrow_payment_frequency_selectable']",
                 "selectRepayFee": "//input[@data-cy='input_select_selectable' and @name='repayment_fee']",
                 "fieldRepayFee": "//input[@data-cy='field_repayment_fee']",
-                "selectCollateralAsset": "//input[@data-cy='input_collateral_asset_name']",
+                "selectCollateralAsset": "//input[@data-cy='input_collateral_asset_id']",
                 "fieldCollateralAmount": "//input[@data-cy='field_collateral_nominal_quantity']",
                 "fieldCollateralPercent": "//input[@data-cy='field_collateral_value']",
                 "fieldMarginCollateralization": "//input[@data-cy='field_margin_call_collateralization']",
@@ -134,11 +132,11 @@
         }
     },
     "outboxOrder": {
-        "counterparty": "//DIV[text()='COUNTERPARTY']/../..//SPAN[contains(@class,'styles_valueContent__')]",
-        "amount": "//SPAN[contains(text(),'CYPRESS')]/../../..//H3",
-        "typeLoan": "(//span[contains(@class,'styles_valueContent__')])[3]",
-        "duration": "(//span[contains(@class,'styles_valueContent__')])[9]",
-        "aprAmount": "//span[@data-cy='row_value_content']",
+        "counterparty": "//span[@data-cy='accepted_details_counterparty_name_row_value_content']",
+        "amount": "//h3[@data-cy='assets_view_base_title']",
+        "typeLoan": "//span[@data-cy='accepted_details_loan_type_row_value_content']",
+        "duration": "//span[@data-cy='accepted_details_duration_row_value_content']",
+        "aprAmount": "//span[@data-cy='accepted_details_interest_rate_row_value_content']",
         "paymentFrequency": "//span[@data-cy='row_value_content']",
         "accrualType": "//DIV[text()='ACCRUAL TYPE']/../..//SPAN[contains(@class,'styles_valueContent__')]",
         "repaymentFee": "(//span[contains(@class,'styles_valueContent__')])[13]",
@@ -147,13 +145,12 @@
 
     },
     "labels": {
-        "labelQuantity": "//h4[@data-cy='title_quantity']",
-        "labelCurrency": "//label[@data-cy='label_principal_asset_name']",
+        "labelCurrency": "//span[@data-cy='label_text_initial_loan_amount']",
         "labelFullName": "//label[@data-cy='label_counterparties']",
         "labelAnualPercentage": "//label[@data-cy='label_apr_percentage']",
         "labelDuration": "//label[@data-cy='label_duration']",
         "labelOfferExp": "//label[@data-cy='label_offer_expiration']",
-        "labelCollateral": "(//label[@data-cy='label_none'])[1]",
+        "labelCollateral": "//span[@data-cy='label_text_collateral_asset_id']",
         "labelCustom": "(//label[@data-cy='label_none'])[2]",
         "labelCollateralAsset": "(//label[@data-cy='label_collateral_asset_name'])[1]",
         "labelCollateralLimite": "//label[@data-cy='label_collateral_bands']",

@@ -61,7 +61,7 @@
         "numberCustomTokens": "//h5[@data-cy='my_wallets_manage_token_footer_title']",
         "btnImport": "//H5[contains(@data-cy,'import_token_symbol_')]/../../..//BUTTON[contains(@data-cy,'import_token_button_')]",
         "selectBlockchain": "//div[@data-cy='input_container_my_wallets_manage_token_selectable']",
-        "selectEther": "//span[@data-cy='my_wallets_manage_token_selectable_value']"
+        "selectEther": "//span[@data-cy='value_my_wallets_manage_token_selectable_']"
 
 
     },

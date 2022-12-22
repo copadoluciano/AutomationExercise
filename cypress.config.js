@@ -45,7 +45,7 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
   env: {
-    baseAPI: "https://api-staging.membranelabs.com",
+    baseAPI: "https://api.membranelabs.com",
   },
   e2e: {
     baseUrl: "https://app-staging.membranelabs.com",

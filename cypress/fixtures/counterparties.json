@@ -31,20 +31,20 @@
         "btnInviteCounterparty": "//span[contains(text(),'+ Invite Counterparty')]",
         "option":{
             "tittle": "//h2[@data-cy='modal_title_invite']",
-            "btnIndividual": "(//div[@data-cy='option_label'])[1]",
-            "btnInstitution": "(//div[@data-cy='option_label'])[2]"
+            "btnIndividual": "//button[@data-cy='option_button_invite_type_individual']",
+            "btnInstitution": "//button[@data-cy='option_button_invite_type_institution']"
         },
         "individual":{
             "invite":{
-                "tittle": "//h2[@data-cy='modal_title_invite']",
+                "tittle": "//h2[@data-cy='modal_title_invite_modal_invite']",
                 "subtittle": "//p[contains(text(),'Enter the e-mail address of the individual you wis')]",
                 "labelEmail": "//label[@data-cy='label_id']",
                 "inputEmail": "//input[@data-cy='field_id']",
                 "btnCancel": "//button[@data-cy='cancel']",
-                "btnSend": "//button[@data-cy='submit']"
+                "btnSend": "//button[@data-cy='action_buttons_submit']"
             },
             "confirmation": {
-                "tittle": "//h2[@data-cy='modal_title_invite']",
+                "tittle": "//h2[@data-cy='modal_title_invite_modal_invite']",
                 "imgSent": "//*[local-name()='svg' and @data-icon='circle-check']",
                 "labelSent": "//h2[contains(text(),'Invitation Sent')]",
                 "labelDone": "//p[contains(text(),'Done! We have sent an invitation to')]",
