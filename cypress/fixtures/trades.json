@@ -24,9 +24,9 @@
         "labelTotalAmount": "//label[@data-cy='label_total_amount']",
         "labelOfferExpiration": "//label[@data-cy='label_offer_expiration']",
         "labelCounterparties": "//label[@data-cy='label_counterparties']",
-        "fieldAsset": "//input[@data-cy='input_base_name']",
+        "fieldAsset": "//div[@data-cy='default_currency_input_currency_selector_base_assetid_wrapper']",
         "fieldQuantity": "//input[@data-cy='field_base_amount']",
-        "fielUnitPrice": "//input[@data-cy='input_quote_name']",
+        "fielUnitPrice": "//div[@data-cy='default_currency_input_currency_selector_quote_assetid_wrapper']",
         "fieldPrice": "//input[@data-cy='field_unit_price']",
         "fieldTotalAmount": "//input[@data-cy='field_quote_amount']",
         "fieldOfferExpiration": "//input[@data-cy='input_select_form_content_two_expiration_unit_selectable']",
@@ -138,7 +138,11 @@
         "popUpOrderReject": "//span[contains(.,'The order has been rejected.')]",
         "buttonProposeOtherTerms": "//*[local-name()='svg' and @data-icon='pen']",
         "buttonSendNewProposal": "//*[local-name()='svg' and @data-icon='paper-plane' and @style='--color:#3D3D3D;']",
-        "buttonAcceptOrderConfirmation": "//span[contains(text(),'Accept')]"
+        "buttonAcceptOrderConfirmation": "//span[contains(text(),'Accept')]",
+        "buttonImportCustomToken": "//button[@data-cy='floating_button_button']",
+        "checkImportCustomToken": "//INPUT[@data-cy='input']",
+        "buttonImport": "//SPAN[text()='Import']"
+    
     },
     "cardClose": {
         "typeOperation": "//div[contains(@data-cy,'card_header_buy_0') or contains(@data-cy,'card_header_sell_0')]",

@@ -87,7 +87,7 @@
                 "fieldPayFrecuency": "//input[@data-cy='input_select_form_content_lend_borrow_payment_frequency_selectable']",
                 "selectRepayFee": "//input[@data-cy='input_select_selectable' and @name='repayment_fee']",
                 "fieldRepayFee": "//input[@data-cy='field_repayment_fee']",
-                "selectCollateralAsset": "//input[@data-cy='input_collateral_asset_name']",
+                "selectCollateralAsset": "//input[@data-cy='input_collateral_asset_id']",
                 "fieldCollateralAmount": "//input[@data-cy='field_collateral_nominal_quantity']",
                 "fieldCollateralPercent": "//input[@data-cy='field_collateral_value']",
                 "fieldMarginCollateralization": "//input[@data-cy='field_margin_call_collateralization']",
@@ -254,9 +254,10 @@
         "marginCall": {
             "btnMargCall": "//span[contains(text(),'Margin Call')]",
             "btnRefund": "//div[contains(@class,'styles_btn-secondary__')][contains(.,'Refund')]",
-            "acceptMargCall": "//span[contains(.,'Accept')]",
+            "acceptMargCall": "//button[@data-cy='button_confirm_confirmation_modal']",
             "alertMargCall": "//span[contains(.,'You have successfully margin call.')]",
-            "txMargCall": "(//DIV[text()='DESCRIPTION'])[1]/../../../../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']"
+            "txMargCall": "(//DIV[text()='DESCRIPTION'])[1]/../../../../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']",
+            "btnRequestRefund": "//button[contains(.,'Request Collateral Refund')]"
         }
     },
     "activity": {

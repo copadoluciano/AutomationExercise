@@ -12,6 +12,7 @@ Then('the {word} contract is on the "My balances and Credits" page', function(sy
 })
 
 Then('goes to the "Manage Tokens" page to delete {word} token', function(symbol) {
+    cy.selectRightMenu("my_wallets")
     cy.clic(this.wallets.importWallet.btnImportToken)
     cy.deleteToken(symbol)
     cy.wait(4000)

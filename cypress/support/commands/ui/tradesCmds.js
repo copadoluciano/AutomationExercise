@@ -15,7 +15,7 @@ Cypress.Commands.add('createOrderBuy', function (operation, currency, quantity, 
     cy.selectCustomToken(this.buySell.createOrder.fielUnitPrice, unit)
     cy.clic(this.buySell.createOrder.fieldPrice).type(price)
     cy.clic(this.buySell.createOrder.fieldOfferExpiration)
-    cy.clic("//li[contains(@data-cy,'" + duration1 + "')]")
+    cy.clic("//li[contains(@data-cy,'li_select_form_content_two_expiration_unit_selectable_days_" + duration1 + "')]")
     cy.xpath(this.buySell.createOrder.fieldTimeExpiration).type(duration2)
     cy.clic(this.buySell.createOrder.fieldCounterparties)
     cy.wait(2000)
