@@ -71,12 +71,7 @@ jobs:
   home:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
-    # let's make sure our tests pass on Chrome browser
-    container: 
-      image: cypress/browsers:node16.17.0-chrome106
-      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     name: home
-          
     steps:
       - uses: actions/checkout@v3
         with:
@@ -149,12 +144,7 @@ jobs:
   loan:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
-    # let's make sure our tests pass on Chrome browser
-    container: 
-      image: cypress/browsers:node16.17.0-chrome106
-      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     name: loan
-          
     steps:
       - uses: actions/checkout@v3
         with:
