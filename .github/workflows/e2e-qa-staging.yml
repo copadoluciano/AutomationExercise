@@ -146,7 +146,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 
   loan:
-    runs-on: [self-hosted, e2e]
+    runs-on: ubuntu-latest
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
