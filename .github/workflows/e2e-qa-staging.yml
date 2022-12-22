@@ -113,7 +113,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run home ${{ secrets.KEY_CYPRESS }}
-          record: false
+          record: true
           browser: chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.KEY_CYPRESS }}
@@ -190,7 +190,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run loan ${{ secrets.KEY_CYPRESS }}
-          record: false
+          record: true
           browser: chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.KEY_CYPRESS }}
