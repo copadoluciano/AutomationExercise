@@ -29,11 +29,18 @@ Feature: Loans
     When I import contract <contract> on Loans
     Then the <symbol> contract is on the "Manage Tokens" on Loans
     And the user delete <symbol> token on Loans
+<<<<<<< HEAD
+
+    Examples:
+      | ID | email         | password      | secret    | contract                                   | symbol |
+      | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
+=======
 
     Examples:
       | ID | email         | password      | secret    | contract                                   | symbol |
       | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
 
+>>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
 
 
   @TEST_LM-8826 @TESTSET_LM-9078 @monitoring
@@ -66,7 +73,11 @@ Feature: Loans
     Then a successful cancel message should be displayed
     Examples:
       | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral |
+<<<<<<< HEAD
+      | 7  | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | borrow    | Open     | ETH      | 0.1    | 02           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
+=======
       | 7  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | borrow    | Open     | ETH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
+>>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
 
 
 

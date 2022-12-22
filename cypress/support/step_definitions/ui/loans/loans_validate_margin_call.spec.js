@@ -1,36 +1,6 @@
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 require('cypress-xpath')
 
-// When('the user "Create Order" {word} {word} "order" of {word} {word} with {word} APR and {word} {word} duration, expiring in {word} {word} and {word} {word} as collateral, limited to {word} % with {word} and with {word} frecuency {word} {word}', function (operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency, repayFee, refundCollateral) {
-//     cy.createOrderLoan(operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency, repayFee, refundCollateral)
-//     cy.validateCardsLoans(operation, amount, collateral, collateralAsset, aprAmount, counterparty)
-//     cy.logout()
-// })
-
-
-// Given('user "Create Borrow Order" {word} {word} "order" of {word} {word} with {word} APR and {word} {word} duration, expiring in {word} {word} and {word} {word} as collateral, limited to {word} % with {word} and is accepted {word}', function (operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency) {
-//     const dayjs = require('dayjs')
-//     var time = dayjs().format('HH.mm')
-//     cy.log(time)
-//     if (time < 17.00 && time < 18.00) {
-//         cy.login(Cypress.env('USER_EMAIL_09'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_09'))
-//         cy.wait(2000)
-//         cy.createOrderLoan(operation, typeLoan, currency, amount, aprAmount, duration1, duration2, offerExpiration1, offerExpiration2, collateral, collateralAsset, collateralLimit, counterparty, frecuency)
-//         cy.logout()
-//         cy.login(Cypress.env('USER_EMAIL_10'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_10'))
-//         cy.acceptOrderLoan()
-//     } else {
-//         cy.login(Cypress.env('USER_EMAIL_10'), Cypress.env('USER_PASSWORD'), Cypress.env('SECRET_10'))
-//         cy.clic(this.header.header.btnLoans)
-//     }
-
-
-// })
-
-// When('logout', function() {
-//     cy.logout()
-// })
-
 When('the counterparty accept the order with {word}, {word} and {word}', function (cp_email, cp_password, cp_secret) {
     cy.login(Cypress.env(cp_email), Cypress.env(cp_password), Cypress.env(cp_secret))
     cy.clic(this.loans.buttons.buttonViewMore)
@@ -40,16 +10,6 @@ When('the counterparty accept the order with {word}, {word} and {word}', functio
 
 When('the collateral is out of bounds {word}', function (collateralAsset) {
     cy.openMembrane()
-    
-    cy.wait(3000)
-    // cy.text(this.loans.cardClose.currentCollateral)
-    // for (let i = 1; i < 5; i++) {
-    //     let currentCollateral = cy.text("(//DIV[@class='styles_label__1iiZs'][text()='Current Collateral'])[" + i + "]/following-sibling::DIV")
-    //     //let currentCollateral1 = currentCollateral.replace("%", "")
-    //     cy.log("hola " + currentCollateral)
-    // }
-    //let collateral = collateralLimit + 0.5
-
     for (let i = 1; i < 8; i++) {
 
         cy.xpath("(//div[@data-cy='proposal_card_current_collateral_wrapper_content'])[" + i + "]").then(function (value) {
@@ -61,40 +21,36 @@ When('the collateral is out of bounds {word}', function (collateralAsset) {
             if (collateral > 100.5) {
                 cy.log("Collateral mayor a 100.5")
                 cy.clic("(//span[contains(.,'View More')])[" + i + "]")
+<<<<<<< HEAD
+                cy.isEnabled(this.loans.openCard.marginCall.btnRequestRefund)
+                cy.clic(this.loans.openCard.marginCall.btnRequestRefund)
+=======
                 // cy.isEnabled(this.loans.openCard.marginCall.btnMargCall)
                 cy.isEnabled("//span[contains(text(),'Request Collateral Refund')]")
                 cy.clic("//span[contains(text(),'Request Collateral Refund')]")
+>>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
                 cy.clic(this.loans.openCard.marginCall.acceptMargCall)
                 cy.wait(4000)
                 cy.clic(this.loans.activity.page)
-                cy.xpath("//select[@data-cy='select']").select('50')
-                cy.wait(4000)
-                // cy.isVisible(this.loans.openCard.marginCall.alertMargCall)
-
-
+                // cy.xpath("//select[@data-cy='select']").select('50')
+                // cy.wait(4000)
                 const dayjs = require('dayjs')
                     let time = dayjs().format('YYYY-MM-DD hh:')
                     cy.log(time)
-                    cy.isVisible("//DIV[@class='styles_tableCell__4RsDS'][contains(text(),'" + time + "')]/../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']")
+                    cy.isVisible("//DIV[contains(@class,'styles_tableCell__')][contains(text(),'" + time + "')]/../..//div[contains(text(),'Margin call')]")
                     // cy.isVisible("//DIV[@class='styles_tableCell__4RsDS'][contains(text(),'" + time + "')]/../..//DIV[@class='styles_tableCell__4RsDS'][contains(text(),'" + collateralAsset + "')]")
+                    //DIV[@class='styles_tableCell__4RsDS'][text()='2022-12-20 04:38 PM']/../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']
                     cy.clic(this.loans.openCard.global.back)
-
-            
-
-
             } else {
                 cy.log("NO hay collateral mayor  100.5")
             }
         })
     }
 })
-
 Then('the margin call button will be enabled', function () {
-
 })
 
 Then('and pressing it we will see the new transaction', function () {
-
 })
 
 

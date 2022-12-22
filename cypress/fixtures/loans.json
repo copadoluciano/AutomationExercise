@@ -251,9 +251,10 @@
         "marginCall": {
             "btnMargCall": "//span[contains(text(),'Margin Call')]",
             "btnRefund": "//div[contains(@class,'styles_btn-secondary__')][contains(.,'Refund')]",
-            "acceptMargCall": "//span[contains(.,'Accept')]",
+            "acceptMargCall": "//button[@data-cy='button_confirm_confirmation_modal']",
             "alertMargCall": "//span[contains(.,'You have successfully margin call.')]",
-            "txMargCall": "(//DIV[text()='DESCRIPTION'])[1]/../../../../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']"
+            "txMargCall": "(//DIV[text()='DESCRIPTION'])[1]/../../../../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']",
+            "btnRequestRefund": "//button[contains(.,'Request Collateral Refund')]"
         }
     },
     "activity": {

@@ -138,7 +138,11 @@
         "popUpOrderReject": "//span[contains(.,'The order has been rejected.')]",
         "buttonProposeOtherTerms": "//*[local-name()='svg' and @data-icon='pen']",
         "buttonSendNewProposal": "//*[local-name()='svg' and @data-icon='paper-plane' and @style='--color:#3D3D3D;']",
-        "buttonAcceptOrderConfirmation": "//span[contains(text(),'Accept')]"
+        "buttonAcceptOrderConfirmation": "//span[contains(text(),'Accept')]",
+        "buttonImportCustomToken": "//button[@data-cy='floating_button_button']",
+        "checkImportCustomToken": "//INPUT[@data-cy='input']",
+        "buttonImport": "//SPAN[text()='Import']"
+    
     },
     "cardClose": {
         "typeOperation": "//div[contains(@data-cy,'card_header_buy_0') or contains(@data-cy,'card_header_sell_0')]",
