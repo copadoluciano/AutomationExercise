@@ -69,7 +69,7 @@ env:
 
 jobs:
   home:
-    runs-on: [self-hosted, e2e]
+    runs-on: ubuntu-latest
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
