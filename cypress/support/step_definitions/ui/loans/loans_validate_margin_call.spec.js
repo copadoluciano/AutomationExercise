@@ -21,8 +21,14 @@ When('the collateral is out of bounds {word}', function (collateralAsset) {
             if (collateral > 100.5) {
                 cy.log("Collateral mayor a 100.5")
                 cy.clic("(//span[contains(.,'View More')])[" + i + "]")
+<<<<<<< HEAD
                 cy.isEnabled(this.loans.openCard.marginCall.btnRequestRefund)
                 cy.clic(this.loans.openCard.marginCall.btnRequestRefund)
+=======
+                // cy.isEnabled(this.loans.openCard.marginCall.btnMargCall)
+                cy.isEnabled("//span[contains(text(),'Request Collateral Refund')]")
+                cy.clic("//span[contains(text(),'Request Collateral Refund')]")
+>>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
                 cy.clic(this.loans.openCard.marginCall.acceptMargCall)
                 cy.wait(4000)
                 cy.clic(this.loans.activity.page)

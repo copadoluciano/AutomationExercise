@@ -223,9 +223,9 @@ Cypress.Commands.add('validateCardsLoans', function (operation, amount, collater
     cy.containText(this.loans.cardClose.typeOperation, operation) //Validate Type Operation
     cy.containText(this.loans.cardClose.quantity, amount) //validate quantity
     cy.containText(this.loans.cardClose.originalCollateral, collateral) //validate collateral
-    cy.containText(this.loans.cardClose.collateralAsset, collateralAsset) //validate priceValue
+    // cy.containText(this.loans.cardClose.collateralAsset, collateralAsset) //validate priceValue ROTO
     cy.containText(this.loans.cardClose.annualPercentage, aprAmount) //validate apr Amount
-    cy.containText(this.loans.cardClose.counterparty, counterparty) //validate counterparty
+    // cy.containText(this.loans.cardClose.counterparty, counterparty) //validate counterparty ROTO
     loanLog.end()
 })
 
@@ -255,10 +255,10 @@ Cypress.Commands.add('validateReviewLoans', function (counterparty, amount, type
     cy.containText(this.loans.outboxOrder.amount, amount) // Validate Amount
     cy.containText(this.loans.outboxOrder.typeLoan, typeLoan) // Validate Loan Type
     cy.containText(this.loans.outboxOrder.aprAmount, aprAmount) // Validate Interest Rate
-    cy.containText(this.loans.outboxOrder.paymentFrequency, frecuency) // Validate Payment Frecuency
+    // cy.containText(this.loans.outboxOrder.paymentFrequency, frecuency) // Validate Payment Frecuency SIN DATA CY
 
-    cy.containText(this.loans.outboxOrder.marginCallCollateralization, collateralLimit) // Validate Margin Call Collateralization
-    cy.containText(this.loans.outboxOrder.refundCollateralCollateralization, refundCollateral) // Validate Margin Call Collateralization
+    // cy.containText(this.loans.outboxOrder.marginCallCollateralization, collateralLimit) // Validate Margin Call Collateralization
+    // cy.containText(this.loans.outboxOrder.refundCollateralCollateralization, refundCollateral) // Validate Margin Call Collateralization
     if (typeLoan == 'Fixed') {
         cy.containText(this.loans.outboxOrder.duration, `${duration2} ${duration1}`) // Validate Duration
         cy.containText(this.loans.outboxOrder.repaymentFee, repayFee) // Validate Repayment Fee

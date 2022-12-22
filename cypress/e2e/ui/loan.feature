@@ -8,19 +8,19 @@ Feature: Loans
   #   Then the user visualizes "Loans" page elements correctly
 
   #   Examples:
-  #     | ID | email         | password      | secret         |
+  #     | ID | email         | password      | secret    |
   #     | 1  | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 |
 
   # @TEST_LM-8825 @TESTSET_LM-9078
-  #   Scenario Outline: [E2E] <ID>- Loans > Validate Container
-  #     Given I go to sign-in and type <email>, <password> and <secret>
-  #     When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
-  #     When the user logs out
-  #     And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
-  #     And the counterparty will open some orders to validate the container
-  #     Examples:
-  #       | ID | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret      |
-  #       | 3  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | borrow    | Intraday   | ETH      | 0.1    | 04           | 5         | days      | 1         | minutes          | 2                | 100        | SHIB            | 99.5            | daily    | 0        | 100.5            | USER_EMAIL_04 | USER_PASSWORD | SECRET_04 |
+  # Scenario Outline: [E2E] <ID>- Loans > Validate Container
+  #   Given I go to sign-in and type <email>, <password> and <secret>
+  #   When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+  #   When the user logs out
+  #   And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
+  #   And the counterparty will open some orders to validate the container
+  #   Examples:
+  #     | ID | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret |
+  #     | 3  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | borrow    | Intraday | ETH      | 0.1    | 04           | 5         | days      | 1         | minutes          | 2                | 100        | SHIB            | 99.5            | daily     | 0        | 100.5            | USER_EMAIL_04 | USER_PASSWORD | SECRET_04 |
 
 
   @TEST_LM-9258 @TESTSET_LM-9078
@@ -29,13 +29,20 @@ Feature: Loans
     When I import contract <contract> on Loans
     Then the <symbol> contract is on the "Manage Tokens" on Loans
     And the user delete <symbol> token on Loans
+<<<<<<< HEAD
+
+    Examples:
+      | ID | email         | password      | secret    | contract                                   | symbol |
+      | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
+=======
 
     Examples:
       | ID | email         | password      | secret    | contract                                   | symbol |
       | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
 
+>>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
 
-  #Monitoring
+
   @TEST_LM-8826 @TESTSET_LM-9078 @monitoring
   Scenario Outline: [E2E] <ID>- Loans > Create & Accept Order with <TypeToken> Token and Collateral <collateral>
     Given I go to sign-in and type <email>, <password> and <secret>
@@ -66,7 +73,11 @@ Feature: Loans
     Then a successful cancel message should be displayed
     Examples:
       | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral |
+<<<<<<< HEAD
       | 7  | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | borrow    | Open     | ETH      | 0.1    | 02           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
+=======
+      | 7  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | borrow    | Open     | ETH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
+>>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
 
 
 
