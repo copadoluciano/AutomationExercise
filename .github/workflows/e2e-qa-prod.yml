@@ -676,7 +676,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -747,7 +747,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
