@@ -107,7 +107,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome    
@@ -179,7 +179,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -250,7 +250,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -321,7 +321,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -392,7 +392,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -463,7 +463,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -534,7 +534,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -605,7 +605,7 @@ jobs:
         uses: cypress-io/github-action@v4
         id: cypress
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://app-prod.membranelabs.com
+          config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
           command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
