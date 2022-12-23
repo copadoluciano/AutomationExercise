@@ -7,7 +7,7 @@ When('the user try create new settlement between ethereum network vs ethereum ne
     cy.clic(this.header.header.btnTransfers)
     cy.clic(this.settlement.global.buttons.buttonGenerateNewSettlements)
     cy.clic(this.settlement.others.fieldInput)
-    cy.clic("//H2[@data-cy='modal_title']/../..//SPAN[@data-cy='generate_settlement_select_counterparty_value'][text()='Cypress 08 Lootgnitset']")
+    cy.clic("//SPAN[@data-cy='value_generate_settlement_select_counterparty_'][text()='Cypress 08 Lootgnitset']")
     cy.wait(2000)
     cy.clic(this.settlement.others.nextBtn)
 })

@@ -29,18 +29,11 @@ Feature: Loans
     When I import contract <contract> on Loans
     Then the <symbol> contract is on the "Manage Tokens" on Loans
     And the user delete <symbol> token on Loans
-<<<<<<< HEAD
-
-    Examples:
-      | ID | email         | password      | secret    | contract                                   | symbol |
-      | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
-=======
 
     Examples:
       | ID | email         | password      | secret    | contract                                   | symbol |
       | 2  | USER_EMAIL_03 | USER_PASSWORD | SECRET_03 | 0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b | CRO    |
 
->>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
 
 
   @TEST_LM-8826 @TESTSET_LM-9078 @monitoring
@@ -72,12 +65,9 @@ Feature: Loans
     And the same user cancel the order
     Then a successful cancel message should be displayed
     Examples:
-      | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral |
-<<<<<<< HEAD
-      | 7  | Custom    | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | borrow    | Open     | ETH      | 0.1    | 02           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
-=======
-      | 7  | Custom    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | borrow    | Open     | ETH      | 0.1    | 10           | 5         | days      | 1         | minutes          | 1                | 100        | SHIB            | 99.5            | weekly    | 0        | 100.5            |
->>>>>>> c46b7faf1c3ad440130c0a98e331d2ddc539b64b
+      | ID | TypeToken | email | password | secret | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral |
+      | 7 | Custom | USER_EMAIL_01 | USER_PASSWORD | SECRET_01 | borrow | Open | ETH | 0.1 | 02 | 5 | days | 1 | minutes | 1 | 100 | SHIB | 99.5 | weekly | 0 | 100.5 |
+ 
 
 
 
@@ -93,6 +83,23 @@ Feature: Loans
     Examples:
       | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret |
       | 8  | Native    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Open     | BTC      | 0.001  | 10           | 5         | days      | 5         | minutes          | 1                | 100        | ETH             | 99.5            | weekly    | 0        | 100.5            | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
+
+
+
+  # @TEST_LM_ @TESTSET_LM-9076
+  # Scenario Outline: [E2E] <ID>- Loans > Create Order And Counterparty Import Token]
+  #   Given the user is in sign-in and type <email>, <password> and <secret>
+  #   When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+  #   When the user log out your account
+  #   And the counterparty sign-in and type <cp_email>, <cp_password> and <cp_secret>
+  #   And the counterparty try to accepts the order but will receive a messege to import the <contract>
+  #   Then goes to the "Manage Tokens" page to delete <currency> token
+
+  #   Examples:
+  #     | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret | contract                                   |
+  #     # | 8  | Native    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Open     | APE      | 0.001  | 10           | 5         | days      | 5         | minutes          | 1                | 100        | ETH             | 99.5            | weekly    | 0        | 100.5            | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 | 0x4d224452801ACEd8B2F0aebE155379bb5D594381 |
+  #     | 9  | Native    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Open     | LINK     | 0.001  | 10           | 5         | days      | 5         | minutes          | 1                | 100        | ETH             | 99.5            | weekly    | 0        | 100.5            | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 | 0x514910771AF9Ca656af840dff83E8264EcF986CA |
+
 
 # @TEST_LM-8830 @TESTSET_LM-9078
 # Scenario Outline: [E2E] <ID>- Loans > Create Manual Loan
