@@ -108,7 +108,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run home ${{ secrets.KEY_CYPRESS }}
+          command: npm run home
+          # command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome    
         env:
@@ -180,7 +181,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run loan ${{ secrets.KEY_CYPRESS }}
+          command: npm run loan
+          # command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -251,7 +253,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
+          command: npm run myWallets
+          # command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -322,7 +325,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
+          command: npm run myBalances
+          # command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -393,7 +397,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
+          command: npm run securityCenter
+          # command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -464,7 +469,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run signIn ${{ secrets.KEY_CYPRESS }}
+          command: npm run signIn
+          # command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -535,7 +541,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run trades ${{ secrets.KEY_CYPRESS }}
+          command: npm run trades
+          # command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -606,7 +613,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run transfers ${{ secrets.KEY_CYPRESS }}
+          command: npm run transfers
+          # command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -677,7 +685,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
+          command: npm run counterparties
+          # command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -748,7 +757,8 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
+          command: npm run forgotPassword
+          # command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
