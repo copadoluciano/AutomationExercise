@@ -117,7 +117,8 @@ jobs:
         # commit status in the next step, both in case of success and failure
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
+          command: npm run prod-monitoring
+          # command: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome
         env:

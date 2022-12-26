@@ -14,15 +14,15 @@ Feature: Transfers
                 | ID | email         | password      | secret         |
                 | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
-        # @TEST_LM-8884 @TESTSET_LM-9079
-        # Scenario Outline: [E2E] <ID>- Transfers > Validate Preview Settlement Classic
-        #     Given the user is in sign-in and type <email>, <password> and <secret>
-        #     When the user try create new settlement between ethereum network vs ethereum network and chooses Classic Settlement
-        #     Then validate all the values on Classic Settlement
+        @TEST_LM-8884 @TESTSET_LM-9079
+        Scenario Outline: [E2E] <ID>- Transfers > Validate Preview Settlement Classic
+            Given the user is in sign-in and type <email>, <password> and <secret>
+            When the user try create new settlement between ethereum network vs ethereum network and chooses Classic Settlement
+            Then validate all the values on Classic Settlement
 
-        #     Examples:
-        #         | ID | email         | password      | secret         |
-        #         | 1  | USER_EMAIL_07 | USER_PASSWORD | SECRET_07 |
+            Examples:
+                | ID | email         | password      | secret         | counterparty |
+                | 1  | USER_EMAIL_07 | USER_PASSWORD | SECRET_07 | 08 |
 
 
     # # 2

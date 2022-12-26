@@ -70,7 +70,7 @@
         "labelLastWeek": "//li[@data-cy='li_whatchlist_last_week']",
         "labelLast24Hours": "//li[@data-cy='li_whatchlist_last_24_hours']",
         "labelLastMonth": "//li[@data-cy='li_whatchlist_last_month']",
-        "buttonEditWatch": "//button[@data-cy='button_edit_watchlist']",
+        "buttonEditWatch": "//button[@data-cy='icon_button_button_edit_watchlist']",
         "editWatchList": {
             "labelEditWatch": "//h2[@data-cy='modal_title']",
             "labelSubtitle": "//div[contains(text(),'Add or delete an asset in your watchlist')]",
