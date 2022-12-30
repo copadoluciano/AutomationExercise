@@ -9,4 +9,4 @@ Feature: Test Set UI - [My Accounts] - Log Out
         
         Examples:
             | ID | email         | password      | secret    |
-            | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+            | 1  | USER_EMAIL_26 | USER_PASSWORD | SECRET_26 |

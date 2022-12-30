@@ -92,7 +92,24 @@ Feature: Trade Plans
 		And the counterparty will have the button to accept the order enabled
 		Then goes to the "Manage Tokens" page to delete <currency> token
 
-
 		Examples:
 			| ID | email         | password      | secret    | operation | currency | quantity | unit | price | duration1 | duration2 | counterparty | cp_email      | cp_password   | cp_secret |
 			| 2  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | APE      | 0.1      | USDC | 1     | minutes   | 1         | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
+
+	#	@TEST_ @TESTSET_LM-9076
+	#	Scenario Outline: [E2E] <ID>- Trades > Create BUY with recommended price
+	#		Given the user is in sign-in and type <email>, <password> and <secret>
+	#		 When the user "Create New Order" recommended price <operation> with <currency> and <quantity> and <unit> and <Offer expiration> and <duration> and <counterparty>
+	#	     Then validate order details card <operation> with <quantity> and unit price and total amount and <counterparty>
+	#    	 When the user log out your account
+	#		  And the counterparty sign-in and type <cp_email>, <cp_password> and <cp_secret>
+	#	     Then validate Counterparty order details card <operation> with <quantity> and unit price and total amount and <counterparty>
+	#		  And the counterparty accepts the order
+	#		 Then the order will be created for both parties
+
+	#		Examples:
+    #			| ID | email         | password      | secret    | operation | currency | quantity | unit  | Offer expiration | duration | counterparty | cp_email      | cp_password   | cp_secret |
+	#			| 2  | USER_EMAIL_19 | USER_PASSWORD | SECRET_19 | Buy       | USDC     | 1        | BTC   | days             | 1        | 20           | USER_EMAIL_20 | USER_PASSWORD | SECRET_20 |
+
+
+

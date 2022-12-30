@@ -8,7 +8,7 @@ Feature: Test Set UI - [My Accounts] - Security Center
           And I type new password and change for the befor password
         Examples:
             | ID | email         | password      | secret    |
-            | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+            | 1  | USER_EMAIL_25 | USER_PASSWORD | SECRET_25 |
 
     @TEST_LM-8880 @TESTSET_LM-9077
     Scenario Outline: [E2E] <ID>- Security Center > Validate Static Elements
@@ -17,7 +17,7 @@ Feature: Test Set UI - [My Accounts] - Security Center
          Then I should see the page change password with correct elements
         Examples:
             | ID | email         | password      | secret    |
-            | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+            | 2  | USER_EMAIL_25 | USER_PASSWORD | SECRET_25 |
 
     @TEST_LM-8881 @TESTSET_LM-9077
     Scenario Outline: [E2E] <ID>- Security Center > Change Password - Invalid Data
@@ -26,7 +26,7 @@ Feature: Test Set UI - [My Accounts] - Security Center
          Then I should see message label Error: Wrong password, try again
         Examples:
             | ID | email         | password      | secret    |
-            | 3  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+            | 3  | USER_EMAIL_25 | USER_PASSWORD | SECRET_25 |
 
     @TEST_LM-8882 @TESTSET_LM-9077
     Scenario Outline: [E2E] <ID>- Security Center > Change Password - Passwords Empty
@@ -35,5 +35,4 @@ Feature: Test Set UI - [My Accounts] - Security Center
          Then I should see the Next button disabled in change password page
         Examples:
             | ID | email         | password      | secret    |
-            | 4  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
-
+            | 4  | USER_EMAIL_25 | USER_PASSWORD | SECRET_25 |
