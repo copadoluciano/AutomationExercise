@@ -3,9 +3,9 @@ require('cypress-xpath')
 
 
 When('I add a {word} to the watchlist', function(currency) {
-    cy.clic(this.home.watchlist.buttonEditWatch)
+    cy.clic("(//*[local-name()='svg' and @data-icon='angle-down'])[1]")
     cy.wait(3000)
-    cy.selectCustomToken(this.home.watchlist.editWatchList.inputAsset, currency)
+    cy.click("//h5[@data-cy'symbol_asset_"+asset+"']")
     cy.clic(this.home.watchlist.editWatchList.buttonAddAsset)
     cy.wait(2000)
 })
