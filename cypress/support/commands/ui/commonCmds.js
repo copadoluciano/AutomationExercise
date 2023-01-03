@@ -87,7 +87,7 @@ Cypress.Commands.add('selectRightMenu', function (option) {
     cy.clic("//a[@data-cy='profile_menu_option_"+option+"']")
 
 })
-Cypress.Commands.add('selectCustomToken', function (openModal, asset) {
+Cypress.Commands.add('ustomToken', function (openModal, asset) {
     cy.clic(openModal)
     cy.xpath(this.buySell.manageToken.searchToken, {timeout: 20000}).type(asset)
     cy.xpath("(//h5[contains(.,'" + asset + "')])[1]", {timeout: 20000}).click()
@@ -128,5 +128,9 @@ Cypress.Commands.add('manageToken', function (adress) {
     cy.xpath(this.buySell.manageToken.searchToken).type(asset)
     cy.xpath("//h5[contains(.,'" + asset + "')]").click()
 
+})
+Cypress.Commands.add('selectAsset', function (asset) {
+    cy.xpath(this.buySell.manageToken.searchToken).type(asset)
+    cy.clic("//h5[@data-cy='symbol_asset_"+asset+"']")
 })
 
