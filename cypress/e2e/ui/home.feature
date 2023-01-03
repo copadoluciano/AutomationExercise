@@ -7,7 +7,7 @@ Feature: Test Set UI - Home
     #     Examples:
     #         | ID | email         | password      | secret    |
     #         | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
-    
+
     @TEST_LM-8823 @TESTSET_LM-9075
     Scenario Outline: [E2E] <ID>- Home > Select Asset in Watchlist
         Given I go to sign-in and type <email>, <password> and <secret>
@@ -33,3 +33,14 @@ Feature: Test Set UI - Home
         Examples:
              | ID | email         | password      | secret    | 
              | 10  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | 
+
+
+    # @TEST_LM- @TESTSET_LM-9075
+    # Scenario Outline: [E2E] <ID>- Home > Funcionality Display Watchlist
+    #     Given I go to sign-in and type <email>, <password> and <secret>
+    #     When the user disable the button "Display Watchlist"
+    #     Then the watchlist disappear
+
+    #     Examples:
+    #          | ID | email         | password      | secret    | 
+    #          | 10  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | 
