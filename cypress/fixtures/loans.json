@@ -254,7 +254,7 @@
             "acceptMargCall": "//button[@data-cy='button_confirm_confirmation_modal']",
             "alertMargCall": "//span[contains(.,'You have successfully margin call.')]",
             "txMargCall": "(//DIV[text()='DESCRIPTION'])[1]/../../../../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']",
-            "btnRequestRefund": "//button[contains(.,'Request Collateral Refund')]"
+            "btnRequestRefund": "//button[contains(.,'Request refund')]"
         }
     },
     "activity": {

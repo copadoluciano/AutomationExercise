@@ -1,5 +1,6 @@
 {
     "watchlist": {
+        "btnDisplayWatchlist": "//SPAN[@class='styles_switchSpan__Lsbmr']",
         "BTC": {
             "iconBtc": "//img[@data-cy='whitelist_chart_img_logo_btc']",
             "labelBtc": "//span[@data-cy='whitelist_chart_symbol_btc']",

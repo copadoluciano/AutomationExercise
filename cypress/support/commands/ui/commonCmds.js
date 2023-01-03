@@ -87,7 +87,7 @@ Cypress.Commands.add('selectRightMenu', function (option) {
     cy.clic("//a[@data-cy='profile_menu_option_"+option+"']")
 
 })
-Cypress.Commands.add('ustomToken', function (openModal, asset) {
+Cypress.Commands.add('selectCustomToken', function (openModal, asset) {
     cy.clic(openModal)
     cy.xpath(this.buySell.manageToken.searchToken, {timeout: 20000}).type(asset)
     cy.xpath("(//h5[contains(.,'" + asset + "')])[1]", {timeout: 20000}).click()

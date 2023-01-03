@@ -1,14 +1,15 @@
 Feature: Test Set UI - Home
 
-    @TEST_LM-8049 @TESTSET_LM-9075
-    Scenario Outline: [E2E] <ID>- Home > Validate Static Elements
-        Given I go to sign-in and type <email>, <password> and <secret>
-        Then I should see the page home with correct elements
-        Examples:
-            | ID | email         | password      | secret    |
-            | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+    # @TEST_LM-8049 @TESTSET_LM-9075
+    # Scenario Outline: [E2E] <ID>- Home > Validate Static Elements
+    #     Given I go to sign-in and type <email>, <password> and <secret>
+    #     Then I should see the page home with correct elements
+    #     Examples:
+    #         | ID | email         | password      | secret    |
+    #         | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+    
     @TEST_LM-8823 @TESTSET_LM-9075
-    Scenario Outline: [E2E] <ID>- Home > Display Watchlist
+    Scenario Outline: [E2E] <ID>- Home > Select Asset in Watchlist
         Given I go to sign-in and type <email>, <password> and <secret>
         When I add a <asset> to the watchlist
         Then I should see the <asset> and <Icon> in WatchList
@@ -23,8 +24,12 @@ Feature: Test Set UI - Home
             | 8  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | BNB      | bsc_mainnet_bsc_icon                                        | bnb   |
             | 9  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | AVAX     | avalanche_mainnet_avalanche_icon                            | avax  |
 
-    # @TEST_LM- @TESTSET_LM-9075
-    # Scenario Outline: [E2E] <ID>- Home > Display Watchlist
-    #     Given I go to sign-in and type <email>, <password> and <secret>
-    #     When the user disable display to waychlist
-    #     Then the watchlist disappear
+    @TEST_LM-11597 @TESTSET_LM-9075
+    Scenario Outline: [E2E] <ID>- Home > Funcionality Display Watchlist
+        Given I go to sign-in and type <email>, <password> and <secret>
+        When the user disable the button "Display Watchlist"
+        Then the watchlist disappear
+
+        Examples:
+             | ID | email         | password      | secret    | 
+             | 10  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | 
