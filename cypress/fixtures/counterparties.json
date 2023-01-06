@@ -80,5 +80,35 @@
         "labelH1": "//p[contains(text(),'You have open orders with')]",
         "labelH3": "//p[contains(text(),'Please check the status of all your orders with counterparty and try again')]",
         "btnClose": "//span[contains(text(),'Close')]"
+    },
+    "manual":{
+        "global":{
+            "btnNewCounterparty": "//BUTTON[@data-cy='add_manual_counterparty']"
+        },
+        "create":{
+            "inputName": "//INPUT[@data-cy='field_name']",
+            "inputEmail": "//INPUT[@data-cy='email_chips_emails']",
+            "btnCancel": "//BUTTON[@data-cy='cancel']",
+            "btnSubmit": "//BUTTON[@data-cy='submit']",
+            "successfullyMessage": "//P[@data-cy='finish_message_message']",
+            "btnFinish": "//button[@data-cy='finish_message_finish']"
+        },
+        "delete": {
+            "btnDelete": "//button[@data-cy='icon_button_delete']",
+            "btnCancel": "//BUTTON[@data-cy='cancel']",
+            "btnConfirm": "//BUTTON[@data-cy='confirm']",
+            "successfullyMessage": "//span[contains(text(),'Successfully deleted')]"
+        },
+        "viewDetail":{
+            "name": "",
+            "email": ""
+        },
+        "edit":{
+            "btnEdit": "",
+            "successfullyMessage": "//P[@data-cy='finish_message_edit_message']",
+            "btnFinish": "//button[@data-cy='finish_message_edit_finish']"
+
+        }
     }
 }
+

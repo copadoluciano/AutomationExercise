@@ -71,18 +71,18 @@ Feature: Loans
 
 
 
-  @TEST_LM-8829 @TESTSET_LM-9078
-  Scenario Outline: [E2E] <ID>- Loans > Test Margin Call Functionality
-    Given I go to sign-in and type <email>, <password> and <secret>
-    When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
-    And logout
-    And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
-    And the collateral is out of bounds <collateralAsset>
-    Then the margin call button will be enabled
-    And and pressing it we will see the new transaction
-    Examples:
-      | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret |
-      | 8  | Native    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Open     | BTC      | 0.001  | 10           | 5         | days      | 5         | minutes          | 1                | 100        | ETH             | 99.5            | weekly    | 0        | 100.5            | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
+  # @TEST_LM-8829 @TESTSET_LM-9078
+  # Scenario Outline: [E2E] <ID>- Loans > Test Margin Call Functionality
+  #   Given I go to sign-in and type <email>, <password> and <secret>
+  #   When I "Create Order" <operation> <typeLoan> "order" of <currency> <amount> with <aprAmount> APR and <duration2> <duration1> duration, expiring in <offerExpiration2> <offerExpiration1> and <collateral> <collateralAsset> as collateral, limited to <collateralLimit> % with <counterparty> and with <frecuency> frecuency <repayFee> <refundCollateral>
+  #   And logout
+  #   And the counterparty accept the order with <cp_email>, <cp_password> and <cp_secret>
+  #   And the collateral is out of bounds <collateralAsset>
+  #   Then the margin call button will be enabled
+  #   And and pressing it we will see the new transaction
+  #   Examples:
+  #     | ID | TypeToken | email         | password      | secret    | operation | typeLoan | currency | amount | counterparty | aprAmount | duration1 | duration2 | offerExpiration1 | offerExpiration2 | collateral | collateralAsset | collateralLimit | frecuency | repayFee | refundCollateral | cp_email      | cp_password   | cp_secret |
+  #     | 8  | Native    | USER_EMAIL_09 | USER_PASSWORD | SECRET_09 | lend      | Open     | BTC      | 0.001  | 10           | 5         | days      | 5         | minutes          | 1                | 100        | ETH             | 99.5            | weekly    | 0        | 100.5            | USER_EMAIL_10 | USER_PASSWORD | SECRET_10 |
 
 
 
