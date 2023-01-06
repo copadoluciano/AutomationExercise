@@ -95,16 +95,59 @@ Feature: Invite user
 
 
 
-        # Scenario Outline: Invite User - Send Reminder & ReSend
-        #     Given the user is in sign-in and type <email>, <password> and <secret>
-        #     When the user try to Send Reminder Invitation
-        #     Then receive an alert to "Invitation Send"
-        #     And if the user try Send Reminder Againt
-        #     Then receive an alert to "Wait"
 
-        #     Examples:
-        #         | ID | email         | password      | secret    | cp_email      |
-        #         | 8  | USER_EMAIL_º7 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
+        @TEST_LM-11804 @TESTSET_LM-9102
+        Scenario Outline: Counterparties - Create new Manual Counterparty
+            Given the user is in sign-in and type <email>, <password> and <secret>
+            When the user create new manual counterparty with name <cp_name> and email <cp_email>
+            Then the user should see message label "<cp_name> has been successfully added."
+            And the user will delete the manual counterparty with email <cp_email>
+            Examples:
+                | ID | email         | password      | secret    | cp_name  | cp_email      | cp_name  |
+                | 10 | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | cypress | USER_EMAIL_18 | cypress1 |
+
+        @TEST_LM-11818 @TESTSET_LM-9102
+        Scenario Outline: Counterparties - Delete Manual Counterparty
+            Given the user is in sign-in and type <email>, <password> and <secret>
+            When the user create new manual counterparty with name <cp_name> and email <cp_email>
+            Then the user should see message label "<cp_name> has been successfully added."
+            And the user will delete the manual counterparty with email <cp_email>
+            Examples:
+                | ID | email         | password      | secret    | cp_name  | cp_email      | cp_name  |
+                | 10 | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | cypress | USER_EMAIL_18 | cypress1 |
+
+
+        @TEST_LM-11819 @TESTSET_LM-9102
+        Scenario Outline: Counterparties - View Detail for Manual Counterparty
+            Given the user is in sign-in and type <email>, <password> and <secret>
+            When the user view detail for manual counterparty <cp_email>
+            Then the user can see his <cp_name>, <cp_email> and the status of notifications
+
+            Examples:
+                | ID | email         | password      | secret    | cp_name | cp_email             |
+                | 10 | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | Test    | test@blockchain.test |
+
+
+        @TEST_LM-11826 @TESTSET_LM-9102
+        Scenario Outline: Counterparties - Edit Name in Manual Counterparty
+            Given the user is in sign-in and type <email>, <password> and <secret>
+            When the user edit the name <cp_name> for <cp_name_new> in manual counterparty
+            Then the user should see the message "Done! The manual counterparty Test1 has been edited." and the new name <cp_name_new> <cp_email>
+            And the user will change back to the original name <cp_name> with email <cp_email>
+            Examples:
+                | ID | email         | password      | secret    | cp_name  | cp_email             | cp_name_new |
+                | 10 | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 | TestEdit | edit@blockchain.test | TestEditNew |
+
+    # Scenario Outline: Invite User - Send Reminder & ReSend
+    #     Given the user is in sign-in and type <email>, <password> and <secret>
+    #     When the user try to Send Reminder Invitation
+    #     Then receive an alert to "Invitation Send"
+    #     And if the user try Send Reminder Againt
+    #     Then receive an alert to "Wait"
+
+    #     Examples:
+    #         | ID | email         | password      | secret    | cp_email      |
+    #         | 8  | USER_EMAIL_º7 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
 
 
     # Scenario: Invite User - Disable user - Validate disable selects in Buy/Sell
