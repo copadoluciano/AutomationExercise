@@ -24,6 +24,7 @@
         "labelTotalAmount": "//label[@data-cy='label_total_amount']",
         "labelOfferExpiration": "//label[@data-cy='label_offer_expiration']",
         "labelCounterparties": "//label[@data-cy='label_counterparties']",
+        "LabelRecommendedPrice":"//span[@data-cy='form_content_two_price_price_value']",
         "fieldAsset": "//div[@data-cy='default_currency_input_currency_selector_base_assetid_wrapper']",
         "fieldQuantity": "//input[@data-cy='field_base_amount']",
         "fielUnitPrice": "//div[@data-cy='default_currency_input_currency_selector_quote_assetid_wrapper']",
@@ -60,7 +61,7 @@
                 "typeOperation": "//span[contains(@class,'styles_valueContent__')]",
                 "setId": "//span[contains(@class,'styles_valueContent__')][contains(.,'set_')]",
                 "status1": "//SPAN[@xpath='1'][text()='Waiting']",
-                "amount": "",
+                "amount": "//span[contains(@data-cy,'detail_preview_content_row_row_value_content')]",
                 "unitPrice": "",
                 "totalAmount": "",
                 "status2": ""

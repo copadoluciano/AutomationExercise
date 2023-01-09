@@ -129,4 +129,8 @@ Cypress.Commands.add('manageToken', function (adress) {
     cy.xpath("//h5[contains(.,'" + asset + "')]").click()
 
 })
+Cypress.Commands.add('selectAsset', function (asset) {
+    cy.xpath(this.buySell.manageToken.searchToken).type(asset)
+    cy.clic("//h5[@data-cy='symbol_asset_"+asset+"']")
+})
 

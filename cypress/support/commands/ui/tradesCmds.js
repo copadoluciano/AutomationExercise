@@ -1,5 +1,48 @@
 //const { expect } = require("chai")
 
+
+Cypress.Commands.add('createOrderRecommendedPrice', function (operation, currency, quantity, unit, duration1, duration2, counterparty) {
+    let tradeLog = Cypress.log({
+        name: 'Trade',
+        displayName: 'TRADE',
+        message: `${operation}, ${quantity}, ${counterparty}`,
+        autoEnd: false
+    })
+    cy.clic(this.header.header.btnTrades)
+    cy.clic(this.buySell.global.createOrderBtn)
+    cy.clic("//button[@data-order='" + operation + "']")
+    cy.selectCustomToken(this.buySell.createOrder.fieldAsset, currency)
+    cy.typeText(this.buySell.createOrder.fieldQuantity, quantity)
+    cy.selectCustomToken(this.buySell.createOrder.fielUnitPrice, unit)
+
+    cy.xpath(this.buySell.createOrder.LabelRecommendedPrice).then(function (recommendedPrice) {
+        Cypress.env("recommendedPrice", recommendedPrice.text().slice(0, 10))
+        cy.log(Cypress.env("recommendedPrice"))
+    })
+
+    cy.clic(this.buySell.createOrder.LabelRecommendedPrice)
+
+
+    cy.clic(this.buySell.createOrder.fieldOfferExpiration)
+    cy.clic("//li[contains(@data-cy,'li_select_form_content_two_expiration_unit_selectable_days_" + duration1 + "')]")
+    cy.xpath(this.buySell.createOrder.fieldTimeExpiration).type(duration2)
+    
+/*     cy.xpath("//input[contains(@data-cy,'field_quote_amount')]").then(function (totalAmount) {
+        Cypress.env("totalAmount", totalAmount.text().slice(0, 10))
+        cy.log(Cypress.env("totalAmount"))
+    }) */
+
+    cy.clic(this.buySell.createOrder.fieldCounterparties)
+    cy.wait(2000)
+    cy.xpath("//SPAN[contains(text(),'" + counterparty + "')]/..//INPUT[@type='checkbox']").click()
+    cy.get('[data-cy="button_close_modal"] > path')
+    cy.clic(this.buySell.createOrder.createOrder)
+    cy.isVisible("//span[contains(text(),'Your order has been Sent.')]")
+    tradeLog.end()
+})
+
+
+
 Cypress.Commands.add('createOrderBuy', function (operation, currency, quantity, unit, price, duration1, duration2, counterparty) {
     let tradeLog = Cypress.log({
         name: 'Trade',
@@ -154,4 +197,50 @@ Cypress.Commands.add('proposeOtherTermsTrades', function () {
 })
 
 
+Cypress.Commands.add('validateRecommendedPrice', function (operation, quantity, counterparty) {
+    cy.wait(3000)
+    cy.clic("(//span[contains(.,'View More')])[1]")
+        if (operation == 'Buy') {
 
+        cy.containText("//span[contains(@data-cy,'detail_preview_content_row_row_value_content')]", operation) //Validate Type Operation
+        cy.containText("//strong[contains(@data-cy,'cell_value_amount')]", parseFloat(Cypress.env("recommendedPrice")) * quantity) //validate sendValue
+        cy.containText(this.buySell.cardClose.receiveValueMaker, quantity) //validate receiveValue
+        cy.containText(this.buySell.cardClose.priceValue, Cypress.env("recommendedPrice")) //validate priceValue
+        cy.containText(this.buySell.cardClose.counterParty, counterparty) //validate counterparty       
+     }
+    else if (operation == 'Sell'){
+        cy.containText(this.buySell.cardClose.typeOperation, operation) //Validate Type Operation
+        cy.containText(this.buySell.cardClose.sendValueMaker, quantity) //validate sendValue
+        cy.containText(this.buySell.cardClose.receiveValueMaker, parseFloat(Cypress.env("recommendedPrice")) * quantity) //validate receiveValue
+        cy.containText(this.buySell.cardClose.priceValue, Cypress.env("recommendedPrice")) //validate priceValue
+        cy.containText(this.buySell.cardClose.counterParty, counterparty) //validate counterparty
+
+    }
+})
+// Counterparty Recommended Price
+Cypress.Commands.add('validateCounterpartyRPrice', function (operation, quantity, counterparty) {
+    cy.wait(2000)
+    cy.clic(this.header.header.btnTrades)
+    cy.wait(3000)
+
+    if (operation != 'Buy') {
+        cy.clic(this.buySell.global.buttonOutbox)
+        cy.clic("(//span[contains(.,'View More')])[1]")
+
+        cy.containText(this.buySell.cardClose.typeOperation, operation) //Validate Type Operation
+        cy.containText(this.buySell.cardClose.sendValueMaker, parseFloat(Cypress.env("recommendedPrice")) * quantity) //validate sendValue
+        cy.containText(this.buySell.cardClose.receiveValueMaker, quantity) //validate receiveValue
+        cy.containText(this.buySell.cardClose.priceValue, Cypress.env("recommendedPrice")) //validate priceValue
+        cy.containText(this.buySell.cardClose.counterParty, counterparty) //validate counterparty
+    }
+    else if (operation != 'Sell'){
+        cy.clic(this.buySell.global.buttonInbox)
+        cy.clic("(//span[contains(.,'View More')])[1]")
+        cy.containText(this.buySell.cardClose.typeOperation, operation) //Validate Type Operation
+        cy.containText(this.buySell.cardClose.sendValueMaker, quantity) //validate sendValue
+        cy.containText(this.buySell.cardClose.receiveValueMaker, parseFloat(Cypress.env("recommendedPrice")) * quantity) //validate receiveValue
+        cy.containText(this.buySell.cardClose.priceValue, Cypress.env("recommendedPrice")) //validate priceValue
+        cy.containText(this.buySell.cardClose.counterParty, counterparty) //validate counterparty
+
+    } 
+})

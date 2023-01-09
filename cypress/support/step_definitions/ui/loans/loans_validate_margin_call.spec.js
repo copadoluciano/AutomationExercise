@@ -29,9 +29,12 @@ When('the collateral is out of bounds {word}', function (collateralAsset) {
                 // cy.xpath("//select[@data-cy='select']").select('50')
                 // cy.wait(4000)
                 const dayjs = require('dayjs')
-                    let time = dayjs().format('YYYY-MM-DD hh:')
-                    cy.log(time)
-                    cy.isVisible("//DIV[contains(@class,'styles_tableCell__')][contains(text(),'" + time + "')]/../..//div[contains(text(),'Margin call')]")
+                    let time24 = dayjs().format('hh:mm')
+                    let time12 = dayjs().format('HH:MM')
+                    cy.log(time24)
+                    cy.log(time12)
+                    // cy.isVisible("//DIV[contains(@class,'styles_tableCell__')][contains(text(),'" + time + "')]/../..//div[contains(text(),'Margin call')]") | ANTIGUO
+                    cy.isVisible("//DIV[text()='Refund Due']/../..//DIV[text()='"+time24+" or text()='"+time12+"']")
                     // cy.isVisible("//DIV[@class='styles_tableCell__4RsDS'][contains(text(),'" + time + "')]/../..//DIV[@class='styles_tableCell__4RsDS'][contains(text(),'" + collateralAsset + "')]")
                     //DIV[@class='styles_tableCell__4RsDS'][text()='2022-12-20 04:38 PM']/../..//DIV[@class='styles_tableCell__4RsDS'][text()='Margin call']
                     cy.clic(this.loans.openCard.global.back)
