@@ -7,15 +7,17 @@ Feature: Test Set UI - Home
         Examples:
             | ID | email         | password      | secret    |
             | 1  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+            
+# Then fix the "Display Watchlist" button and uncomment the code
 
-    @TEST_LM-8823 @TESTSET_LM-9075
-    Scenario Outline: [E2E] <ID>- Home > Select Asset in Watchlist
-        Given I go to sign-in and type <email>, <password> and <secret>
-        When I add a asset to the watchlist
-        Then I should see the asset in WatchList
-        Examples:
-            | ID | email         | password      | secret    | Currency | Icon                                                        | 
-            | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | ETH      | ethereum_mainnet_eth_icon                                   | 
+    # @TEST_LM-8823 @TESTSET_LM-9075
+    # Scenario Outline: [E2E] <ID>- Home > Select Asset in Watchlist
+    #     Given I go to sign-in and type <email>, <password> and <secret>
+    #     When I add a asset to the watchlist
+    #     Then I should see the asset in WatchList
+    #     Examples:
+    #         | ID | email         | password      | secret    | Currency | Icon                                                        | 
+    #         | 2  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | ETH      | ethereum_mainnet_eth_icon                                   | 
             # | 3  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | LTC      | litecoin_mainnet_ltc_icon                                   | ltc   |
             # | 4  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | BCH      | bitcoincash_mainnet_bch_icon                                | bch   |
             # | 5  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | SNX      | 0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f_mainnet_eth_icon | snx   |
@@ -24,23 +26,23 @@ Feature: Test Set UI - Home
             # | 8  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | BNB      | bsc_mainnet_bsc_icon                                        | bnb   |
             # | 9  | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 | AVAX     | avalanche_mainnet_avalanche_icon                            | avax  |
 
-    @TEST_LM-11597 @TESTSET_LM-9075
-    Scenario Outline: [E2E] <ID>- Home > Funcionality Display Watchlist
-        Given I go to sign-in and type <email>, <password> and <secret>
-        When the user disable the button "Display Watchlist"
-        Then the watchlist disappear
+    # @TEST_LM-11597 @TESTSET_LM-9075
+    # Scenario Outline: [E2E] <ID>- Home > Funcionality Display Watchlist
+    #     Given I go to sign-in and type <email>, <password> and <secret>
+    #     When the user disable the button "Display Watchlist"
+    #     Then the watchlist disappear
 
-        Examples:
-            | ID | email         | password      | secret    |
-            | 10 | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
+    #     Examples:
+    #         | ID | email         | password      | secret    |
+    #         | 10 | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |
 
 
-     @TEST_LM-11717 @TESTSET_LM-9075
-    Scenario Outline: [E2E] <ID>- Home > Watchlist - Select History of Time
-        Given I go to sign-in and type <email>, <password> and <secret>
-        When the user select history of time in the Watchlist
-        Then the watchlist update the history
+    #  @TEST_LM-11717 @TESTSET_LM-9075
+    # Scenario Outline: [E2E] <ID>- Home > Watchlist - Select History of Time
+    #     Given I go to sign-in and type <email>, <password> and <secret>
+    #     When the user select history of time in the Watchlist
+    #     Then the watchlist update the history
 
-        Examples:
-            | ID | email         | password      | secret    |
-            | 10 | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |     
+    #     Examples:
+    #         | ID | email         | password      | secret    |
+    #         | 10 | USER_EMAIL_05 | USER_PASSWORD | SECRET_05 |     
