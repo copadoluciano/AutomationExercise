@@ -69,13 +69,17 @@ env:
 
 jobs:
   home:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: home
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -90,14 +94,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -108,6 +111,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run home
+          # command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome    
         env:
@@ -141,13 +145,17 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 
   loan:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: loan
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -162,14 +170,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -180,6 +187,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run loan
+          # command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -211,14 +219,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   myWallets:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: myWallets
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -233,14 +246,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -251,6 +263,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run myWallets
+          # command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -282,14 +295,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   myBalances:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: myBalances
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -304,14 +322,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -322,6 +339,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run myBalances
+          # command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -354,13 +372,17 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   securityCenter:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: securityCenter
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -375,14 +397,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -393,6 +414,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run securityCenter
+          # command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -424,14 +446,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   signIn:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: signIn
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -446,14 +473,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -464,6 +490,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run signIn
+          # command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -495,14 +522,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   trades:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: trades
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -517,14 +549,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -535,6 +566,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run trades
+          # command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -566,14 +598,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   transfers:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: transfers
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -588,14 +625,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -606,6 +642,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run transfers
+          # command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -637,14 +674,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   counterparties:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: counterparties
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -659,14 +701,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -677,6 +718,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run counterparties
+          # command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:
@@ -708,14 +750,19 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
+  
   forgotPassword:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: forgotPassword
     steps:
       - uses: actions/checkout@v3
         with:
           ref: staging
+
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -730,14 +777,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
             
-        # This step is run when the tag is staging-XXX
+        # This step is run when the tag is prod-XXX
       - name: Prepare
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots          
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
+          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -748,6 +794,7 @@ jobs:
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
           command: npm run forgotPassword
+          # command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
         env:

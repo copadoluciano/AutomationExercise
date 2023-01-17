@@ -7,7 +7,7 @@ on:
       - prod
 jobs:
   cypress:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
@@ -81,6 +81,10 @@ jobs:
         with:
           ref: prod
 
+      - uses: actions/setup-node@v3
+      - run: |
+           npm install -g @deepakvishwakarma/cucumber-json-formatter
+           
       - name: Cache node modules
         uses: actions/cache@v3
         env:
@@ -101,7 +105,6 @@ jobs:
           rm -f cucumber-json/*.ndjson
           rm -rf cypress/screenshots
           mkdir -p cypress/screenshots
-          npm install -g @deepakvishwakarma/cucumber-json-formatter
           
 
       - name: Install Dependencies
