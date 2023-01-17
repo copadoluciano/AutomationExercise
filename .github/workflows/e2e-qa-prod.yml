@@ -1,5 +1,6 @@
 name: qa-e2e prod
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 3 * * *' # At 03:30 a
   repository_dispatch:
@@ -73,6 +74,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: home
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -149,6 +153,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: loan
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -225,6 +232,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: myWallets
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -301,6 +311,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: myBalances
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -376,6 +389,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: securityCenter
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -452,6 +468,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: signIn
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -528,6 +547,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: trades
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -604,6 +626,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: transfers
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -680,6 +705,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: counterparties
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:
@@ -756,6 +784,9 @@ jobs:
     runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: forgotPassword
+    container: 
+      image: cypress/browsers:node16.17.0-chrome106
+      options: --user root  # ← THIS IS THE IMPORTANT LINE!
     steps:
       - uses: actions/checkout@v3
         with:

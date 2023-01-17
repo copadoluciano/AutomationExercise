@@ -7,7 +7,7 @@ on:
       - prod
 jobs:
   cypress:
-    runs-on: [self-hosted, e2e]
+    runs-on: [self-hosted, monitoring]
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
