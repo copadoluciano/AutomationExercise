@@ -7,12 +7,12 @@ When('the user try create new settlement between ethereum network vs ethereum ne
     cy.clic(this.header.header.btnTransfers)
     cy.clic(this.settlement.global.buttons.buttonGenerateNewSettlements)
     cy.clic(this.settlement.others.fieldInput)
-    cy.clic("//SPAN[@data-cy='value_generate_settlement_select_counterparty_'][text()='Cypress 08 Lootgnitset']")
+    cy.clic("//SPAN[@data-cy='value_generate_settlement_select_counterparty_'][text()='Cypress 08']")
     cy.wait(2000)
     cy.clic(this.settlement.others.nextBtn)
 })
 
-Then('validate all the values on Classic Settlement',function(){
+Then('validate {word} and {word} values on Classic Settlement',function(send, receive){
     
     // Validate Instructions
     cy.isVisible("//img[@data-cy='instruction_name_https://api-staging.membranelabs.com/files/icons/litecoin_mainnet_ltc_icon.svg']")
