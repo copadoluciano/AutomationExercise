@@ -85,6 +85,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -164,6 +166,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -243,6 +247,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -322,6 +328,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -400,6 +408,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -479,6 +489,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -558,6 +570,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -637,6 +651,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -716,6 +732,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -795,6 +813,8 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
+           rm -rf /github/home/.cache/Cypress
+           npm cache clean --force
 
       - name: Cache node modules
         uses: actions/cache@v3
