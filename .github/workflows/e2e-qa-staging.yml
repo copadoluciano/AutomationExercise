@@ -84,6 +84,7 @@ jobs:
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
            rm -rf /github/home/.cache/Cypress
+           rm -rf /github/home/.config/Cypress
            npm cache clean --force
 
       - name: Cache node modules
