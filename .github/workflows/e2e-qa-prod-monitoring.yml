@@ -1,6 +1,15 @@
 name: qa-e2e prod-monitoring
 on:
   workflow_dispatch:
+    inputs:
+      runner_host:
+        description: 'Select the runner host'
+        required: true
+        default: "ubuntu-22.04"
+        type: choice
+        options:
+          - "[self-hosted, e2e]"
+          - "ubuntu-22.04"
   schedule:
     - cron: '0 */2 1-31 * *'
   push:
@@ -8,7 +17,7 @@ on:
       - prod
 jobs:
   cypress:
-    runs-on: [self-hosted, e2e]
+    runs-on: ${{ inputs.runner_host }}
     timeout-minutes: 50
     # let's make sure our tests pass on Chrome browser
     container: 
@@ -86,7 +95,6 @@ jobs:
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
            rm -rf /github/home/.cache/Cypress
-           rm -rf /github/home/.config/Cypress
            npm cache clean --force
            
       - name: Cache node modules
