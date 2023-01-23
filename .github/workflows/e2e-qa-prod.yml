@@ -1,4 +1,4 @@
-name: qa-e2e staging
+name: qa-e2e prod
 on: 
   workflow_dispatch:
   repository_dispatch:
