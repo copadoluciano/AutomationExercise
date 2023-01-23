@@ -82,6 +82,11 @@ jobs:
         with:
           ref: prod
 
+      - name: Set permissions
+        run: |
+          chmod -R 777 /github/home
+          chmod -R 777 cypress
+          
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter

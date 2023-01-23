@@ -13,7 +13,8 @@ jobs:
     # let's make sure our tests pass on Chrome browser
     container: 
       image: cypress/browsers:node16.17.0-chrome106
-      options: --user root  # ← THIS IS THE IMPORTANT LINE!
+     # options: --user root  # ← THIS IS THE IMPORTANT LINE!
+      options: --user 1001
     name: cypress prod
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -82,6 +83,11 @@ jobs:
         with:
           ref: prod
 
+      - name: Set permissions
+        run: |
+          chmod -R 777 /github/home
+          chmod -R 777 cypress
+          
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
