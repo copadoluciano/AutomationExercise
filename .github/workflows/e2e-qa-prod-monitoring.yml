@@ -128,7 +128,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run --config baseUrl=https://app.membranelabs.com -e TAGS=\"@monitoring\"
+          command: sudo npm cypress run --config baseUrl=https://app.membranelabs.com -e TAGS=\"@monitoring\"
           # command: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome

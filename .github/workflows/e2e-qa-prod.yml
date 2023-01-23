@@ -116,7 +116,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9075\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9075\"
           # command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome    
@@ -195,7 +195,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9078\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9078\"
           # command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -274,7 +274,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9082\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9082\"
           # command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -353,7 +353,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9081\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9081\"
           # command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -431,7 +431,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9077\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9077\"
           # command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -510,7 +510,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9101\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9101\"
           # command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -589,7 +589,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9076\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9076\"
           # command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -668,7 +668,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9079\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9079\"
           # command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -747,7 +747,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9102\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9102\"
           # command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -828,7 +828,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npx cypress run -e TAGS=\"@TESTSET_LM-9074\"
+          command: sudo npm cypress run -e TAGS=\"@TESTSET_LM-9074\"
           # command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
