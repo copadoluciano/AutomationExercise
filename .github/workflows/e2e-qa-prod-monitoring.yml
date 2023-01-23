@@ -16,7 +16,7 @@ jobs:
     container: 
       image: cypress/browsers:node16.17.0-chrome106
      # options: --user root  # ← THIS IS THE IMPORTANT LINE!
-      options: --user 1001
+      options: --user root
     name: cypress prod
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
