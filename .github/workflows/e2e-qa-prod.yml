@@ -71,7 +71,7 @@ env:
 
 jobs:
   home:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: home
     container: 
@@ -151,7 +151,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
 
   loan:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: loan
     container: 
@@ -230,7 +230,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   myWallets:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: myWallets
     container: 
@@ -309,7 +309,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   myBalances:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: myBalances
     container: 
@@ -387,7 +387,7 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   securityCenter:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: securityCenter
     container: 
@@ -466,7 +466,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   signIn:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: signIn
     container: 
@@ -545,7 +545,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   trades:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: trades
     container: 
@@ -624,7 +624,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   transfers:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: transfers
     container: 
@@ -703,7 +703,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   counterparties:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: counterparties
     container: 
@@ -782,7 +782,7 @@ jobs:
           curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}"  --data @"$FILE" "${{ env.BASE_URL }}/api/v1/import/execution/cucumber"
   
   forgotPassword:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, e2e]
     timeout-minutes: 50
     name: forgotPassword
     container: 
