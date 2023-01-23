@@ -1,13 +1,13 @@
-name: qa-e2e prod
-on:
+name: qa-e2e staging
+on: 
   workflow_dispatch:
-  schedule:
-    - cron: '30 3 * * *' # At 03:30 a
   repository_dispatch:
-    types: [released]
+    types: [pre-released]
   push:
     branches:
       - prod
+    paths-ignore:
+      - '.github/**'
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -39,30 +39,30 @@ env:
   CYPRESS_USER_EMAIL_23: ${{ secrets.CYPRESS_USER_EMAIL_23 }}
   CYPRESS_USER_EMAIL_24: ${{ secrets.CYPRESS_USER_EMAIL_24 }}
 
-  CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_PROD }}
-  CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_PROD }}
-  CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_PROD }}
-  CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_PROD }}
-  CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_PROD }}
-  CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_PROD }}
-  CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_PROD }}
-  CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_PROD }}
-  CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_PROD }}
-  CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_PROD }}
-  CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_PROD }}
-  CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_PROD }}
-  CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_PROD }}
-  CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_PROD }}
-  CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_PROD }}
-  CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_PROD }}
-  CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_PROD }}
-  CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_PROD }}
-  CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_PROD }}
-  CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_PROD }}
-  CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_PROD }}
-  CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_PROD }}
-  CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_PROD }}
-  CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_PROD }}
+  CYPRESS_SECRET_01: ${{ secrets.CYPRESS_SECRET_01_STG }}
+  CYPRESS_SECRET_02: ${{ secrets.CYPRESS_SECRET_02_STG }}
+  CYPRESS_SECRET_03: ${{ secrets.CYPRESS_SECRET_03_STG }}
+  CYPRESS_SECRET_04: ${{ secrets.CYPRESS_SECRET_04_STG }}
+  CYPRESS_SECRET_05: ${{ secrets.CYPRESS_SECRET_05_STG }}
+  CYPRESS_SECRET_06: ${{ secrets.CYPRESS_SECRET_06_STG }}
+  CYPRESS_SECRET_07: ${{ secrets.CYPRESS_SECRET_07_STG }}
+  CYPRESS_SECRET_08: ${{ secrets.CYPRESS_SECRET_08_STG }}
+  CYPRESS_SECRET_09: ${{ secrets.CYPRESS_SECRET_09_STG }}
+  CYPRESS_SECRET_10: ${{ secrets.CYPRESS_SECRET_10_STG }}
+  CYPRESS_SECRET_11: ${{ secrets.CYPRESS_SECRET_11_STG }}
+  CYPRESS_SECRET_12: ${{ secrets.CYPRESS_SECRET_12_STG }}
+  CYPRESS_SECRET_13: ${{ secrets.CYPRESS_SECRET_13_STG }}
+  CYPRESS_SECRET_14: ${{ secrets.CYPRESS_SECRET_14_STG }}
+  CYPRESS_SECRET_15: ${{ secrets.CYPRESS_SECRET_15_STG }}
+  CYPRESS_SECRET_16: ${{ secrets.CYPRESS_SECRET_16_STG }}
+  CYPRESS_SECRET_17: ${{ secrets.CYPRESS_SECRET_17_STG }}
+  CYPRESS_SECRET_18: ${{ secrets.CYPRESS_SECRET_18_STG }}
+  CYPRESS_SECRET_19: ${{ secrets.CYPRESS_SECRET_19_STG }}
+  CYPRESS_SECRET_20: ${{ secrets.CYPRESS_SECRET_20_STG }}
+  CYPRESS_SECRET_21: ${{ secrets.CYPRESS_SECRET_21_STG }}
+  CYPRESS_SECRET_22: ${{ secrets.CYPRESS_SECRET_22_STG }}
+  CYPRESS_SECRET_23: ${{ secrets.CYPRESS_SECRET_23_STG }}
+  CYPRESS_SECRET_24: ${{ secrets.CYPRESS_SECRET_24_STG }}
 
   CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
   CYPRESS_SKIPCAPTCHA: ${{ secrets.CYPRESS_SKIPCAPTCHA }}
@@ -81,16 +81,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: prod
-
-      - name: Set permissions
-        run: |
-          chmod -R 777 /github/home
-          chmod -R 777 cypress
           
       - uses: actions/setup-node@v3
       - run: |
            npm install -g @deepakvishwakarma/cucumber-json-formatter
            rm -rf /github/home/.cache/Cypress
+           rm -rf /github/home/.config/Cypress
            npm cache clean --force
 
       - name: Cache node modules
@@ -111,8 +107,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -122,7 +116,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run home
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9075\"
           # command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome    
@@ -192,8 +186,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -203,7 +195,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run loan
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9078\"
           # command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -273,8 +265,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -284,7 +274,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run myWallets
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9082\"
           # command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -354,8 +344,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -365,7 +353,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run myBalances
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9081\"
           # command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -434,8 +422,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -445,7 +431,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run securityCenter
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9077\"
           # command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -515,8 +501,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -526,7 +510,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run signIn
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9101\"
           # command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -596,8 +580,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -607,7 +589,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run trades
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9076\"
           # command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -677,8 +659,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -688,7 +668,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run transfers
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9079\"
           # command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -758,8 +738,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -769,7 +747,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run counterparties
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9102\"
           # command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -850,7 +828,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run forgotPassword
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9074\"
           # command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 

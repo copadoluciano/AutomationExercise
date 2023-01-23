@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - prod
+    paths-ignore:
+      - '.github/**'
 jobs:
   cypress:
     runs-on: ubuntu-22.04
@@ -126,7 +128,7 @@ jobs:
         # commit status in the next step, both in case of success and failure
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app.membranelabs.com
-          command: npm run prod-monitoring
+          command: npx cypress run --config baseUrl=https://app.membranelabs.com -e TAGS=\"@monitoring\"
           # command: npm run prod-monitoring ${{ secrets.KEY_CYPRESS }}
           record: false
           browser: chrome

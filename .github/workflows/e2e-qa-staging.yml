@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - staging
+    paths-ignore:
+      - '.github/**'
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   BASE_URL: "https://xray.cloud.getxray.app"
@@ -78,12 +80,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
-
-      - name: Set permissions
-        run: |
-          chmod -R 777 /github/home
-          chmod -R 777 cypress
+          ref: staging
           
       - uses: actions/setup-node@v3
       - run: |
@@ -119,7 +116,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run home
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9075\"
           # command: npm run home ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome    
@@ -163,7 +160,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -189,8 +186,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -200,7 +195,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run loan
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9078\"
           # command: npm run loan ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -244,7 +239,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -270,8 +265,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -281,7 +274,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run myWallets
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9082\"
           # command: npm run myWallets ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -325,7 +318,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -351,8 +344,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -362,7 +353,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run myBalances
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9081\"
           # command: npm run myBalances ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -405,7 +396,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -431,8 +422,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -442,7 +431,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run securityCenter
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9077\"
           # command: npm run securityCenter ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -486,7 +475,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -512,8 +501,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -523,7 +510,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run signIn
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9101\"
           # command: npm run signIn ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -567,7 +554,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -593,8 +580,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -604,7 +589,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run trades
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9076\"
           # command: npm run trades ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -648,7 +633,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -674,8 +659,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -685,7 +668,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run transfers
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9079\"
           # command: npm run transfers ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -729,7 +712,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -755,8 +738,6 @@ jobs:
         run: |
           rm -f cucumber-json/*.json
           rm -f cucumber-json/*.ndjson
-          rm -rf cypress/screenshots
-          mkdir -p cypress/screenshots
           
       - name: Install Dependencies
         run: npm install
@@ -766,7 +747,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run counterparties
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9102\"
           # command: npm run counterparties ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
@@ -810,7 +791,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: prod
+          ref: staging
 
       - uses: actions/setup-node@v3
       - run: |
@@ -847,7 +828,7 @@ jobs:
         id: cypress
         with:
           config: pageLoadTimeout=100000,baseUrl=https://app-staging.membranelabs.com
-          command: npm run forgotPassword
+          command: npx cypress run -e TAGS=\"@TESTSET_LM-9074\"
           # command: npm run forgotPassword ${{ secrets.KEY_CYPRESS }}
           record: true
           browser: chrome 
