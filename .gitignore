@@ -1,6 +1,5 @@
 node_modules/
 cypress/videos/
-cypress/screenshots/
 package-lock.json
 cloud_auth.json
 cucumber-json/cucumber-report.json
