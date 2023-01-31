@@ -6,13 +6,6 @@ Feature: Invite user
         - We will test functionalities of the "Counterparties"
 
 
-<<<<<<< HEAD
-    # @TEST_LM-8864 @TESTSET_LM-9102
-    # Scenario Outline: [E2E] <ID>- Counterparties > Static Elements
-    #     Given user need to see the static elements
-    #     When the user is on the "Users" page
-    #     Then the user visualizes "Users" page elements correctly
-=======
         # @TEST_LM-8864 @TESTSET_LM-9102
         # Scenario Outline: [E2E] <ID>- Counterparties > Static Elements
         #     Given user need to see the static elements
@@ -152,7 +145,6 @@ Feature: Invite user
     #     And if the user try Send Reminder Againt
     #     Then receive an alert to "Wait"
 
->>>>>>> df158423383b7b596704e3e215a5600769b4b00d
     #     Examples:
     #         | ID | email         | password      | secret    | cp_email      |
     #         | 8  | USER_EMAIL_º7 | USER_PASSWORD | SECRET_17 | USER_EMAIL_18 |
