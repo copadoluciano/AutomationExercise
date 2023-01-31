@@ -1,6 +1,5 @@
 node_modules/
 cypress/videos/
-cypress/screenshots/
 package-lock.json
 cloud_auth.json
 cucumber-json/cucumber-report.json
@@ -11,3 +10,4 @@ cucumber-json/cucumber-htmlreport.html/
 *.png
 *.png
 CLAVES
+run_tests.sh

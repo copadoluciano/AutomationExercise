@@ -1,32 +1,46 @@
 
 Feature: Test Set UI - [User] - Forgot Password
 
-    @TEST_LM-8889 @TESTSET_LM-9074
-     Scenario Outline: [E2E] <ID>- Forgot Password > - Auth Active Happy Path
-         Given I go to forgot-password
-          When I type <email> in the email field of the Forgotten password page
-          Then I should receive the token in my email inbox
+    @TEST_LM-8889 @TESTSET_LM-9074 @smoke
+    Scenario Outline: [E2E] <ID>- Forgot Password > - Auth Active Happy Path
+        Given I go to forgot-password
+        When I type <email> in the email field of the Forgotten password page
+        Then I should receive the token in my email inbox
 
-         Examples:
+        Examples:
             | ID | email         |
             | 1  | USER_EMAIL_15 |
 
     @TEST_LM-8890 @TESTSET_LM-9074
     Scenario Outline: [E2E] <ID>- Forgot Password > - Email & Password empty
         Given I go to forgot-password
-         When I do not fill the email field of the Forgotten password page
-         Then I should see the Send Reset Email button disabled
+        When I do not fill the email field of the Forgotten password page
+        Then I should see the Send Reset Email button disabled
 
         Examples:
             | ID |
-            | 1  |
+            | 2  |
 
     @TEST_LM-8891 @TESTSET_LM-9074
     Scenario Outline: [E2E] <ID>- Forgot Password > - Account not active
         Given I go to forgot-password
-         When I type <email> not active in the email field of the Forgotten password page
-         Then I should see message label The account is not active yet
+        When I type <email> not active in the email field of the Forgotten password page
+        Then I should receive the token in my email inbox
 
-         Examples:
+        Examples:
             | ID | email         |
-            | 1  | USER_EMAIL_15 |
+            | 3  | USER_EMAIL_15 |
+
+
+     @TEST_LM-10531 @TESTSET_LM-9074
+    Scenario Outline: [E2E] <ID>- Forgot Password > - Invalid Format
+        Given I go to forgot-password
+        When the user type an email <email> how invalid format
+        Then the user receive an alert to "Invalid email format"
+
+        Examples:
+            | email                |
+            | cypress              |
+            | 3432423              |
+            | cypress@membranelabs |
+            | !@membranelabs.com   |

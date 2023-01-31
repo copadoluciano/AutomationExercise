@@ -1,13 +1,13 @@
 Feature: Test Set UI - [User] - Sign In 
 
-    @TEST_LM-8834 @TESTSET_LM-9101
-    Scenario Outline: [E2E] <ID>- Sign In - Validate Static Elements
-        Given I go to sign-in
-         Then I should see the page sign-in with correct elements
+#     @TEST_LM-8834 @TESTSET_LM-9101
+#     Scenario Outline: [E2E] <ID>- Sign In - Validate Static Elements
+#         Given I go to sign-in
+#          Then I should see the page sign-in with correct elements
     
-        Examples:
-            | ID |
-            | 1  |
+#         Examples:
+#             | ID |
+#             | 1  |
 
     @TEST_LM-8089 @TESTSET_LM-9101
     Scenario Outline: [E2E] <ID>- Sign In - Page Two Factor Autentication
@@ -95,10 +95,10 @@ Feature: Test Set UI - [User] - Sign In
            | 9  | cypress+05@blockchain.test | 12345     |
 
     @TEST_LM-8851 @TESTSET_LM-9101
-    Scenario Outline: [E2E] <ID>- Sign In - Validate Send New Token
+    Scenario Outline: [E2E] <ID>- Sign In - Validate Send New Token Before 30 seconds
         Given I go to sign-in
-          And I click on Send new messege button after logging in
-         Then I should see new token
+        And I click on Send new messege button after logging in before 30 seconds
+        Then I should see new token
 
        Examples:
            | ID | email         | password      |

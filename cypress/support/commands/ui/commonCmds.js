@@ -84,7 +84,7 @@ Cypress.Commands.add('staticElements', (xpathJson) => {
 Cypress.Commands.add('selectRightMenu', function (option) {
     cy.wait(5000)
     cy.clic(this.header.menuRight.menu)
-    cy.clic("//div[contains(@class, 'menu')]//a[contains(text(),'" + option + "')]")
+    cy.clic("//a[@data-cy='profile_menu_option_"+option+"']")
 
 })
 Cypress.Commands.add('selectCustomToken', function (openModal, asset) {
@@ -100,7 +100,7 @@ Cypress.Commands.add('selectOption', function (menu, option) {
 })
 Cypress.Commands.add('selectCounterparty', function (openModal, counterparty) {
     cy.clic(openModal)
-    cy.clic("//li[contains(@data-cy,'cypress_"+counterparty+"')]") // Select counterparty
+    cy.clic("//li[contains(@data-cy,'"+counterparty+"')]") // Select counterparty
     cy.clic("//*[local-name()='svg' and @data-cy='button_close_modal']") // Close modal Counterparty
 })
 
@@ -128,5 +128,9 @@ Cypress.Commands.add('manageToken', function (adress) {
     cy.xpath(this.buySell.manageToken.searchToken).type(asset)
     cy.xpath("//h5[contains(.,'" + asset + "')]").click()
 
+})
+Cypress.Commands.add('selectAsset', function (asset) {
+    cy.xpath(this.buySell.manageToken.searchToken).type(asset)
+    cy.clic("//h5[@data-cy='symbol_asset_"+asset+"']")
 })
 

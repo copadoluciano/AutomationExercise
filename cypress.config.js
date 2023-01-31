@@ -45,7 +45,7 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
   env: {
-    baseAPI: "https://api-staging.membranelabs.com",
+    baseAPI: "https://api.membranelabs.com",
   },
   e2e: {
     baseUrl: "https://app.membranelabs.com",
@@ -56,8 +56,7 @@ module.exports = defineConfig({
     responseTimeout:50000,
     viewportWidth: 1500,
     viewportHeight: 1000,
-    projectId: "9s68dt", //(cypress)
-    //projectId: 'x0t9Vx', // current
+    // projectId: "9s68dt", //(cypress
     video: false,
     excludeSpecPattern: [
       "*.js",
