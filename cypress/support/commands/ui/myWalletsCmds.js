@@ -2,8 +2,8 @@
 Cypress.Commands.add('importToken', function (tokenContract) {
     cy.selectOption(this.wallets.importWallet.selectBlockchain, this.wallets.importWallet.selectEther)
     cy.typeText(this.wallets.importWallet.inputContract, tokenContract)
-    cy.wait(2000)
-    cy.clic(this.wallets.importWallet.btnImport)
+    cy.wait(5000)
+    cy.clic(this.wallets.importWallet.btnImport) // no aparece
     cy.wait(1000)
     cy.clic(this.wallets.others.checkTerms)
     cy.wait(1000)

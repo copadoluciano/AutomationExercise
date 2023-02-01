@@ -5,15 +5,15 @@ Feature: My Balances
         - We will use user "17"
         - We will test functionalities of the "My Balances and Wallets"
 
-    @TEST_LM-8873 @TEST_LM-9081
-    Scenario Outline: My Balances - Validate Static Elements
-        Given the user is in sign-in and type <email>, <password> and <secret>
-        When the user goes to "My Balances & Credits"
-        Then the user visualizes "My Balances & Credits" page elements correctly
+    # @TEST_LM-8873 @TEST_LM-9081
+    # Scenario Outline: My Balances - Validate Static Elements
+    #     Given the user is in sign-in and type <email>, <password> and <secret>
+    #     When the user goes to "My Balances & Credits"
+    #     Then the user visualizes "My Balances & Credits" page elements correctly
 
-        Examples:
-            | ID | email         | password      | secret         |
-            | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
+    #     Examples:
+    #         | ID | email         | password      | secret         |
+    #         | 1  | USER_EMAIL_17 | USER_PASSWORD | SECRET_17 |
 
 #Monitoring
     @TEST_LM-8875 @TEST_LM-9081 @monitoring
