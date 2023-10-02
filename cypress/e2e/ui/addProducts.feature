@@ -24,10 +24,10 @@ Feature: Products
 
         @TEST_LM-XXX
         Scenario Outline: Remove Products From Cart
-            When the user adds products to the cart at position <position1> and <position2>
+            When the user add products on position <position1> and <position2> to the cart
             And the user clicks on the Cart button
             Then the user should be on the Cart page
-            And the user clicks the 'X' button next to the specific product
+            And the user clicks the X button next to the specific product
             Then the product should be removed from the cart
 
             Examples:

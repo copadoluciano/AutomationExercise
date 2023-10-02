@@ -1,5 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import { getValue } from './../../Products.js'
+import { getValue } from '../../Products.js'
 require('cypress-xpath')
 let productNames = [];
 let productPrices = [];

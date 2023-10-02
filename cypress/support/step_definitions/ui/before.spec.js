@@ -1,3 +1,4 @@
+
 beforeEach(function () {
     cy.locators()
 })
