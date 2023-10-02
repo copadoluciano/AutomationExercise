@@ -4,6 +4,7 @@
   "description": "Challenge",
   "main": "index.js",
   "scripts": {
+    "test":"cypress run"
   
 
   },
@@ -13,6 +14,7 @@
 
     "cypress": "^10.11.0"
   },
+  
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^13.0.3",
     "@cypress/webpack-preprocessor": "^5.15.0",
