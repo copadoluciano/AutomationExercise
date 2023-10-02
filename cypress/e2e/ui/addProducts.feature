@@ -22,7 +22,7 @@ Feature: Products
                 | 5         | 6         |
 
 
-@focus         @TEST_LM-XXX
+        @TEST_LM-XXX
         Scenario Outline: Remove Products From Cart
             When the user add products on position <position1> and <position2> to the cart
             And the user clicks on the Cart button
@@ -31,7 +31,18 @@ Feature: Products
             Then the product should be removed from the cart
 
             Examples:
-                | position1 | position2 | 
+                | position1 | position2 |
+                | 1         | 2         |
+
+
+        @TEST_LM-XXX
+        Scenario Outline: Add review on product
+            When the user is on the product review page
+            And the user submits a review
+            Then the user should receive a confirmation message
+
+            Examples:
+                | position1 | position2 |
                 | 1         | 2         |
 
 
