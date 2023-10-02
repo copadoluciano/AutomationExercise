@@ -1,6 +1,7 @@
 {
     "header": {
-        "products": "//a[contains(.,'Products')]"
+        "products": "//a[contains(.,'Products')]",
+        "btnCart": "//a[contains(@href,'cart')]"
     },
     "productsPage":{
         "btnContinueShopping": "//BUTTON[text()='Continue Shopping']",
