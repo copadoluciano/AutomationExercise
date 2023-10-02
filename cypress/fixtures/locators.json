@@ -1,0 +1,11 @@
+{
+    "header": {
+        "products": "//a[contains(.,'Products')]"
+    },
+    "productsPage":{
+        "btnContinueShopping": "//BUTTON[text()='Continue Shopping']",
+        "btnViewCart": "//u[contains(text(),'View Cart')]"
+    }
+    
+}
+

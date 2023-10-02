@@ -1,7 +1,5 @@
 const { defineConfig } = require('cypress')
-const dotenvPlugin = require('cypress-dotenv');
 
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 const webpackPreprocessor = require('@cypress/webpack-preprocessor');
 const addCucumberPreprocessorPlugin = require('@badeball/cypress-cucumber-preprocessor').addCucumberPreprocessorPlugin;
@@ -30,7 +28,7 @@ async function setupNodeEvents(on, config) {
         ],
       },
       plugins: [
-        new NodePolyfillPlugin()
+
       ],
     },
 
@@ -38,17 +36,15 @@ async function setupNodeEvents(on, config) {
 
   on('file:preprocessor', webpackPreprocessor(options));
   // Make sure to return the config object as it might have been modified by the plugin.
-  config = dotenvPlugin(config)
+
   return config;
 }
 
 
 module.exports = defineConfig({
-  env: {
-    baseAPI: "https://api.membranelabs.com",
-  },
+
   e2e: {
-    baseUrl: "https://app.membranelabs.com",
+    baseUrl: "https://automationexercise.com/",
     specPattern: "*/**/*.feature",
     watchForFileChanges: false,
     experimentalSessionAndOrigin: false,
@@ -56,7 +52,6 @@ module.exports = defineConfig({
     responseTimeout:50000,
     viewportWidth: 1500,
     viewportHeight: 1000,
-    // projectId: "9s68dt", //(cypress
     video: false,
     excludeSpecPattern: [
       "*.js",

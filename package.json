@@ -1,53 +1,21 @@
 {
-  "name": "tutorial-js-cypress-cucumber",
+  "name": "challenge",
   "version": "1.0.0",
-  "description": "An example for Cypress and Cucumber usage using Robot login demo website",
+  "description": "Challenge",
   "main": "index.js",
   "scripts": {
-    "cypress:open:local": "CYPRESS_ENV=localhost npm run cypress:open",
-    "cypress:open:prod": "CYPRESS_ENV=production npm run cypress:open",
-    "cypress:open": "npx cypress open",
-    "test:local": "CYPRESS_ENV=localhost npm run test  --spec 'cypress/integration/**/*.feature",
-    "test:prod": "CYPRESS_ENV=production npm run test",
-    "test": "npx cypress run --record",
-    "test:debug:local": "CYPRESS_ENV=localhost npm run test:debug",
-    "test:debug:prod": "CYPRESS_ENV=production npm run test:debug",
-    "test:debug": "npx cypress run --env TAGS='@forgot' --spec 'cypress/e2e/**/**/*.feature'",
-    "report:formatter": "cat cucumber-json/cucumber-messages.ndjson | cucumber-json-formatter > cucumber-json/cucumber-report.json",
-    "report:multiple": "node cucumber-html-report.js",
-    "cypress:dashboard": "npx cypress run --key 024122da-9f30-4f9c-8f6e-43462be7c21b",
-    "currents": "npx currents run --parallel --key zz0Uw7JjsYCFqLDm --ci-build-id build003",
-    "counterparties": "npx cypress run -e TAGS=\"@TESTSET_LM-9102\"",
-    "forgotPassword": "npx cypress run -e TAGS=\"@TESTSET_LM-9074\"",
-    "home": "npx cypress run -e TAGS=\"@TESTSET_LM-9075\"",
-    "loan": "npx cypress run -e TAGS=\"@TESTSET_LM-9078\"",
-    "myWallets": "npx cypress run -e TAGS=\"@TESTSET_LM-9082\"",
-    "myBalances": "npx cypress run -e TAGS=\"@TESTSET_LM-9081\"",
-    "securityCenter": "npx cypress run -e TAGS=\"@TESTSET_LM-9077\"",
-    "signIn": "npx cypress run -e TAGS=\"@TESTSET_LM-9101\"",
-    "trades": "npx cypress run -e TAGS=\"@TESTSET_LM-9076\"",
-    "transfers": "npx cypress run -e TAGS=\"@TESTSET_LM-9079\"",
-    "stg-monitoring": "npx cypress run --config baseUrl=https://app-staging.membranelabs.com -e TAGS=\"@monitoring\"",
-    "prod-monitoring": "npx cypress run --config baseUrl=https://app.membranelabs.com -e TAGS=\"@monitoring\"",
-    "prod-e2e": "npx cypress run --config baseUrl=https://app.membranelabs.com --spec 'cypress/e2e/**/**/*.feature'",
-    "staging-e2e": "npx cypress run --config baseUrl=https://app-staging.membranelabs.com --spec 'cypress/e2e/**/**/*.feature'"
+  
 
   },
-  "author": "Xblend",
-  "license": "BSD-3-Clause",
+  "author": "Luciano Copado",
+  "license": "",
   "dependencies": {
-    "@currents/cli": "^3.0.0",
-    "cypress": "^10.11.0",
-    "multiple-cucumber-html-reporter": "^3.0.1",
-    "speakeasy": "^2.0.0"
+
+    "cypress": "^10.11.0"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^13.0.3",
     "@cypress/webpack-preprocessor": "^5.15.0",
-    "cypress-dotenv": "^2.0.0",
-    "cypress-xpath": "^2.0.1",
-    "dotenv": "^16.0.3",
-    "moment": "^2.29.4",
-    "node-polyfill-webpack-plugin": "^2.0.1"
+    "cypress-xpath": "^2.0.1"
   }
 }

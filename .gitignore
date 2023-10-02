@@ -1,13 +1,5 @@
 node_modules/
-cypress/videos/
 package-lock.json
-cloud_auth.json
-cucumber-json/cucumber-report.json
-cucumber-json/cucumber-messages.ndjson
-cucumber-json/cucumber-htmlreport.html/
-.env
 *.png
 *.png
 *.png
-CLAVES
-run_tests.sh
