@@ -10,7 +10,9 @@
     "fieldReviews":{
         "inputName": "//input[@id='name']",
         "inputEmail": "//input[@id='email']",
-        "inputReview":"//textarea[@id='review']"
+        "inputReview":"//textarea[@id='review']",
+        "btnSubmit": "//button[@id='button-review']",
+        "reviewConfirmation": "//span[contains(text(),'Thank you for your review.')]"
 
     }
     

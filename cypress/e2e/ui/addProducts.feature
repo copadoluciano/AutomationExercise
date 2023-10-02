@@ -38,11 +38,11 @@ Feature: Products
         @TEST_LM-XXX
         Scenario Outline: Add review on product
             When the user is on the product <product> review page
-            And the user submits a review
+            And the user <name> with <email> submits a <review>
             Then the user should receive a confirmation message
 
             Examples:
-                | product | 
-                | 600        |
+                | product | name   | email           | review       |
+                | 600     | Pedro | pedro@gmail.com | "Goodproduct" |
 
 
