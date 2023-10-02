@@ -15,13 +15,13 @@ Antes de comenzar, asegúrate de tener lo siguiente instalado en tu sistema:
 
 1. Clona este repositorio en tu máquina local:
 
-git clone https://github.com/copadoluciano/AutomationExercise.git
+- git clone https://github.com/copadoluciano/AutomationExercise.git
 
 2. Instala las dependencias del proyecto:
-npm install
+- npm install
 
 3. Ejecuta las pruebas desde consola
-npm test
+- npm test
 
 4. Ejecuta las pruebas desde la UI
-npx cypress open
+- npx cypress open
