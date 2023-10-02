@@ -9,7 +9,7 @@ Feature: Products
             Given the user is at Home Page
 
 
-        @TEST_LM-8865
+        @TEST_LM-XXX
         Scenario Outline: Add Products in Cart
             When the user add products on position <position1> and <position2> to the cart
             Then the products <position1> and <position2> are seen inside the cart
@@ -17,7 +17,21 @@ Feature: Products
 
             Examples:
                 | position1 | position2 |
-                |  1         | 2         |
-                |  3         | 4        |
-                |  5         | 6         |
+                | 1         | 2         |
+                | 3         | 4         |
+                | 5         | 6         |
+
+
+        @TEST_LM-XXX
+        Scenario Outline: Remove Products From Cart
+            When the user adds products to the cart at position <position1> and <position2>
+            And the user clicks on the Cart button
+            Then the user should be on the Cart page
+            And the user clicks the 'X' button next to the specific product
+            Then the product should be removed from the cart
+
+            Examples:
+                | position1 | position2 |
+                | 1         | 2         |
+
 
