@@ -37,12 +37,12 @@ Feature: Products
 
         @TEST_LM-XXX
         Scenario Outline: Add review on product
-            When the user is on the product review page
+            When the user is on the product <product> review page
             And the user submits a review
             Then the user should receive a confirmation message
 
             Examples:
-                | position1 | position2 |
-                | 1         | 2         |
+                | product | 
+                | 600        |
 
 

@@ -6,6 +6,12 @@
     "productsPage":{
         "btnContinueShopping": "//BUTTON[text()='Continue Shopping']",
         "btnViewCart": "//u[contains(text(),'View Cart')]"
+    },
+    "fieldReviews":{
+        "inputName": "//input[@id='name']",
+        "inputEmail": "//input[@id='email']",
+        "inputReview":"//textarea[@id='review']"
+
     }
     
 }
